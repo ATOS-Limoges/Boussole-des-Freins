@@ -12,16 +12,6 @@
 .app-tab{color:#34483D}
 .btn{color:#24382D}
 @media(max-width:600px){body{color:#17251D}.app-bottomnav{grid-template-columns:1fr}}
-
-/* V11 — thème boussole et lisibilité renforcée */
-.app-topbar{background:radial-gradient(circle at 88% 50%,rgba(89,207,190,.20) 0 2px,transparent 3px 22px),linear-gradient(115deg,#064E43,#087B68 72%,#07594F);overflow:hidden}
-.app-topbar:after{content:"";position:absolute;right:-26px;top:-42px;width:150px;height:150px;border:2px solid rgba(226,255,245,.18);border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(226,255,245,.12) 0deg 1deg,transparent 1deg 15deg);pointer-events:none}
-.app-logo{position:relative;z-index:1;background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.38);font-size:25px}
-.app-brand,.app-top-pill{position:relative;z-index:1}
-.head h1{color:#123F33!important;text-shadow:none!important}
-.head .eyebrow,.head .tag{color:#345D50!important}
-.crumbs,.crumbs a{color:#38594D!important}
-@media(max-width:600px){.head h1{font-size:clamp(29px,7.6vw,36px);line-height:1.08;color:#123F33!important}.app-topbar:after{right:-52px}}
 </style></head><body>
 <title>Roue des freins à l'emploi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -207,7 +197,7 @@ body{background:#F3F7F4}
 .wrap{padding-top:22px}
 .nav{background:rgba(243,247,244,.96);backdrop-filter:blur(12px)}
 @media(max-width:600px){
- body{font-size:16px;background:#F5F8F6;padding-bottom:env(safe-area-inset-bottom,0px)}
+ body{font-size:16px;background:#F5F8F6;padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
  .app-topbar{padding-left:16px;padding-right:16px}
  .app-logo{width:40px;height:40px;border-radius:13px}
  .app-brand strong{font-size:16px}.app-top-pill{font-size:10px;padding:5px 7px}
@@ -273,7 +263,9 @@ body{background:#F3F7F4}
   </div>
 </header>
 <main class="wrap" id="app"></main>
-
+<nav class="app-bottomnav" aria-label="Navigation principale">
+  <button class="app-tab" id="tab-home" type="button"><span class="tab-icon" aria-hidden="true">⌂</span>Accueil</button>
+</nav>
 
 <script>
 /* =====================================================================
@@ -1154,6 +1146,8 @@ function renderFiche(f, s){
 const tabSearch = document.getElementById('tab-search');
 function setMobileTab(which){
   if (tabSearch) tabSearch.classList.toggle('active', which === 'search');
+  const tabHome = document.getElementById('tab-home');
+  if (tabHome) tabHome.classList.toggle('active', which === 'home');
 }
 if (tabSearch) {
   tabSearch.addEventListener('click', () => {
@@ -1167,6 +1161,8 @@ if (tabSearch) {
 }
 const topHome = document.getElementById('home');
 if (topHome) topHome.addEventListener('click', () => { go(''); setMobileTab('home'); });
+const bottomHome = document.getElementById('tab-home');
+if (bottomHome) bottomHome.addEventListener('click', () => { go(''); setMobileTab('home'); });
 document.getElementById('back').addEventListener('click', () => {
   const [fid, sid] = location.hash.replace('#','').split('.');
   go(sid ? fid : '');
