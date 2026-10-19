@@ -1,0 +1,25 @@
+# Roue des freins à l’emploi — application installable (PWA)
+
+Ce dossier contient une version installable de la roue mobile d’ATOS.
+
+## Contenu
+- `index.html` : l’application existante, adaptée à l’installation PWA.
+- `manifest.webmanifest` : nom, apparence et paramètres d’installation.
+- `sw.js` : mise en cache de l’application pour permettre sa réouverture hors connexion après un premier chargement.
+- `icons/` : icônes d’application.
+
+## Important
+Une PWA doit être servie depuis une adresse **HTTPS** (ou depuis `localhost` pour les tests). Ouvrir `index.html` directement depuis le disque (`file://`) permet de tester l’interface, mais pas l’installation PWA ni le service worker.
+
+## Mise en ligne
+1. Décompressez le ZIP.
+2. Publiez **tout le contenu du dossier** sur un hébergement statique HTTPS. Exemples : votre hébergement web existant, GitHub Pages ou Netlify.
+3. Ouvrez l’adresse HTTPS de `index.html` sur le smartphone.
+4. Android/Chrome : menu du navigateur → **Installer l’application** ou **Ajouter à l’écran d’accueil**.
+5. iPhone/iPad : ouvrir dans Safari → bouton **Partager** → **Sur l’écran d’accueil**.
+
+## Fonctionnement hors connexion
+Après que l’application a été chargée une première fois en ligne, le service worker met en cache l’écran principal et les icônes. Les liens vers les sites externes (DORA, France Travail, organismes partenaires, etc.) nécessitent toujours une connexion internet. Les polices Google peuvent également ne pas être disponibles hors connexion.
+
+## Vérifications
+Le fichier HTML et le service worker ont été vérifiés syntaxiquement. Une validation complète de l’installation et du comportement hors connexion doit être faite après mise en ligne en HTTPS sur un vrai navigateur mobile.
