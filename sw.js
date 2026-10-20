@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'boussole-freins-emploi-v15';
+const CACHE_NAME = 'boussole-freins-emploi-v17';
 
 const APP_SHELL = [
   './',
@@ -34,19 +34,29 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   const url = new URL(request.url);
 
-  if (request.method !== 'GET' || url.origin !== self.location.origin) {
+  // Les liens externes restent en navigation normale.
+  if (
+    request.method !== 'GET' ||
+    url.origin !== self.location.origin
+  ) {
     return;
   }
 
   event.respondWith(
-    caches.match(request).then(cached =>
-      cached || fetch(request).then(response => {
-        if (response && response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
-        }
-        return response;
-      }).catch(() => caches.match('./index.html'))
-    )
+    caches.match(request).then(cached => {
+      if (cached) return cached;
+
+      return fetch(request)
+        .then(response => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache =>
+              cache.put(request, copy)
+            );
+          }
+          return response;
+        })
+        .catch(() => caches.match('./index.html'));
+    })
   );
 });

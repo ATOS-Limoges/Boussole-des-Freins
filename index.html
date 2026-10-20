@@ -233,6 +233,9 @@ a{color:var(--accent)}
 #brand-splash .powered img{width:74px;height:auto;max-height:126px;object-fit:contain;border-radius:4px;background:#fff;padding:3px}
 @keyframes splash-spin{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
 @media(prefers-reduced-motion:reduce){#brand-splash .splash-compass{animation:none}}
+
+.ft-directory{align-self:start}.ft-agency-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.ft-agency-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:7px;text-align:left;padding:17px 38px 17px 16px;border:1px solid #d8e2e4;border-radius:15px;background:linear-gradient(135deg,#fff,#f2f7f6);color:#0b2b3d;cursor:pointer;min-height:112px;box-shadow:0 3px 12px #0b2b3d0b;transition:transform .18s,box-shadow .18s,border-color .18s}.ft-agency-card:hover{transform:translateY(-2px);border-color:#00a99d;box-shadow:0 7px 18px #0b2b3d16}.ft-agency-pin{font-size:20px;color:#e85b3b}.ft-agency-name{font-weight:750;line-height:1.3}.ft-agency-meta,.muted,.ft-save-note{font-size:.83rem;color:#60737a;line-height:1.4}.ft-agency-arrow{position:absolute;right:15px;top:42%;font-size:25px;color:#00a99d}.ft-agency-editor{margin-top:20px;padding:18px;border:1px solid #b7d9d4;border-radius:15px;background:#f8fbfa}.ft-agency-editor h3{margin:0 0 14px;color:#0b2b3d}.ft-agency-details{margin:0}.ft-agency-details>div{padding:10px 0;border-bottom:1px solid #e1e9ea}.ft-agency-details dt{font-size:.82rem;font-weight:750;color:#60737a;margin-bottom:4px}.ft-agency-details dd{margin:0;line-height:1.5;color:#183640}.ft-agency-details a{color:#08776b;font-weight:700}.primary-btn,.secondary-btn{display:inline-block;border:0;border-radius:9px;padding:10px 15px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}.primary-btn{background:#0b6f69;color:#fff}.secondary-btn{background:#e6eeee;color:#0b2b3d}@media(max-width:760px){.ft-agency-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -1185,6 +1188,44 @@ function renderFiche(f, s){
   const kc = sb ? `var(${sb.couleur})` : cc ? `var(${cc.couleur})` : col(f);
   setNav([{t:'Accueil',h:''},{t:f.nom,h:f.id}].concat(cc ? [{t:cc.nom,h:f.id+'~'+slug(cc.nom)}] : [], sb ? [{t:sb.nom,h:f.id+'~'+slug(cc.nom)+'~'+slug(sb.nom)}] : [], [{t:s.nom,h:`${f.id}.${s.id}`}]));
   const c = s.contact || {};
+  if (f.id === 'prescripteurs' && s.id === 'france-travail') {
+    const agencies = [
+      {id:'bellac', name:'France Travail Bellac', address:'4 ter rue du Général Arbellot, 87300 Bellac', phone:'3949 (demandeurs d’emploi) · 3995 (employeurs)', hours:'Lundi à mercredi : accès libre 8h30–12h30, sur rendez-vous 12h30–16h30 ; jeudi : accès libre 8h30–12h30 ; vendredi : accès libre 8h30–12h30, sur rendez-vous 12h30–15h30.', url:'https://www.francetravail.fr/annuaire/votre-agence-francetravail/bellac-87300', source:'France Travail'},
+      {id:'limoges-jourdan', name:'France Travail Limoges Jourdan', address:'13 cours Jourdan, 87000 Limoges', phone:'3949 (demandeurs d’emploi) · 3995 (employeurs)', hours:'Lundi à mercredi : accès libre 8h30–12h30, sur rendez-vous 12h30–16h30 ; jeudi : accès libre 8h30–12h30 ; vendredi : accès libre 8h30–12h30, sur rendez-vous 12h30–15h30.', url:'https://www.francetravail.fr/annuaire/votre-agence-francetravail/limoges-jourdan-87000', source:'France Travail'},
+      {id:'limoges-leclerc', name:'France Travail Limoges Leclerc', address:'135 avenue du Général-Leclerc, 87065 Limoges Cedex 2', phone:'3949 (demandeurs d’emploi) · 3995 (employeurs)', hours:'Lundi à mercredi : accès libre 8h30–12h30, sur rendez-vous 12h30–16h30 ; jeudi : accès libre 8h30–12h30 ; vendredi : accès libre 8h30–12h30, sur rendez-vous 12h30–15h30.', url:'https://www.francetravail.fr/annuaire/votre-agence-francetravail/limoges-leclerc-87000', source:'France Travail'},
+      {id:'limoges-ventadour', name:'France Travail Limoges Ventadour', address:'18 rue Paul-Claudel, 87006 Limoges Cedex 1', phone:'3949 (demandeurs d’emploi) · 3995 (employeurs)', hours:'Lundi à mercredi : accès libre 8h30–12h30, sur rendez-vous 12h30–16h30 ; jeudi : accès libre 8h30–12h30 ; vendredi : accès libre 8h30–12h30, sur rendez-vous 12h30–15h30.', url:'https://www.francetravail.fr/annuaire/votre-agence-francetravail/limoges-ventadour-87000', source:'France Travail'},
+      {id:'saint-junien', name:'France Travail Saint Junien', address:'2 avenue Anatole-France, 87205 Saint-Junien Cedex', phone:'3949 (demandeurs d’emploi) · 3995 (employeurs)', hours:'Lundi à mercredi : accès libre 8h30–12h30, sur rendez-vous 12h30–16h30 ; jeudi : accès libre 8h30–12h30 ; vendredi : accès libre 8h30–12h30, sur rendez-vous 12h30–15h30.', url:'https://www.francetravail.fr/annuaire/votre-agence-francetravail/st-junien-87200', source:'France Travail'},
+      {id:'saint-yrieix', name:'France Travail Saint-Yrieix-la-Perche', address:'Rue du 8-Mai-1945, 87500 Saint-Yrieix-la-Perche', phone:'3949 (demandeurs d’emploi) · 3995 (employeurs : numéro national)', hours:'Horaires à confirmer auprès de l’agence. Contact et prise de rendez-vous par téléphone ou via le site France Travail.', url:'https://www.nos-services.com/pole-emploi/ville/saint-yrieix-la-perche', source:'Nos-services.com · informations à vérifier'},
+    ].sort((a,b)=>a.name.localeCompare(b.name,'fr',{sensitivity:'base'}));
+    const agencyCards = agencies.map(a => `<button type="button" class="ft-agency-card" data-agency="${a.id}" aria-expanded="false"><span class="ft-agency-pin">⌖</span><span class="ft-agency-name">${esc(a.name)}</span><span class="ft-agency-meta">Adresse, téléphone et horaires</span><span class="ft-agency-arrow">›</span></button>`).join('');
+    app.innerHTML = `<div class="view" style="--c:${kc}">
+      <div class="fh"><span class="pill">${esc(f.nom)}</span><span class="tag">${esc(s.type)}</span><h1>${mark(f.id,kc)}${esc(s.nom)}</h1></div>
+      <div class="fiche"><article class="panel">
+        <section><h2>📖 Présentation du dispositif</h2><p>${val(s.presentation)}</p></section>
+        <section><h2>🧰 Ce qui est proposé</h2>${list(s.propose)}</section>
+        <section><h2>✅ Conditions d’éligibilité</h2>${list(s.eligibilite)}</section>
+        <section><h2>🧭 Comment y accéder</h2><p>${val(s.acces)}</p></section>
+      </article><aside class="panel ft-directory"><h2>Agences France Travail de Haute-Vienne</h2><p class="muted">Cliquez sur une agence pour consulter ses coordonnées et accéder à sa fiche officielle.</p><div class="ft-agency-grid">${agencyCards}</div><div id="ft-agency-editor" class="ft-agency-editor" hidden></div></aside></div></div>`;
+    const editor = document.getElementById('ft-agency-editor');
+    app.querySelectorAll('[data-agency]').forEach(btn => btn.addEventListener('click', () => {
+      const agency = agencies.find(a => a.id === btn.dataset.agency);
+      app.querySelectorAll('[data-agency]').forEach(b => b.setAttribute('aria-expanded', String(b === btn)));
+      editor.hidden = false;
+      editor.innerHTML = `<h3>${esc(agency.name)}</h3>
+        <dl class="ft-agency-details">
+          <div><dt>Adresse</dt><dd>${esc(agency.address)}</dd></div>
+          <div><dt>Téléphone</dt><dd><a href="tel:3949">3949</a> — demandeurs d’emploi<br><a href="tel:3995">3995</a> — employeurs</dd></div>
+          <div><dt>Horaires d’accueil</dt><dd>${esc(agency.hours)}</dd></div>
+          <div><dt>Courriel / contact</dt><dd>Contact et rendez-vous via le site France Travail ou par téléphone. Aucun courriel direct n’est indiqué sur la fiche source.</dd></div>
+          <div><dt>Source</dt><dd>${esc(agency.source)}</dd></div>
+        </dl>
+        <p><a class="primary-btn" href="${esc(agency.url)}" target="_blank" rel="noopener">Consulter la fiche de l’agence ↗</a></p>
+        <button type="button" class="secondary-btn" id="ft-close-details">Fermer la fiche</button>`;
+      editor.scrollIntoView({behavior:'smooth',block:'nearest'});
+      document.getElementById('ft-close-details').addEventListener('click', () => { editor.hidden = true; btn.setAttribute('aria-expanded','false'); });
+    }));
+    return;
+  }
   const site = c.site ? `<a href="${esc(c.site)}" target="_blank" rel="noopener">${esc(c.site.replace(/^https?:\/\//,''))}</a>` : todo;
   app.innerHTML = `<div class="view" style="--c:${kc}">
     <div class="fh"><span class="pill">${esc(cc ? f.nom+' · '+(sb ? sb.nom : cc.nom) : f.nom)}</span><span class="tag">${esc(s.type)}</span><h1>${mark(f.id,kc)}${esc(s.nom)}</h1></div>
