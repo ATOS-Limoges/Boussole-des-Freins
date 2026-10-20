@@ -76,6 +76,21 @@ a{color:var(--accent)}
     radial-gradient(circle at 50% 45%,#fff 0,#EFF5F1 78%)}
 @media(min-width:821px){.wheel-stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px)}}
 .wheel-cap{margin:6px 8px 2px;text-align:center;font-size:15px;color:var(--muted)}
+.events-panel{margin:22px auto 4px;max-width:620px;padding:18px;background:linear-gradient(145deg,#fff,#f3f8f7);border:1px solid var(--line);border-radius:22px;text-align:left}
+.events-heading{display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--marine)}
+.events-heading>span{font-size:25px}
+.events-heading h2{font-size:18px;line-height:1.2;margin:0;font-family:var(--display)}
+.events-heading p{font-size:12px;color:var(--muted);margin:4px 0 0}
+.events-list{display:grid;gap:10px}
+.event-card{display:flex;gap:12px;padding:12px;background:#fff;border:1px solid #dce8e5;border-radius:15px}
+.event-date{flex:0 0 52px;align-self:flex-start;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--marine);color:#fff;border-radius:12px;padding:8px 4px}
+.event-date strong{font-size:23px;line-height:1.05}.event-date span{font-size:10px;font-weight:800;letter-spacing:.08em;margin-top:3px}
+.event-info{min-width:0}.event-info h3{font-size:14px;line-height:1.35;margin:0 0 6px;color:var(--ink)}
+.event-info p{font-size:12px;line-height:1.45;color:var(--muted);margin:0 0 7px}
+.event-info a,.events-all{font-size:12px;font-weight:800;color:var(--marine);text-decoration:underline;text-underline-offset:3px}
+.events-all{display:block;text-align:center;margin-top:14px;font-size:13px}
+.events-update{font-size:10px;line-height:1.4;color:var(--muted);margin:12px 0 0}
+@media(max-width:520px){.events-panel{padding:13px;margin-top:16px;border-radius:18px}.events-heading h2{font-size:16px}.event-card{gap:9px;padding:10px}.event-date{flex-basis:44px}.event-date strong{font-size:21px}.event-info h3{font-size:13px}.event-info p{font-size:11px}}
 .wheel{display:block;width:100%;max-width:580px;margin:0 auto;filter:drop-shadow(0 8px 14px rgba(11,43,61,.2))}
 .wheel a{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .wheel .seg{outline:none}
@@ -1087,7 +1102,18 @@ function renderHome(){
   document.title = "Boussole des freins à l'emploi · Haute-Vienne";
   const totalSolutions = FREINS.reduce((n,f)=>n+f.solutions.length,0);
   app.innerHTML = `<div class="view intro">
-    <div class="wheel-stage">${wheelSVG()}<p class="wheel-cap">Touchez un secteur de la boussole pour explorer les solutions.</p></div>
+    <div class="wheel-stage">${wheelSVG()}<p class="wheel-cap">Touchez un secteur de la boussole pour explorer les solutions.</p>
+      <section class="events-panel" aria-labelledby="events-title">
+        <div class="events-heading"><span aria-hidden="true">📅</span><div><h2 id="events-title">Les 3 prochains événements emploi</h2><p>En Haute-Vienne · Source : France Travail</p></div></div>
+        <div class="events-list">
+          <article class="event-card"><div class="event-date"><strong>26</strong><span>OCT.</span></div><div class="event-info"><h3>Adéquat recrute des opérateurs logistiques et de production agroalimentaire</h3><p>🕘 9 h 15 – 12 h · 📍 Agence France Travail Limoges Leclerc</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/773059" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
+          <article class="event-card"><div class="event-date"><strong>28</strong><span>OCT.</span></div><div class="event-info"><h3>Recrutement de mécaniciens et monteurs par simulation (MRS)</h3><p>🕘 9 h – 12 h · 📍 Agence France Travail Limoges Leclerc</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/777128" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
+          <article class="event-card"><div class="event-date"><strong>02</strong><span>NOV.</span></div><div class="event-info"><h3>Venez tester votre potentiel sur les métiers de la logistique</h3><p>🕘 8 h 45 – 12 h · 📍 Agence France Travail Limoges Ventadour</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/773821" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
+        </div>
+        <a class="events-all" href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/" target="_blank" rel="noopener noreferrer">Consulter tous les événements sur France Travail ↗</a>
+        <p class="events-update">Événements repérés le 20 octobre 2026. Les dates et disponibilités peuvent évoluer : vérifiez les informations sur le site officiel.</p>
+      </section>
+    </div>
     <div class="intro-copy">
       <div class="intro-kicker"><span class="spark">✦</span> Outil d’orientation · Haute-Vienne</div>
       <h1>Un frein à l’emploi ?<br>Des solutions existent.</h1>
