@@ -159,6 +159,8 @@ a{color:var(--accent)}
 .panel p{margin:0;max-width:68ch}
 .panel ul{margin:8px 0 0;padding-left:22px}
 .panel li{margin:5px 0}
+.panel.defn{margin:0 0 22px}
+.defn li strong{color:var(--marine)}
 .panel li::marker{color:var(--c,var(--accent))}
 .section-icon{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;border-radius:10px;font-size:18px;background:color-mix(in srgb,var(--c,var(--accent)) 14%,#fff)}
 .contact{position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);align-self:start;border-color:var(--marine);border-top:6px solid var(--c);background:linear-gradient(160deg,var(--marine),var(--marine-2));color:#EAF2F5}
@@ -617,7 +619,11 @@ const FREINS = [
       contact:{structure:"Maisons du Département de la Haute-Vienne", adresse:"Nord-agglo : 36 allée Fabre d'Églantine, 87280 Limoges. Sud-agglo : 2 rue de la Résistance Limousine, 87000 Limoges.", tel:"", mail:"", horaires:"", site:"https://www.haute-vienne.fr"} }
    ]},
  { id:"emploi", nom:"Emploi", couleur:"--f11",
-   cats:[{nom:"SIAE", couleur:"--f11", desc:"Structures d'insertion par l'activité économique : un contrat de travail et un accompagnement pour reprendre pied dans l'emploi (agrément Pass IAE)."},
+   cats:[{nom:"SIAE", couleur:"--f11", desc:"Structures d'insertion par l'activité économique : un contrat de travail et un accompagnement pour reprendre pied dans l'emploi (agrément Pass IAE).",
+    subs:[{nom:"Chantier d'insertion", couleur:"--f4", types:["ACI"], desc:"Un atelier et chantier d'insertion (ACI) est porté par une association ou une collectivité. Il emploie des personnes éloignées de l'emploi sur des activités d'utilité sociale, avec un accompagnement socio-professionnel et de la formation.", points:[["Statut","Association, collectivité ou organisme à but non lucratif ; activités d'utilité sociale qui ne concurrencent pas le marché."],["Contrat","Contrat à durée déterminée d'insertion (CDDI), 20 heures minimum par semaine."],["Durée","En règle générale de 4 à 24 mois."],["Ce qui est proposé","Mise en situation de travail, accompagnement socio-professionnel, formation, préparation à la sortie vers l'emploi ou la formation."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]},
+      {nom:"Association intermédiaire", couleur:"--f7", types:["AI"], desc:"Une association intermédiaire (AI) embauche des personnes sans emploi pour les mettre à disposition, contre facturation, de particuliers, d'associations, de collectivités ou d'entreprises, pour des missions ponctuelles ou régulières.", points:[["Statut","Association conventionnée par l'État."],["Contrat","L'association est l'employeur : contrat de travail avec mises à disposition successives."],["Durée","Missions courtes et souples ; dans les entreprises, la mise à disposition est limitée à 480 heures sur 24 mois."],["Ce qui est proposé","Premières expériences de travail, activités variées (entretien, jardinage, bricolage, manutention…), accompagnement socio-professionnel."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]},
+      {nom:"Entreprise d'insertion", couleur:"--f3", types:["EI"], desc:"Une entreprise d'insertion (EI) est une entreprise qui produit des biens ou des services sur le marché, comme n'importe quelle autre. Elle emploie des personnes en difficulté et les accompagne vers un emploi durable.", points:[["Statut","Entreprise à activité marchande, soumise aux règles de la concurrence."],["Contrat","Contrat à durée déterminée d'insertion (CDDI), 20 heures minimum par semaine."],["Durée","En règle générale de 4 à 24 mois."],["Ce qui est proposé","Poste de production comme dans une entreprise classique, accompagnement socio-professionnel, formation, mise en relation avec des employeurs."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]},
+      {nom:"Entreprise de travail temporaire", couleur:"--f6", types:["ETTI"], desc:"Une entreprise de travail temporaire d'insertion (ETTI) est une agence d'intérim dont l'activité est dédiée à l'insertion. Elle met ses salariés en mission auprès d'entreprises clientes, avec un accompagnement socio-professionnel.", points:[["Statut","Entreprise de travail temporaire."],["Contrat","Contrats de mission d'insertion, en intérim."],["Durée","Missions successives, pour une durée totale de 24 mois maximum."],["Ce qui est proposé","Missions dans des entreprises clientes (bâtiment, industrie, logistique…), accompagnement socio-professionnel."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]}]},
          {nom:"Entreprises adaptées (Handicap)", couleur:"--f7", desc:"Entreprises qui emploient au moins 55 % de travailleurs en situation de handicap, en contrat de droit commun."},
          {nom:"Emploi accompagné (Handicap)", couleur:"--f4", desc:"Accompagnement dans la durée de la personne en situation de handicap et de son employeur, pour accéder à l'emploi ou s'y maintenir."}],
    intro:"Les emplois adaptés et accompagnés de Haute-Vienne, en trois catégories : structures d'insertion par l'activité économique (SIAE), entreprises adaptées et dispositif d'emploi accompagné.",
@@ -734,13 +740,6 @@ const FREINS = [
       eligibilite:["Agrément (Pass IAE) délivré par France Travail", "Prescription par France Travail, Mission locale, Cap emploi ou un référent social"],
       acces:"Contacter la structure ; l'agrément est demandé par le prescripteur. Téléphone, courriel et horaires non publiés dans l'annuaire INAÉ : à compléter.",
       contact:{structure:"L'Atelier 2N", adresse:"27 rue de Romanet, 87000 Limoges", tel:"", mail:"", horaires:"", site:"https://inae-nouvelleaquitaine.org/annuaire-structure/?_sft_departement=haute_vienne_87"} },
-    { id:"siae-coup-d-main", nom:"Coup d'Main", type:"AI", cat:"SIAE",
-      resume:"Activités : nettoyage, propreté (hors SAP) ; services à la personne.",
-      presentation:"L'association intermédiaire embauche des personnes pour les mettre à disposition de particuliers, d'associations, de collectivités ou d'entreprises, avec un accompagnement socio-professionnel. Source des activités : annuaire INAÉ Nouvelle-Aquitaine.",
-      propose:["Contrat de travail en insertion", "Accompagnement socio-professionnel", "Activité : Nettoyage, propreté (hors SAP)", "Activité : Services à la personne"],
-      eligibilite:["Agrément (Pass IAE) délivré par France Travail", "Prescription par France Travail, Mission locale, Cap emploi ou un référent social"],
-      acces:"Contacter la structure ; l'agrément est demandé par le prescripteur. Téléphone, courriel et horaires non publiés dans l'annuaire INAÉ : à compléter.",
-      contact:{structure:"Coup d'Main", adresse:"8-10 rue Saint Paul, 87000 Limoges", tel:"", mail:"", horaires:"", site:"https://inae-nouvelleaquitaine.org/annuaire-structure/?_sft_departement=haute_vienne_87"} },
     { id:"siae-ls-insertion", nom:"LS Insertion", type:"ETTI", cat:"SIAE",
       resume:"Activités : informatique, impression et travaux administratifs ; nettoyage, propreté (hors SAP) ; restauration, traiteur ; sous-traitance industrielle.",
       presentation:"L'entreprise de travail temporaire d'insertion propose des missions d'intérim avec un accompagnement socio-professionnel. Source des activités : annuaire INAÉ Nouvelle-Aquitaine.",
@@ -968,11 +967,14 @@ const go = h => { location.hash = h; };
 function route(){
   const h = location.hash.replace('#','');
   const [fid0, sid] = h.split('.');
-  const [fid, cs] = fid0.split('~');
+  const [fid, cs, ss] = fid0.split('~');
   const f = FREINS.find(x => x.id === fid);
   const s = f && sid ? f.solutions.find(x => x.id === sid) : null;
   const cc = f && cs && f.cats ? f.cats.find(x => slug(x.nom) === cs) : null;
+  const sb = cc && cc.subs && ss ? cc.subs.find(x => slug(x.nom) === ss) : null;
   if (s) renderFiche(f, s);
+  else if (sb) renderSubList(f, cc, sb);
+  else if (cc && cc.subs) renderSubs(f, cc);
   else if (cc) renderCatList(f, cc);
   else if (f) renderFrein(f);
   else renderHome();
@@ -1112,6 +1114,35 @@ function renderCats(f){
     </div></div>`;
 }
 
+const subsOf = (c, s) => (c.subs||[]).filter(x => String(s.type).split('/').map(t => t.trim()).some(t => x.types.includes(t)));
+const fichesN = n => n + ' fiche' + (n>1 ? 's' : '');
+
+function renderSubs(f, c){
+  const base = f.id+'~'+slug(c.nom);
+  setNav([{t:'Accueil',h:''},{t:f.nom,h:f.id},{t:c.nom,h:base}]);
+  const items = c.subs.map(x => ({href:'#'+base+'~'+slug(x.nom), nom:x.nom, color:`var(${x.couleur})`, n:f.solutions.filter(s => s.cat === c.nom && subsOf(c,s).includes(x)).length}));
+  app.innerHTML = `<div class="view intro">
+    <div class="wheel-stage">${wheelSVG(items, [c.nom, c.subs.length+' types'], c.nom+' : types de structures', 18, -135)}<p class="wheel-cap">Touchez un type de structure pour en voir la définition et les structures.</p></div>
+    <div>
+      <div class="eyebrow">${esc(f.nom)} · catégorie</div>
+      <h1>${esc(c.nom)}</h1>
+      <p>${esc(c.desc)}</p>
+      <ul class="legend">${items.map(it => `<li><a href="${it.href}" style="--icon-color:${it.color}"><span class="dot" style="background:${it.color}"></span>${esc(it.nom)}${cnt(it.n)}</a></li>`).join('')}</ul>
+    </div></div>`;
+}
+
+function renderSubList(f, c, x){
+  const base = f.id+'~'+slug(c.nom);
+  setNav([{t:'Accueil',h:''},{t:f.nom,h:f.id},{t:c.nom,h:base},{t:x.nom,h:base+'~'+slug(x.nom)}]);
+  const k = `var(${x.couleur})`, list = f.solutions.filter(s => s.cat === c.nom && subsOf(c,s).includes(x));
+  app.innerHTML = `<div class="view" style="--c:${k}">
+    <div class="head"><div class="badge" style="background:${k}">${iconFor(f.id)}</div>
+      <div><span class="tag">${esc(c.nom)} · ${fichesN(list.length)}</span><h1>${esc(x.nom)}</h1><p>${esc(x.desc)}</p></div></div>
+    <section class="panel defn"><h2><span class="section-icon" aria-hidden="true">📖</span>En bref</h2>
+      <ul>${x.points.map(([a,b]) => `<li><strong>${esc(a)} :</strong> ${esc(b)}</li>`).join('')}</ul></section>
+    <div class="cards">${list.map(s => cardHTML(f, s, k)).join('')}</div></div>`;
+}
+
 function renderCatList(f, c){
   setNav([{t:'Accueil',h:''},{t:f.nom,h:f.id},{t:c.nom,h:f.id+'~'+slug(c.nom)}]);
   const k = `var(${c.couleur})`, list = f.solutions.filter(s => s.cat === c.nom);
@@ -1125,11 +1156,13 @@ function list(arr){ return arr && arr.length ? `<ul>${arr.map(x=>`<li>${esc(x)}<
 
 function renderFiche(f, s){
   const cc = (f.cats||[]).find(x => x.nom === s.cat);
-  setNav([{t:'Accueil',h:''},{t:f.nom,h:f.id}].concat(cc ? [{t:cc.nom,h:f.id+'~'+slug(cc.nom)}] : [], [{t:s.nom,h:`${f.id}.${s.id}`}]));
+  const sb = cc && cc.subs ? subsOf(cc, s)[0] : null;
+  const kc = sb ? `var(${sb.couleur})` : cc ? `var(${cc.couleur})` : col(f);
+  setNav([{t:'Accueil',h:''},{t:f.nom,h:f.id}].concat(cc ? [{t:cc.nom,h:f.id+'~'+slug(cc.nom)}] : [], sb ? [{t:sb.nom,h:f.id+'~'+slug(cc.nom)+'~'+slug(sb.nom)}] : [], [{t:s.nom,h:`${f.id}.${s.id}`}]));
   const c = s.contact || {};
   const site = c.site ? `<a href="${esc(c.site)}" target="_blank" rel="noopener">${esc(c.site.replace(/^https?:\/\//,''))}</a>` : todo;
-  app.innerHTML = `<div class="view" style="--c:${cc ? `var(${cc.couleur})` : col(f)}">
-    <div class="fh"><span class="pill">${esc(cc ? f.nom+' · '+cc.nom : f.nom)}</span><span class="tag">${esc(s.type)}</span><h1>${mark(f.id,cc ? `var(${cc.couleur})` : col(f))}${esc(s.nom)}</h1></div>
+  app.innerHTML = `<div class="view" style="--c:${kc}">
+    <div class="fh"><span class="pill">${esc(cc ? f.nom+' · '+(sb ? sb.nom : cc.nom) : f.nom)}</span><span class="tag">${esc(s.type)}</span><h1>${mark(f.id,kc)}${esc(s.nom)}</h1></div>
     <div class="fiche">
       <article class="panel">
         <section><h2><span class="section-icon" aria-hidden="true">📖</span>Présentation du dispositif</h2><p>${val(s.presentation)}</p></section>
