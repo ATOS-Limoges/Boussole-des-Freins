@@ -1,252 +1,234 @@
-<!doctype html><html><head>
-<meta name="theme-color" content="#176642">
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Roue des freins à l'emploi</title>
+<meta name="theme-color" content="#0B2B3D">
 <meta name="description" content="Roue des freins à l’emploi : repérer les difficultés et découvrir les solutions d’accompagnement en Haute-Vienne.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
-<meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}/* V9 — contraste renforcé pour la lecture sur smartphone */
-:root{--muted:#394B41}
-.intro-lead{color:#263D32!important}
-.search-hint,.search-result small,.search-empty,.legend .n,.cat .n{color:#394B41!important}
-.app-brand span{opacity:1;color:#F2FFF7}
-.app-tab{color:#34483D}
-.btn{color:#24382D}
-@media(max-width:600px){body{color:#17251D}.app-bottomnav{grid-template-columns:1fr}}
-</style></head><body>
-<title>Roue des freins à l'emploi</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
-/* Layout : une roue d'orientation au centre, puis deux niveaux de pages (solutions, fiche) avec fil d'Ariane fixe en haut */
+/* =====================================================================
+   DA « Boussole » — carte marine, laiton et cap au nord.
+   Palette : brume (fond), marine (encre), laiton (repères), nord (rouge).
+   Les couleurs des freins (--f1 … --f11) sont toutes lisibles en blanc (≥ 4,5:1).
+   ===================================================================== */
 :root{
-  --bg:#EEF2F4; --surface:#FFFFFF; --ink:#16242E; --muted:#56656F; --line:#D3DCE1;
-  --accent:#0E5E6F; --accent-ink:#FFFFFF; --warn-bg:#FFF2D6; --warn-ink:#6B4A00;
-  --f1:#1F7A8C; --f2:#7A4FB0; --f3:#C2552D; --f4:#2E8B57; --f5:#C23B5E; --f6:#B8860B; --f7:#3A5BA0; --f8:#5F6B3A; --f9:#4F6D7A; --f10:#8A4B6B; --f11:#8C2F39;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+  --brume:#E8EEEB; --papier:#F5F8F5; --surface:#FFFFFF;
+  --marine:#0B2B3D; --marine-2:#12435A; --ink:#10222D; --muted:#40555E; --line:#C9D6D0;
+  --accent:#0A5C74; --laiton:#B07D1E; --laiton-clair:#F0CB77; --nord:#C23A2B;
+  --warn-bg:#FFF1CF; --warn-ink:#5E4200;
+  --f1:#0E6B7A; --f2:#6B46A3; --f3:#B5471F; --f4:#25744A; --f5:#A8326E; --f6:#8A6200;
+  --f7:#2F4FA2; --f8:#4F6B2A; --f9:#476A7A; --f10:#84405F; --f11:#B0302A;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
   --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  --r:14px;
+  --shadow:0 1px 0 rgba(11,43,61,.04), 0 10px 26px rgba(11,43,61,.09);
 }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#0F171C; --surface:#18232A; --ink:#E6EEF2; --muted:#9AAAB4; --line:#2A3943;
-  --accent:#5CC2D4; --accent-ink:#0F171C; --warn-bg:#3A2F14; --warn-ink:#F2D58C; color-scheme:dark }}
-:root[data-theme="dark"]{
-  --bg:#0F171C; --surface:#18232A; --ink:#E6EEF2; --muted:#9AAAB4; --line:#2A3943;
-  --accent:#5CC2D4; --accent-ink:#0F171C; --warn-bg:#3A2F14; --warn-ink:#F2D58C; color-scheme:dark }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
-.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:20px 48px}
-h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+[hidden]{display:none!important}
+html{background:var(--brume);-webkit-text-size-adjust:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;min-height:100vh;font-family:var(--body);font-size:17px;line-height:1.55;color:var(--ink)}
+/* fond : courbes de niveau, très discrètes, derrière tout le contenu */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke='%230B2B3D' stroke-opacity='.085' stroke-width='1.4'%3E%3Cpath d='M242,145Q245,150 247,156Q248,162 247,169Q247,175 244,180Q240,186 236,190Q231,195 226,198Q221,201 216,203Q211,206 205,208Q200,210 195,211Q190,212 185,213Q180,214 175,213Q170,213 165,212Q160,211 156,209Q151,208 147,206Q142,204 138,202Q133,201 128,199Q124,196 119,193Q114,190 111,186Q107,182 105,177Q103,172 102,166Q101,161 102,155Q102,150 103,145Q103,139 104,134Q105,129 106,123Q107,118 109,112Q111,107 114,102Q117,97 121,93Q126,89 131,86Q136,84 142,83Q148,82 154,83Q159,83 165,84Q170,84 175,86Q180,87 185,89Q189,90 194,93Q198,95 202,98Q205,101 209,105Q212,108 215,112Q217,116 221,119Q224,123 227,126Q231,130 235,135Q239,139 242,145Z'/%3E%3Cpath d='M318,139Q324,150 326,163Q328,175 326,187Q323,200 316,210Q309,221 300,229Q291,238 280,244Q270,250 260,255Q250,260 240,264Q230,268 220,271Q210,273 200,275Q190,276 180,275Q170,274 160,272Q151,270 142,267Q133,264 124,262Q115,259 105,256Q95,253 85,249Q75,245 66,238Q57,232 50,224Q42,215 38,205Q34,194 33,183Q32,172 33,161Q34,150 35,139Q36,129 38,118Q39,107 41,96Q43,85 47,74Q51,63 57,53Q64,44 73,36Q82,29 93,25Q104,21 115,19Q127,18 138,18Q149,18 160,19Q170,21 180,23Q190,25 199,28Q209,31 217,36Q226,41 233,47Q241,53 247,60Q253,67 260,73Q266,80 273,87Q280,94 288,102Q296,109 304,118Q312,128 318,139Z'/%3E%3Cpath d='M397,133Q405,150 407,169Q409,188 404,206Q399,224 388,240Q376,255 362,267Q348,279 333,288Q318,298 303,305Q288,312 273,318Q259,324 244,328Q229,333 214,334Q199,336 185,335Q170,334 156,331Q142,328 128,325Q114,322 100,318Q86,315 71,311Q56,307 40,301Q25,295 11,285Q-3,275 -13,262Q-23,248 -29,232Q-34,216 -36,200Q-37,183 -36,166Q-35,150 -33,134Q-32,118 -30,102Q-28,86 -25,69Q-22,52 -16,36Q-10,20 1,5Q11,-9 26,-19Q40,-29 56,-35Q73,-40 90,-43Q107,-45 123,-45Q139,-44 155,-43Q170,-42 185,-39Q200,-37 214,-32Q228,-28 241,-21Q253,-14 265,-5Q276,4 286,14Q296,24 306,34Q316,44 328,54Q339,64 352,75Q364,87 377,101Q389,115 397,133Z'/%3E%3Cpath d='M478,126Q488,150 489,175Q490,201 481,224Q472,248 457,268Q441,288 422,303Q403,319 383,331Q363,343 344,353Q325,363 306,371Q287,379 267,385Q248,390 228,392Q209,394 189,393Q170,392 151,389Q133,386 114,383Q95,380 76,376Q56,373 35,369Q15,364 -6,356Q-27,347 -46,334Q-64,320 -77,301Q-90,282 -96,261Q-103,239 -104,216Q-106,194 -105,172Q-104,150 -102,129Q-101,107 -98,85Q-96,63 -92,41Q-87,19 -78,-3Q-69,-24 -54,-42Q-40,-60 -20,-72Q-0,-85 21,-92Q43,-99 65,-102Q87,-104 108,-105Q130,-106 150,-105Q170,-104 190,-101Q209,-98 228,-92Q247,-86 264,-77Q281,-68 296,-56Q311,-44 325,-32Q339,-19 354,-7Q368,6 385,19Q402,32 419,48Q437,63 453,83Q469,103 478,126Z'/%3E%3Cpath d='M562,120Q572,150 570,182Q569,213 556,242Q543,271 523,295Q502,319 479,338Q455,357 431,372Q407,387 384,400Q361,413 337,423Q314,433 290,440Q266,446 242,449Q218,452 194,451Q170,450 147,447Q123,445 100,442Q76,440 51,437Q25,434 -2,429Q-29,424 -55,413Q-82,402 -104,384Q-126,365 -142,341Q-157,316 -164,289Q-171,261 -173,233Q-174,205 -174,177Q-173,150 -171,123Q-170,96 -167,69Q-165,41 -159,13Q-153,-14 -140,-40Q-128,-66 -108,-88Q-89,-109 -64,-123Q-39,-138 -12,-146Q15,-155 42,-159Q68,-163 94,-164Q120,-166 145,-166Q170,-166 195,-163Q219,-160 243,-153Q266,-145 287,-134Q309,-122 328,-108Q347,-94 366,-79Q384,-64 404,-49Q423,-34 445,-18Q468,-2 490,18Q513,39 532,64Q551,90 562,120Z'/%3E%3Cpath d='M645,113Q655,150 651,188Q646,225 628,259Q611,293 586,321Q561,349 533,371Q505,393 477,412Q450,430 423,445Q396,461 368,473Q341,485 313,493Q284,501 255,504Q227,508 198,507Q170,507 142,506Q114,504 85,503Q56,502 24,500Q-8,498 -41,492Q-74,486 -106,472Q-138,458 -164,435Q-190,411 -207,381Q-223,350 -231,317Q-239,283 -241,249Q-242,215 -242,183Q-241,150 -241,118Q-240,85 -237,52Q-234,19 -226,-14Q-217,-47 -201,-78Q-185,-108 -160,-132Q-136,-156 -106,-172Q-76,-189 -44,-199Q-13,-208 19,-214Q50,-220 80,-223Q110,-226 140,-227Q170,-228 199,-225Q229,-222 257,-213Q285,-205 311,-191Q337,-178 360,-161Q384,-145 407,-127Q430,-110 456,-93Q481,-76 509,-57Q537,-37 565,-12Q592,13 614,45Q636,76 645,113Z'/%3E%3Cpath d='M729,106Q737,150 728,194Q720,237 697,276Q675,314 646,346Q616,377 584,403Q553,428 522,449Q491,471 460,489Q430,508 398,522Q367,537 334,546Q302,555 269,559Q235,563 203,564Q170,565 137,566Q104,566 69,567Q34,568 -4,567Q-42,566 -82,559Q-122,551 -158,533Q-195,515 -224,487Q-253,458 -271,421Q-290,384 -298,344Q-306,305 -308,265Q-310,226 -310,188Q-310,150 -310,112Q-309,74 -306,35Q-302,-3 -292,-42Q-281,-80 -260,-114Q-240,-148 -210,-174Q-181,-201 -146,-219Q-111,-237 -75,-249Q-39,-261 -4,-268Q32,-276 66,-282Q101,-287 135,-289Q170,-292 204,-288Q239,-285 272,-275Q305,-265 335,-249Q365,-233 394,-215Q422,-197 450,-178Q479,-159 510,-140Q542,-120 576,-97Q610,-74 642,-44Q674,-14 697,25Q720,63 729,106Z'/%3E%3Cpath d='M810,100Q816,150 803,199Q790,248 763,291Q736,334 702,369Q668,404 633,433Q599,461 565,486Q531,511 497,532Q463,554 428,570Q393,587 356,597Q319,608 282,614Q244,619 207,622Q170,625 132,628Q94,631 53,635Q11,638 -34,638Q-78,638 -125,628Q-171,619 -212,596Q-254,574 -285,539Q-317,504 -336,460Q-354,417 -363,372Q-371,326 -374,281Q-377,237 -378,193Q-379,150 -379,107Q-379,63 -375,19Q-370,-25 -356,-68Q-342,-111 -317,-149Q-293,-186 -258,-215Q-224,-244 -185,-264Q-145,-284 -105,-298Q-65,-312 -26,-322Q13,-333 52,-341Q91,-349 130,-352Q170,-356 210,-353Q249,-349 287,-337Q325,-326 360,-308Q394,-291 428,-270Q461,-250 495,-230Q530,-210 568,-188Q606,-167 646,-140Q686,-113 722,-77Q757,-41 781,4Q805,49 810,100Z'/%3E%3Cpath d='M889,93Q891,150 873,204Q855,259 824,305Q792,352 755,391Q718,429 680,461Q643,494 607,522Q570,550 533,575Q496,599 457,618Q418,636 377,649Q336,661 295,668Q253,676 212,682Q170,687 126,694Q83,701 35,706Q-13,712 -65,713Q-117,713 -169,700Q-221,688 -267,660Q-313,633 -346,591Q-379,549 -398,499Q-418,449 -426,398Q-435,347 -439,297Q-442,247 -445,199Q-447,150 -448,101Q-448,52 -442,3Q-436,-47 -419,-94Q-402,-141 -372,-182Q-343,-222 -304,-254Q-265,-285 -222,-307Q-179,-330 -135,-346Q-92,-363 -49,-377Q-6,-391 38,-402Q81,-412 125,-417Q170,-422 215,-418Q259,-414 302,-401Q345,-388 384,-368Q424,-349 463,-328Q502,-306 542,-285Q583,-263 628,-239Q673,-215 718,-184Q764,-153 803,-110Q841,-68 864,-16Q887,36 889,93Z'/%3E%3Cpath d='M965,87Q962,150 939,209Q916,268 880,319Q845,369 805,411Q765,453 726,489Q686,525 648,557Q609,589 569,616Q529,643 486,664Q443,685 398,700Q353,714 308,724Q263,734 216,744Q170,753 121,764Q71,774 16,783Q-38,791 -97,791Q-156,791 -214,775Q-272,759 -322,725Q-371,691 -406,642Q-440,593 -460,537Q-479,481 -488,424Q-498,367 -503,312Q-508,257 -511,204Q-515,150 -516,96Q-517,41 -509,-13Q-501,-68 -480,-119Q-459,-170 -425,-214Q-390,-257 -347,-291Q-304,-324 -258,-349Q-211,-375 -165,-395Q-118,-415 -72,-433Q-25,-451 23,-464Q71,-478 120,-484Q170,-489 220,-485Q270,-480 317,-465Q365,-450 410,-430Q455,-409 499,-387Q544,-365 592,-342Q639,-319 691,-293Q742,-266 793,-229Q844,-193 884,-144Q925,-95 946,-36Q967,24 965,87Z'/%3E%3Cpath d='M917,844Q917,850 914,856Q911,861 908,866Q904,871 899,874Q895,878 891,881Q888,885 885,888Q881,891 878,895Q875,899 872,902Q868,906 864,909Q860,912 855,913Q850,915 845,916Q840,916 835,916Q830,916 824,915Q819,914 814,913Q809,911 804,909Q798,907 794,904Q789,901 785,897Q781,893 778,888Q776,883 774,877Q773,872 772,866Q771,861 771,855Q770,850 770,844Q770,839 771,833Q771,828 773,822Q775,817 778,812Q782,808 787,805Q791,801 797,800Q802,798 807,797Q813,796 817,796Q822,795 827,794Q831,793 836,792Q840,791 845,790Q850,788 855,788Q860,788 866,789Q871,789 876,791Q881,793 886,796Q891,799 896,802Q900,806 905,811Q909,815 912,820Q915,826 917,832Q918,838 917,844Z'/%3E%3Cpath d='M993,838Q991,850 985,861Q979,872 971,881Q963,890 955,897Q948,905 941,912Q934,918 928,925Q923,933 917,940Q911,948 904,955Q897,963 889,969Q880,974 871,978Q861,981 850,982Q840,984 829,983Q819,983 808,981Q798,980 787,977Q776,975 766,971Q755,966 746,960Q737,953 729,945Q722,936 717,925Q712,915 709,904Q707,893 705,882Q703,872 702,861Q701,850 701,839Q700,828 702,817Q703,805 707,795Q711,784 718,776Q726,767 735,761Q745,755 756,752Q766,748 776,746Q786,745 795,743Q804,741 813,738Q822,735 831,732Q840,729 850,727Q860,724 871,724Q881,723 892,725Q903,727 913,731Q924,735 934,741Q944,746 953,754Q962,761 971,770Q979,779 985,790Q991,801 993,813Q995,825 993,838Z'/%3E%3Cpath d='M1066,832Q1061,850 1052,866Q1043,882 1031,895Q1020,908 1009,919Q998,930 989,941Q980,951 972,963Q964,974 956,986Q948,998 937,1010Q927,1021 914,1029Q901,1038 886,1043Q871,1048 856,1050Q840,1052 824,1052Q808,1051 792,1050Q776,1048 759,1044Q743,1040 727,1034Q711,1027 698,1016Q684,1006 674,992Q663,978 656,963Q650,947 646,931Q642,914 639,898Q637,882 635,866Q633,850 632,833Q631,817 633,800Q635,783 642,768Q649,753 660,740Q671,728 686,719Q701,711 716,706Q731,700 746,697Q760,693 773,689Q787,685 799,680Q812,675 826,670Q840,665 855,661Q871,657 887,657Q903,656 919,659Q936,662 951,669Q967,675 982,684Q997,693 1011,704Q1025,715 1037,729Q1049,743 1058,760Q1066,777 1068,795Q1070,814 1066,832Z'/%3E%3Cpath d='M1135,826Q1128,850 1115,871Q1102,891 1087,909Q1072,926 1059,940Q1046,955 1036,970Q1025,985 1016,1001Q1007,1017 996,1033Q985,1050 971,1065Q957,1080 940,1091Q922,1103 902,1109Q882,1116 861,1119Q840,1122 818,1122Q797,1122 775,1120Q753,1118 731,1113Q709,1108 688,1098Q667,1088 649,1074Q631,1059 618,1040Q605,1020 597,999Q589,978 584,956Q579,935 575,914Q571,893 568,871Q564,850 563,828Q562,806 565,784Q569,762 578,742Q588,722 604,706Q619,690 639,679Q658,668 678,661Q697,654 716,648Q734,642 751,635Q768,629 785,620Q802,612 821,605Q840,597 861,592Q882,587 904,587Q925,587 947,592Q969,596 990,605Q1011,614 1032,626Q1052,638 1071,653Q1089,669 1105,688Q1120,707 1130,730Q1139,753 1140,777Q1142,802 1135,826Z'/%3E%3Cpath d='M1200,821Q1190,850 1173,875Q1157,900 1140,921Q1123,942 1108,961Q1094,979 1083,999Q1071,1018 1061,1039Q1050,1060 1037,1082Q1024,1103 1006,1122Q988,1141 966,1155Q944,1169 918,1177Q893,1186 867,1189Q840,1193 813,1194Q785,1195 757,1193Q729,1191 701,1184Q674,1177 648,1163Q622,1150 601,1130Q579,1111 564,1086Q549,1061 539,1035Q530,1008 523,982Q517,955 511,929Q506,903 501,876Q497,850 495,823Q494,795 499,768Q503,741 516,716Q529,692 549,673Q569,653 593,640Q617,627 640,617Q664,608 686,599Q708,590 728,580Q749,569 770,558Q792,546 816,536Q840,526 867,521Q893,515 921,516Q948,516 976,523Q1003,529 1030,541Q1057,552 1082,567Q1107,583 1131,602Q1154,622 1172,647Q1191,671 1201,700Q1211,730 1210,760Q1210,791 1200,821Z'/%3E%3Cpath d='M1260,816Q1247,850 1228,879Q1209,908 1190,933Q1171,958 1156,981Q1142,1004 1130,1028Q1119,1053 1107,1079Q1096,1106 1080,1132Q1064,1158 1042,1181Q1020,1203 993,1220Q966,1236 935,1246Q904,1257 872,1262Q840,1267 807,1269Q773,1270 739,1268Q705,1265 672,1256Q638,1247 608,1229Q577,1212 553,1187Q529,1161 512,1131Q495,1101 484,1069Q473,1037 465,1006Q456,975 449,944Q442,913 435,882Q429,850 428,817Q426,784 433,752Q439,720 456,691Q472,663 497,640Q521,618 549,602Q576,586 603,574Q630,561 655,549Q680,536 704,522Q729,507 755,492Q781,477 810,465Q840,453 872,447Q905,441 938,443Q972,445 1005,453Q1038,462 1070,475Q1102,489 1133,508Q1163,527 1191,551Q1218,575 1239,606Q1259,636 1269,672Q1279,707 1277,744Q1274,781 1260,816Z'/%3E%3Cpath d='M1317,811Q1300,850 1279,883Q1257,916 1238,945Q1219,973 1205,1001Q1190,1029 1179,1059Q1168,1088 1155,1121Q1143,1153 1124,1184Q1105,1215 1079,1241Q1053,1268 1020,1286Q988,1305 952,1317Q916,1330 878,1336Q840,1343 801,1345Q761,1348 721,1344Q681,1341 641,1329Q602,1316 568,1294Q533,1272 506,1241Q480,1210 461,1174Q443,1139 430,1102Q418,1065 407,1030Q397,994 387,959Q378,923 370,887Q362,850 361,812Q359,774 368,737Q377,700 397,667Q417,635 446,609Q474,584 505,565Q536,546 566,530Q596,514 624,497Q651,480 679,461Q707,442 738,423Q769,405 805,391Q840,377 878,371Q917,366 956,369Q995,372 1034,382Q1073,393 1110,409Q1148,426 1184,448Q1219,471 1251,500Q1282,529 1304,566Q1326,602 1335,644Q1344,686 1339,729Q1333,772 1317,811Z'/%3E%3Cpath d='M1369,807Q1349,850 1327,887Q1304,924 1286,956Q1267,989 1254,1022Q1241,1054 1230,1090Q1220,1126 1206,1164Q1192,1202 1170,1238Q1148,1274 1117,1304Q1086,1333 1049,1355Q1011,1376 969,1390Q928,1404 884,1413Q840,1421 794,1424Q749,1427 702,1422Q656,1417 611,1402Q567,1386 529,1358Q491,1331 462,1294Q433,1257 413,1216Q393,1175 379,1134Q364,1092 352,1053Q339,1013 326,973Q314,933 305,892Q295,850 294,807Q293,763 305,722Q316,680 340,644Q364,607 396,579Q428,550 462,528Q496,506 528,485Q560,465 591,443Q621,420 653,397Q685,373 721,351Q758,329 799,314Q840,299 884,294Q929,289 974,294Q1019,299 1064,311Q1108,324 1151,343Q1194,362 1235,389Q1275,415 1310,449Q1344,484 1367,527Q1390,570 1398,618Q1405,666 1397,715Q1388,763 1369,807Z'/%3E%3Cpath d='M1416,803Q1395,850 1372,890Q1350,931 1333,968Q1316,1005 1305,1043Q1294,1081 1284,1124Q1274,1166 1259,1209Q1243,1253 1218,1294Q1192,1334 1156,1367Q1121,1401 1078,1425Q1035,1449 987,1465Q940,1481 890,1492Q840,1502 788,1505Q736,1508 683,1501Q631,1494 582,1474Q532,1454 491,1420Q450,1387 419,1344Q389,1301 367,1255Q346,1209 329,1164Q313,1119 297,1075Q281,1032 266,988Q250,943 239,897Q228,850 228,802Q228,753 242,707Q257,660 284,621Q312,581 347,549Q382,517 418,491Q454,464 488,439Q523,413 556,385Q589,358 625,329Q662,301 703,276Q745,252 793,236Q840,220 891,216Q941,212 992,219Q1043,225 1093,240Q1143,255 1192,277Q1240,299 1286,329Q1331,359 1368,399Q1405,440 1428,489Q1451,539 1456,593Q1461,648 1450,702Q1438,755 1416,803Z'/%3E%3Cpath d='M1461,799Q1438,850 1417,894Q1396,938 1382,980Q1368,1021 1359,1066Q1351,1110 1341,1159Q1332,1207 1314,1257Q1297,1307 1267,1352Q1237,1397 1196,1433Q1156,1469 1107,1496Q1059,1523 1006,1542Q953,1560 896,1572Q840,1584 781,1587Q723,1590 664,1580Q606,1570 553,1544Q499,1519 455,1479Q412,1440 379,1391Q347,1343 324,1292Q301,1242 282,1193Q262,1144 243,1097Q223,1050 205,1002Q186,954 174,902Q162,850 163,796Q164,743 181,692Q198,642 229,598Q260,554 298,519Q335,483 373,452Q411,421 447,390Q483,358 519,325Q555,292 596,259Q637,226 685,199Q733,172 786,156Q840,141 897,138Q953,135 1010,144Q1067,152 1123,169Q1178,186 1232,211Q1286,236 1336,270Q1385,305 1424,351Q1463,397 1486,453Q1508,510 1510,571Q1513,631 1498,690Q1484,748 1461,799Z'/%3E%3Cpath d='M978,166Q978,170 977,174Q976,177 976,181Q975,185 975,189Q974,193 974,197Q973,201 972,206Q970,210 967,214Q965,218 961,220Q957,223 953,224Q948,226 943,226Q939,226 934,226Q930,226 926,226Q921,225 917,225Q912,224 908,223Q904,222 899,220Q895,218 892,215Q888,212 886,208Q884,204 882,199Q880,195 880,191Q879,187 878,183Q877,178 877,174Q877,170 878,166Q878,162 880,158Q881,154 883,151Q885,147 888,144Q891,142 894,139Q896,136 899,133Q901,131 904,127Q907,124 910,120Q913,117 917,114Q921,111 925,109Q930,107 935,106Q940,106 945,108Q950,109 954,112Q958,115 961,118Q965,122 968,126Q970,130 972,134Q975,138 976,142Q978,146 978,150Q979,154 979,158Q979,162 978,166Z'/%3E%3Cpath d='M1025,162Q1024,170 1023,177Q1022,185 1022,192Q1021,200 1021,208Q1021,216 1019,225Q1018,234 1015,243Q1012,252 1006,259Q1000,266 992,271Q984,276 975,279Q966,281 957,282Q948,283 939,282Q930,282 921,282Q912,281 904,280Q895,279 886,276Q877,274 869,269Q861,265 855,258Q848,252 843,244Q839,236 836,228Q833,220 831,211Q829,203 827,195Q826,187 825,178Q825,170 826,162Q827,154 830,146Q832,138 837,132Q841,125 846,119Q852,113 857,107Q862,102 867,96Q872,90 877,82Q882,75 888,68Q895,61 903,55Q911,48 920,45Q930,42 940,42Q950,42 960,46Q969,49 977,55Q985,61 992,69Q999,76 1004,83Q1009,91 1014,98Q1018,106 1021,114Q1024,122 1025,130Q1027,139 1026,147Q1026,155 1025,162Z'/%3E%3Cpath d='M1071,159Q1070,170 1069,181Q1069,192 1069,204Q1069,215 1069,228Q1069,241 1068,255Q1066,269 1060,282Q1055,295 1046,306Q1036,316 1024,323Q1012,330 998,334Q984,337 970,338Q957,339 943,339Q930,339 917,338Q903,337 890,336Q877,334 864,330Q851,326 839,318Q828,311 818,301Q809,291 802,279Q796,268 791,255Q786,243 783,231Q779,219 777,207Q774,195 773,182Q772,170 774,158Q775,146 780,134Q784,123 791,112Q797,102 805,93Q812,84 819,75Q826,66 833,56Q840,46 848,35Q856,24 865,13Q875,2 888,-7Q901,-16 915,-20Q930,-24 945,-22Q960,-21 974,-15Q988,-9 1000,1Q1012,10 1021,20Q1031,31 1039,42Q1047,53 1053,64Q1060,76 1064,88Q1068,100 1070,112Q1072,124 1072,136Q1072,148 1071,159Z'/%3E%3Cpath d='M1116,155Q1116,170 1116,185Q1117,200 1118,216Q1119,232 1120,249Q1121,267 1118,286Q1115,305 1108,322Q1100,340 1086,353Q1073,367 1056,375Q1039,384 1021,388Q1002,392 984,393Q966,395 948,395Q930,395 912,394Q895,394 877,391Q859,389 842,382Q825,376 810,366Q795,356 783,342Q771,329 763,313Q754,298 748,282Q741,266 736,250Q731,235 727,219Q723,203 721,186Q720,170 722,154Q724,137 730,122Q736,107 744,93Q753,80 762,67Q772,55 781,42Q790,30 798,15Q807,1 818,-15Q828,-30 842,-45Q855,-60 873,-70Q890,-81 910,-85Q930,-89 950,-86Q970,-83 988,-74Q1006,-65 1022,-52Q1037,-40 1050,-26Q1062,-12 1073,2Q1084,16 1092,31Q1100,46 1106,62Q1111,78 1114,94Q1116,109 1117,125Q1117,140 1116,155Z'/%3E%3Cpath d='M1162,152Q1162,170 1165,189Q1167,207 1170,228Q1173,249 1174,272Q1175,295 1171,319Q1167,342 1156,364Q1145,385 1128,401Q1110,418 1088,427Q1066,437 1043,442Q1020,446 997,448Q974,450 952,451Q930,451 908,451Q886,450 864,446Q841,443 821,434Q800,426 782,412Q764,399 750,382Q735,365 725,346Q714,327 705,308Q697,289 690,270Q682,251 677,231Q671,211 669,190Q667,170 670,150Q672,129 680,110Q687,91 698,74Q708,57 719,41Q730,25 741,8Q751,-9 762,-28Q772,-47 786,-67Q799,-87 817,-105Q835,-123 857,-135Q880,-147 905,-150Q930,-153 955,-148Q979,-142 1002,-130Q1024,-118 1042,-103Q1061,-87 1077,-71Q1093,-54 1106,-36Q1119,-19 1129,-1Q1140,18 1146,37Q1153,56 1156,76Q1159,96 1160,114Q1161,133 1162,152Z'/%3E%3C/g%3E%3C/svg%3E") center/cover no-repeat}
+img{max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;margin:0;color:var(--marine);text-wrap:balance}
 a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:24px max(18px,env(safe-area-inset-right,0px)) 56px max(18px,env(safe-area-inset-left,0px))}
 
-/* barre de navigation */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-.nav .wrap{padding-block:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:6px;font:700 15px/1 var(--body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
-.btn:hover{border-color:var(--accent)}
-.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:15px;color:var(--muted);min-width:0}
-.crumbs a{color:var(--muted);text-decoration:none}
+/* ---------- bandeau d'application ---------- */
+.app-topbar{display:flex;align-items:center;gap:14px;padding:calc(env(safe-area-inset-top,0px) + 14px) max(20px,env(safe-area-inset-right,0px)) 14px max(20px,env(safe-area-inset-left,0px));background:linear-gradient(115deg,var(--marine),var(--marine-2));color:#fff;border-bottom:3px solid var(--laiton)}
+@media(min-width:601px){.app-topbar{padding-left:max(24px,calc((100vw - 1180px)/2 + 18px));padding-right:max(24px,calc((100vw - 1180px)/2 + 18px))}}
+.app-logo{width:44px;height:44px;flex:none;display:grid;place-items:center;border-radius:50%;font-size:23px;background:rgba(255,255,255,.08);border:2px solid var(--laiton-clair)}
+.app-brand{min-width:0;flex:1}
+.app-brand strong{display:block;font:700 19px/1.15 var(--display);color:#fff}
+.app-brand span{display:block;margin-top:3px;font-size:12.5px;letter-spacing:.03em;color:#C4D7DF;text-wrap:balance}
+.app-top-pill{white-space:nowrap;font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;color:var(--laiton-clair);border:1px solid rgba(240,203,119,.6)}
+
+/* ---------- navigation (fil d'Ariane) ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(245,248,245,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{padding-top:10px;padding-bottom:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 16px;font:700 16px/1 var(--body);color:var(--marine);background:var(--surface);border:1.5px solid var(--marine);border-radius:999px;cursor:pointer}
+.btn:hover{background:#E3EEF1}
+.btn.primary{background:var(--marine);color:#fff}
+.btn.primary:hover{background:var(--marine-2)}
+.crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0;font-size:15px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none;font-weight:700}
 .crumbs a:hover{color:var(--accent);text-decoration:underline}
-.crumbs .sep{opacity:.6}
+.crumbs .sep{color:var(--laiton);font-weight:700}
 .crumbs .here{color:var(--ink);font-weight:700}
 .navbtns{margin-left:auto;display:flex;gap:8px}
 
-/* accueil */
-.intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:32px;align-items:center;margin-top:12px}
-@media (max-width:820px){.intro{grid-template-columns:1fr}}
-.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.intro h1{font-size:clamp(32px,5vw,52px);font-weight:800;margin-top:6px}
-.intro p{color:var(--muted);max-width:52ch}
-.wheel{width:100%;max-width:560px;margin:0 auto;display:block}
-.wheel a{cursor:pointer}
-.wheel .seg path{transition:transform .25s ease, filter .25s}
-.wheel .seg:hover path,.wheel .seg:focus path{transform:scale(1.04);filter:brightness(1.08)}
+/* ---------- accueil : la boussole ---------- */
+.intro{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,3.5vw,44px);align-items:start}
+.eyebrow{font-size:15px;font-weight:700;color:var(--muted)}
+.intro p{color:var(--muted);max-width:56ch}
+.wheel-stage{position:relative;padding:clamp(10px,2vw,22px);border-radius:32px;border:1px solid var(--line);box-shadow:var(--shadow);
+  background:
+    linear-gradient(rgba(11,43,61,.05) 1px,transparent 1px) 0 0/32px 32px,
+    linear-gradient(90deg,rgba(11,43,61,.05) 1px,transparent 1px) 0 0/32px 32px,
+    radial-gradient(circle at 50% 45%,#fff 0,#EFF5F1 78%)}
+@media(min-width:821px){.wheel-stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px)}}
+.wheel-cap{margin:6px 8px 2px;text-align:center;font-size:15px;color:var(--muted)}
+.wheel{display:block;width:100%;max-width:580px;margin:0 auto;filter:drop-shadow(0 8px 14px rgba(11,43,61,.2))}
+.wheel a{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .wheel .seg{outline:none}
-.wheel .seg:focus-visible path{stroke:var(--ink);stroke-width:4}
-.wheel text{font-family:var(--display);font-weight:700;fill:#fff;pointer-events:none}
-.wheel .hub{fill:var(--surface);stroke:var(--line);stroke-width:2}
-.wheel .hubtxt{fill:var(--ink)}
-.legend{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.legend a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:15px}
-.legend a:hover{border-color:var(--accent)}
-.dot{width:12px;height:12px;border-radius:50%;flex:none}
-.legend .n{margin-left:auto;color:var(--muted);font-weight:400;font-size:13px;font-variant-numeric:tabular-nums}
-.note{margin-top:22px;background:var(--warn-bg);color:var(--warn-ink);padding:12px 16px;border-radius:10px;font-size:15px}
+.wheel .seg path{transition:transform .22s ease,filter .22s}
+@media(hover:hover){.wheel .seg:hover path{transform:scale(1.03);filter:brightness(1.1)}}
+.wheel .seg:focus-visible path{stroke:#fff;stroke-width:5;transform:scale(1.03)}
+.wheel text{font-family:var(--body);font-weight:700;fill:#fff;pointer-events:none;letter-spacing:.01em}
+.wheel .seg text{stroke:rgba(0,0,0,.16);stroke-width:2px;paint-order:stroke;stroke-linejoin:round}
+.wheel .hub{fill:#fff;stroke:var(--laiton);stroke-width:4}
+.wheel .hubtxt{fill:var(--marine);font-family:var(--display);font-size:18px;font-weight:700}
+.wheel .hubsub{fill:var(--muted);font-family:var(--body);font-size:15px}
+.wheel .bz{fill:#fff;font-family:var(--display);font-size:18px}
+.wheel .needle{transform-box:fill-box;transform-origin:50% 50%;animation:settle 2.2s cubic-bezier(.22,.8,.3,1) .2s both}
+@keyframes settle{0%{transform:rotate(-65deg)}30%{transform:rotate(22deg)}55%{transform:rotate(-9deg)}75%{transform:rotate(4deg)}100%{transform:rotate(0)}}
 
-/* page frein */
-.head{display:flex;gap:18px;align-items:flex-start;margin:22px 0 22px}
-.badge{width:64px;height:64px;border-radius:18px;flex:none;display:grid;place-items:center;color:#fff;font-family:var(--display);font-weight:800;font-size:26px}
-.head h1{font-size:clamp(28px,4vw,42px);font-weight:800}
-.head p{margin:6px 0 0;color:var(--muted);max-width:60ch}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.card{display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--ink);border-top:5px solid var(--c)}
-.card:hover{border-color:var(--c);box-shadow:0 6px 20px rgba(0,0,0,.08)}
-.card h2{font-size:21px}
-.card p{margin:0;color:var(--muted);font-size:15.5px}
-.card .go{margin-top:auto;font-weight:700;color:var(--accent);font-size:15px}
-.cat{margin:30px 0 14px;padding-bottom:8px;border-bottom:3px solid var(--c);font-size:23px;display:flex;align-items:baseline;gap:10px}.cat .n{font-size:14px;color:var(--muted);font-weight:600}
-.tag{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.intro-copy{padding:clamp(22px,3.2vw,38px);border-radius:28px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.intro-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:#FAEFCF;color:var(--warn-ink);font-weight:700;font-size:14px}
+.intro-kicker .spark{color:var(--laiton);font-size:16px}
+.intro h1{margin:14px 0 12px;font-size:clamp(34px,4.6vw,52px);letter-spacing:-.015em;font-variation-settings:"opsz" 120}
+.intro-lead{font-size:clamp(17px,1.6vw,19px);line-height:1.55}
 
-/* fiche */
-.fiche{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:22px;margin-top:8px}
-@media (max-width:820px){.fiche{grid-template-columns:1fr}}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.panel h2{font-size:19px;margin-bottom:8px}
-.panel section+section{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
-.panel ul{margin:6px 0 0;padding-left:20px}
-.panel p{margin:0}
-.contact{border-top:5px solid var(--c);align-self:start;position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px)}
-@media (max-width:820px){.contact{position:static}}
-.contact dl{margin:0;display:grid;gap:12px}
-.contact dt{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted)}
-.contact dd{margin:2px 0 0;overflow-wrap:anywhere}
-.todo{color:var(--warn-ink);background:var(--warn-bg);padding:1px 8px;border-radius:6px;font-size:14px;font-style:italic}
-.fh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:22px 0 18px}
-.fh h1{font-size:clamp(28px,4vw,42px);font-weight:800;width:100%}
-.pill{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;color:#fff;background:var(--c)}
-.view{animation:in .25s ease}
-@keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.view{animation:none}.wheel .seg path{transition:none}}
-
-/* Habillage visuel : pictogrammes intégrés, sans dépendance externe */
-.visual-mark{display:inline-grid;place-items:center;flex:none;width:44px;height:44px;border-radius:14px;background:color-mix(in srgb,var(--c,#0E5E6F) 12%,var(--surface));font-size:24px;line-height:1}
-.legend a{gap:10px;transition:transform .18s ease,box-shadow .18s ease}
-.legend a:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(22,36,46,.08)}
-.legend .dot{display:none}
-.legend .visual-mark{width:38px;height:38px;border-radius:12px;background:color-mix(in srgb,var(--icon-color,var(--accent)) 13%,var(--surface))}
-.intro{gap:26px}
-.intro-copy{padding:clamp(18px,3vw,30px);border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--accent) 5%,var(--surface)));box-shadow:0 12px 34px rgba(22,36,46,.05)}
-.intro-kicker{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:7px 12px;background:color-mix(in srgb,var(--accent) 10%,var(--surface));color:var(--accent);font-weight:700;font-size:13px}
-.intro-kicker .spark{font-size:17px}
-.intro h1{margin:12px 0}
-.intro-lead{font-size:18px;line-height:1.55}
-.card{position:relative;overflow:hidden;min-height:190px;padding:20px;gap:10px;transition:transform .18s ease,box-shadow .18s ease}
-.card:after{content:"";position:absolute;width:115px;height:115px;border-radius:50%;right:-48px;top:-48px;background:color-mix(in srgb,var(--c) 8%,transparent);pointer-events:none}
-.card:hover{transform:translateY(-3px)}
-.card-top{display:flex;align-items:center;gap:12px;margin-bottom:2px}
-.card .visual-mark{width:48px;height:48px;border-radius:15px;background:color-mix(in srgb,var(--c) 13%,var(--surface))}
-.card h2{margin:0}
-.card .tag{margin-top:2px}
-.badge{font-size:30px;box-shadow:0 5px 14px rgba(0,0,0,.12)}
-.head{align-items:center}
-.fh h1{display:flex;align-items:center;gap:12px}
-.fiche .panel{box-shadow:0 6px 20px rgba(22,36,46,.035)}
-.panel h2{display:flex;align-items:center;gap:9px}
-.section-icon{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:color-mix(in srgb,var(--c,var(--accent)) 12%,var(--surface));font-size:17px;flex:none}
-.contact h2:before{content:"📍";font-size:20px}
-.note{display:flex;gap:10px;align-items:flex-start}
-.note:before{content:"ℹ️";font-size:19px}
-@media(max-width:520px){.legend{grid-template-columns:1fr}.card{min-height:0}.intro-copy{padding:18px}.visual-mark{width:40px;height:40px}}
-
-/* Version enrichie : accueil plus immersif, recherche transversale et parcours guidé */
-:root{--accent:#126B59;--bg:#F3F7F5;--line:#D9E5DF;--r:20px}
-body{background:radial-gradient(ellipse at 85% 0%,rgba(36,153,117,.10),transparent 34%),var(--bg)}
-.nav{backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 90%,transparent)}
-.wrap{max-width:1180px}
-.intro{gap:clamp(20px,4vw,46px);margin-top:24px;align-items:center}
-.intro-copy{background:linear-gradient(145deg,#fff 0%,#F1FAF5 100%);border:1px solid #D5E9DD;border-radius:30px;padding:clamp(22px,3.5vw,38px);box-shadow:0 20px 60px rgba(22,76,55,.08)}
-.intro h1{font-size:clamp(36px,5vw,58px);letter-spacing:-.035em;line-height:1.02}
-.intro-kicker{background:#E1F3E9;color:#14664D}
-.intro-lead{font-size:clamp(17px,1.8vw,20px);color:#263D32!important}
-.wheel-stage{padding:12px;background:linear-gradient(145deg,#fff,#E8F5ED);border:1px solid #D7E8DD;border-radius:32px;box-shadow:0 22px 55px rgba(27,91,63,.09)}
-.wheel{max-width:600px;filter:drop-shadow(0 8px 10px rgba(15,55,39,.07))}
-.legend{gap:9px;margin-top:24px}
-.legend a{min-height:60px;border-radius:15px;padding:9px 11px;border-color:#E0EAE4;box-shadow:0 2px 7px rgba(15,55,39,.025)}
-.legend a:hover{background:#F4FBF6;border-color:#80B89B;transform:translateY(-2px)}
-.legend .visual-mark{width:40px;height:40px;border-radius:13px}
-.legend .n{background:#EDF4EF;border-radius:999px;padding:3px 8px;color:#315B47}
-.note{border-radius:14px;margin-top:18px;font-size:14px}
-/* recherche rapide */
-.search-panel{margin-top:20px;padding:18px;border-radius:22px;background:#fff;border:1px solid #D9E7DF;box-shadow:0 10px 28px rgba(22,76,55,.055)}
-.search-title{font:700 18px/1.3 var(--display);margin-bottom:10px;display:flex;align-items:center;gap:9px}
-.search-field{display:flex;align-items:center;gap:10px;border:1.5px solid #C9DCD0;border-radius:14px;background:#F8FBF9;padding:0 14px;transition:border-color .18s,box-shadow .18s}
-.search-field:focus-within{border-color:#258563;box-shadow:0 0 0 4px rgba(37,133,99,.12)}
-.search-field span{font-size:20px}
-.search-field input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#19382B;padding:14px 0;font:16px var(--body)}
-.search-hint{font-size:13px;color:#64796D;margin:8px 2px 0}
+/* recherche */
+.search-panel{margin-top:22px;padding:18px;border-radius:20px;background:var(--papier);border:1px solid var(--line)}
+.search-title{display:flex;align-items:center;gap:9px;margin-bottom:10px;font:700 18px/1.3 var(--display);color:var(--marine)}
+.search-field{display:flex;align-items:center;gap:10px;padding:0 14px;border:2px solid var(--marine);border-radius:14px;background:#fff}
+.search-field:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(10,92,116,.2)}
+.search-field span{font-size:20px;color:var(--marine)}
+.search-field input{width:100%;min-width:0;padding:14px 0;border:0;outline:0;background:transparent;color:var(--ink);font:17px var(--body)}
+.search-field input::placeholder{color:#5B6E76}
+.search-hint{margin:8px 2px 0;font-size:14px;color:var(--muted)}
 .search-results{display:grid;gap:8px;margin-top:12px}
-.search-result{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1C382B;padding:12px;border:1px solid #E0EBE4;border-radius:14px;background:#fff;transition:transform .15s,border-color .15s}
-.search-result:hover{border-color:#7EB89A;transform:translateY(-1px)}
-.search-result .result-icon{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:13px;background:#EAF5EE;font-size:22px}
+.search-result{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);text-decoration:none}
+.search-result:hover{border-color:var(--accent)}
+.search-result .result-icon{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:12px;background:var(--papier);font-size:23px}
 .search-result .result-copy{min-width:0;flex:1}
-.search-result strong{display:block;line-height:1.3}
-.search-result small{display:block;color:#65786D;margin-top:3px;font-size:13px}
-.search-result .arrow{font-size:20px;color:#267553}
-.search-empty{padding:14px;border-radius:12px;background:#F5F8F6;color:#5D7165;font-size:14px}
-/* cartes de solutions et fiches */
-.card{border:1px solid #DCE7E0;border-top:5px solid var(--c);border-radius:20px;box-shadow:0 5px 18px rgba(22,60,42,.035)}
-.card:hover{box-shadow:0 14px 28px rgba(22,60,42,.10)}
-.card .go{display:flex;align-items:center;gap:7px}
-.head{padding:20px 22px;border-radius:24px;background:linear-gradient(120deg,#fff,#F0F8F3);border:1px solid #DCEAE1}
-.badge{width:70px;height:70px;border-radius:22px}
-.panel{border-radius:20px;border-color:#DFE9E2;box-shadow:0 10px 26px rgba(22,60,42,.045)!important}
-.contact{background:linear-gradient(160deg,#fff,#F3F9F5)}
-@media(max-width:820px){.intro{margin-top:12px}.wheel-stage{max-width:560px;margin:0 auto;width:100%}.intro-copy{padding:22px}}
-@media(max-width:520px){.intro h1{font-size:37px}.search-panel{padding:14px}.head{padding:16px;gap:13px}.badge{width:56px;height:56px;border-radius:17px;font-size:25px}}
-@media(prefers-reduced-motion:reduce){.legend a,.card,.search-result{transition:none}}
+.search-result strong{display:block;line-height:1.3;font-size:16.5px}
+.search-result small{display:block;margin-top:3px;font-size:14px;color:var(--muted)}
+.search-result .arrow{font-size:20px;color:var(--f6)}
+.search-empty{padding:14px;border-radius:12px;background:#fff;border:1px dashed var(--line);font-size:15px;color:var(--muted)}
 
-/* V8 — habillage application mobile */
-.app-topbar{position:relative;z-index:6;display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 14px) max(18px,env(safe-area-inset-left,0px)) 14px;background:linear-gradient(115deg,#155D43,#247A58);color:#fff;box-shadow:0 5px 18px rgba(20,75,51,.16)}
-.app-logo{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);font-size:22px;flex:none}
-.app-brand{min-width:0;flex:1}.app-brand strong{display:block;font:800 17px/1.15 var(--display);letter-spacing:-.02em}.app-brand span{display:block;font-size:12px;opacity:.82;margin-top:3px;letter-spacing:.04em}
-.app-top-pill{font-size:11px;font-weight:700;letter-spacing:.04em;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);border-radius:999px;padding:6px 9px;white-space:nowrap}
-.app-bottomnav{display:none}
-body{background:#F3F7F4}
-.wrap{padding-top:22px}
-.nav{background:rgba(243,247,244,.96);backdrop-filter:blur(12px)}
-@media(max-width:600px){
- body{font-size:16px;background:#F5F8F6;padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
- .app-topbar{padding-left:16px;padding-right:16px}
- .app-logo{width:40px;height:40px;border-radius:13px}
- .app-brand strong{font-size:16px}.app-top-pill{font-size:10px;padding:5px 7px}
- .wrap{padding:16px 14px 30px}
- #app.wrap{padding-top:14px}
- .intro{display:flex;flex-direction:column;gap:17px;margin-top:0;align-items:stretch}
- .wheel-stage{order:0;width:100%;padding:12px 10px 4px;background:linear-gradient(150deg,#E8F4EC,#F7FBF8);border:1px solid #D9E9DE;border-radius:24px;box-shadow:0 7px 22px rgba(28,89,58,.06)}
- .wheel{max-width:390px}
- .intro-copy{order:1;padding:18px 15px;border-radius:22px;box-shadow:0 5px 18px rgba(22,60,42,.045)}
- .intro h1{font-size:clamp(30px,8vw,38px);letter-spacing:-.035em;line-height:1.04;margin:13px 0 10px}
- .intro-lead{font-size:16px;line-height:1.5;margin-bottom:0}
- .intro-kicker{font-size:12px;padding:6px 10px}
- .search-panel{margin-top:17px;padding:14px 12px;border-radius:18px}
- .search-title{font-size:17px}
- .search-field{padding:0 11px;border-radius:13px}
- .search-field input{font-size:16px;padding:13px 0}
- .legend{grid-template-columns:1fr;gap:8px;margin-top:16px}
- .legend a{min-height:58px;padding:9px 10px;border-radius:15px;font-size:15px}
- .legend .visual-mark{width:40px;height:40px}
- .note{font-size:13px;margin-top:16px;padding:11px 12px}
- .head{margin:6px 0 17px;padding:16px;border-radius:20px;gap:12px}
- .badge{width:52px;height:52px;border-radius:16px;font-size:24px}
- .head h1{font-size:30px}.head p{font-size:15px;line-height:1.45}
- .cards{grid-template-columns:1fr;gap:11px}
- .card{padding:15px;border-radius:18px;gap:9px}
- .card .visual-mark{width:42px;height:42px}
- .card h2{font-size:19px;line-height:1.2}
- .card p{font-size:15px;line-height:1.45}
- .fh{margin:4px 0 14px;gap:8px}
- .fh h1{font-size:29px;line-height:1.1}
- .fiche{gap:12px;margin-top:0}
- .panel{padding:17px 15px;border-radius:18px}
- .panel h2{font-size:18px}
- .panel section+section{margin-top:17px;padding-top:16px}
- .contact dl{gap:10px}
- .nav{top:0;border-bottom:1px solid #DCE8E0}
- .nav .wrap{padding:9px 14px;gap:8px}
- .crumbs{font-size:12px;flex:1}
- .navbtns{margin-left:0;gap:8px;width:100%}
- .navbtns .btn{flex:1;justify-content:center;min-height:50px;font-size:16px;padding:13px 14px;border-radius:15px}
- .app-tab{min-height:52px;font-size:15px}
- .app-bottomnav{position:fixed;z-index:20;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr;gap:8px;padding:9px 18px calc(9px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.95);border-top:1px solid #DDE8E0;box-shadow:0 -8px 25px rgba(26,65,43,.08);backdrop-filter:blur(16px)}
- .app-tab{appearance:none;border:0;background:transparent;color:#34483D;display:flex;align-items:center;justify-content:center;gap:8px;min-height:47px;border-radius:15px;font:700 14px var(--body);cursor:pointer}
- .app-tab .tab-icon{font-size:20px;line-height:1}
- .app-tab.active{background:#E6F3E9;color:#176642}
+/* liste des freins (alternative lisible à la roue) */
+.legend{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.legend a{display:flex;align-items:center;gap:11px;min-height:64px;padding:10px 12px 10px 10px;border:1px solid var(--line);border-left:6px solid var(--icon-color,var(--accent));border-radius:14px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;font-size:16.5px;line-height:1.25}
+.legend a:active{background:var(--papier)}
+@media(hover:hover){.legend a:hover{background:var(--papier);box-shadow:var(--shadow)}}
+.legend .visual-mark{width:42px;height:42px;border-radius:12px;font-size:23px}
+.legend .n{margin-left:auto;flex:none;display:inline-flex;gap:.3em;white-space:nowrap;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;border-radius:999px;background:var(--papier);border:1px solid var(--line);color:var(--muted);font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.legend .n .lab{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.dot{display:inline-block;flex:none;width:16px;height:16px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3px rgba(0,0,0,.25)}
+.note{display:flex;gap:10px;align-items:flex-start;margin-top:20px;padding:12px 16px;border-radius:12px;border-left:5px solid var(--laiton);background:var(--warn-bg);color:var(--warn-ink);font-size:15px}
+
+/* ---------- pages « frein » et listes ---------- */
+.head{display:flex;gap:18px;align-items:center;margin:8px 0 24px;padding:20px 22px;border-radius:24px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.badge{width:72px;height:72px;flex:none;display:grid;place-items:center;border-radius:50%;color:#fff;font-size:32px;box-shadow:inset 0 0 0 4px rgba(255,255,255,.3),0 4px 12px rgba(11,43,61,.2)}
+.head h1{font-size:clamp(30px,4vw,44px)}
+.head p{margin:6px 0 0;max-width:62ch;color:var(--muted)}
+.tag{display:inline-block;margin-bottom:2px;font-size:14px;font-weight:700;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.card{position:relative;display:flex;flex-direction:column;gap:10px;min-height:190px;padding:20px 20px 18px 22px;border:1px solid var(--line);border-left:7px solid var(--c);border-radius:20px;background:var(--surface);color:var(--ink);text-decoration:none;box-shadow:var(--shadow);transition:box-shadow .18s,transform .18s}
+@media(hover:hover){.card:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(11,43,61,.14)}}
+.card:active{background:var(--papier)}
+.card-top{display:flex;align-items:center;gap:12px}
+.card h2{font-size:21px;font-weight:600}
+.card p{margin:0;font-size:16px;line-height:1.5;color:var(--muted)}
+.card .go{display:flex;align-items:center;gap:7px;margin-top:auto;font-weight:700;font-size:16px;color:var(--accent)}
+.card .go span{transition:transform .18s}
+.card:hover .go span{transform:translateX(3px)}
+.visual-mark{display:inline-grid;place-items:center;flex:none;width:44px;height:44px;border-radius:13px;font-size:24px;line-height:1;background:color-mix(in srgb,var(--c,var(--accent)) 14%,#fff)}
+.card .visual-mark{width:48px;height:48px}
+.cat{display:flex;align-items:baseline;gap:10px;margin:30px 0 14px;padding-bottom:8px;border-bottom:3px solid var(--c);font-size:23px}
+.cat .n{font-size:14px;font-weight:700;color:var(--muted)}
+
+/* ---------- fiche ---------- */
+.fh{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0 20px}
+.fh h1{width:100%;display:flex;align-items:center;gap:12px;font-size:clamp(28px,4vw,42px)}
+.pill{padding:4px 11px;border-radius:999px;background:var(--c);color:#fff;font-size:14px;font-weight:700}
+.fiche{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:22px;align-items:start}
+.panel{padding:24px;border:1px solid var(--line);border-radius:22px;background:var(--surface);box-shadow:var(--shadow)}
+.panel h2{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:21px}
+.panel section+section{margin-top:24px;padding-top:22px;border-top:2px dashed #BCCBC4}
+.panel p{margin:0;max-width:68ch}
+.panel ul{margin:8px 0 0;padding-left:22px}
+.panel li{margin:5px 0}
+.panel li::marker{color:var(--c,var(--accent))}
+.section-icon{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;border-radius:10px;font-size:18px;background:color-mix(in srgb,var(--c,var(--accent)) 14%,#fff)}
+.contact{position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);align-self:start;border-color:var(--marine);border-top:6px solid var(--c);background:linear-gradient(160deg,var(--marine),var(--marine-2));color:#EAF2F5}
+.contact h2{color:#fff}
+.contact h2:before{content:"📍";font-size:20px}
+.contact dl{margin:0;display:grid;gap:14px}
+.contact dt{font-size:14px;font-weight:700;color:#A9C6D3}
+.contact dd{margin:2px 0 0;overflow-wrap:anywhere}
+.contact a{color:var(--laiton-clair)}
+.todo{padding:2px 9px;border-radius:7px;background:var(--warn-bg);color:var(--warn-ink);font-size:15px;font-style:italic}
+.view{animation:in .2s ease}
+@keyframes in{from{opacity:.3}to{opacity:1}}
+
+/* ---------- tablette ---------- */
+@media(max-width:820px){
+  .intro{grid-template-columns:1fr}
+  .wheel-stage{position:static;width:100%;max-width:600px;margin:0 auto}
+  .fiche{grid-template-columns:1fr}
+  .contact{position:static}
 }
-@media(min-width:601px){.app-topbar{padding-left:max(24px,calc((100vw - 1080px)/2));padding-right:max(24px,calc((100vw - 1080px)/2))}}
-@media(prefers-reduced-motion:reduce){.app-tab{transition:none}}
+
+/* ---------- mobile : lisibilité d'abord ---------- */
+.app-bottomnav{display:none}
+.app-tab{appearance:none;border:0;background:transparent;color:var(--marine);display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:14px;font:700 16px var(--body);cursor:pointer}
+.app-tab .tab-icon{font-size:20px;line-height:1}
+.app-tab.active{background:#E3EEF1}
+@media(max-width:600px){
+  body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .app-topbar{padding-left:16px;padding-right:16px;gap:12px}
+  .app-logo{width:40px;height:40px;font-size:21px}
+  .app-brand strong{font-size:17px}
+  .app-brand span{font-size:12px}
+  .app-top-pill{font-size:11px;padding:5px 8px}
+  .wrap{padding:16px 14px 32px}
+  .intro{display:flex;flex-direction:column;align-items:stretch;gap:16px}
+  /* la roue occupe toute la largeur de l'écran : libellés plus grands */
+  .wheel-stage{max-width:none;margin:0 -14px;width:auto;padding:10px 0 8px;border-radius:0;border-left:0;border-right:0}
+  .wheel{max-width:none}
+  .intro-copy{padding:20px 16px;border-radius:22px}
+  .intro h1{font-size:34px}
+  .search-panel{padding:14px 12px}
+  .search-field{padding:0 12px}
+  .search-field input{font-size:16px}
+  .legend{grid-template-columns:minmax(0,1fr)}
+  .legend .n .lab{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+  .note{font-size:14.5px}
+  .head{gap:14px;padding:16px;margin-bottom:18px;border-radius:20px}
+  .badge{width:56px;height:56px;font-size:26px}
+  .head h1{font-size:30px}
+  .head p{font-size:16px}
+  .cards{grid-template-columns:1fr;gap:12px}
+  .card{min-height:0;padding:16px 16px 16px 18px;border-radius:18px}
+  .card h2{font-size:20px}
+  .fh h1{font-size:29px}
+  .fiche{gap:14px}
+  .panel{padding:18px 16px;border-radius:20px}
+  .panel section+section{margin-top:18px;padding-top:16px}
+  .nav .wrap{padding:8px 14px;gap:6px}
+  .crumbs{flex:1 1 100%;font-size:14px}
+  .navbtns{width:100%;margin-left:0}
+  .navbtns .btn{flex:1;min-height:46px;font-size:16px;border-radius:14px}
+  .app-bottomnav{position:fixed;z-index:20;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:2px solid var(--laiton);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .view,.wheel .needle{animation:none}
+  .wheel .seg path,.card,.card .go span{transition:none}
+}
 </style>
+</head>
+<body>
 
 <header class="app-topbar" aria-label="En-tête de l'application">
   <div class="app-logo" aria-hidden="true">🧭</div>
@@ -989,6 +971,7 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 const todo = '<span class="todo">À compléter</span>';
 const val = v => v ? esc(v) : todo;
 const col = f => `var(${f.couleur})`;
+const cnt = n => `<span class="n">${n}<span class="lab">fiche${n>1?'s':''}</span></span>`;
 const go = h => { location.hash = h; };
 
 function route(){
@@ -1010,17 +993,39 @@ function setNav(items){
   if (!items) return;
   crumbs.innerHTML = items.map((it,i) => i === items.length-1
     ? `<span class="here" aria-current="page">${esc(it.t)}</span>`
-    : `<a href="#${it.h}">${esc(it.t)}</a><span class="sep">/</span>`).join(' ');
+    : `<a href="#${it.h}">${esc(it.t)}</a><span class="sep" aria-hidden="true">›</span>`).join(' ');
 }
 
 function wheelSVG(items, hub, label, fs, startDeg){
+  const home = !items;
   items = items || FREINS.map(f => ({href:'#'+f.id, nom:f.nom, color:col(f), n:f.solutions.length}));
-  hub = hub || ['Freins', "à l'emploi"]; label = label || "Roue des freins à l'emploi"; fs = fs || 15;
-  const n = items.length, R = 250, r0 = 92, cx = 270, cy = 270, mx = n < 6 ? 12 : 14;
+  hub = hub || ['Freins', "à l'emploi"]; label = label || "Roue des freins à l'emploi"; fs = fs || 18;
+  const n = items.length, R = 250, r0 = 84, cx = 290, cy = 290, mx = n < 6 ? 12 : 14;
   const st = (startDeg === undefined ? -90 : startDeg) * Math.PI/180;
   const pt = (a, rad) => [cx + rad*Math.cos(a), cy + rad*Math.sin(a)];
   const wrap=(s,m)=>{const o=[];let c='';s.split(' ').forEach(w=>{if(c&&(c+' '+w).length>m){o.push(c);c=w}else c=c?c+' '+w:w});if(c)o.push(c);return o};
-  let g = '';
+
+  // lunette de la boussole : anneau marine, graduations tous les 5°, points cardinaux
+  let g = `<circle cx="${cx}" cy="${cy}" r="287" fill="#0B2B3D"/>
+    <circle cx="${cx}" cy="${cy}" r="286" fill="none" stroke="#B07D1E" stroke-width="2"/>
+    <circle cx="${cx}" cy="${cy}" r="259" fill="#F5F8F5" stroke="#B07D1E" stroke-width="2.5"/>`;
+  let minor = '', major = '';
+  for (let d = 0; d < 360; d += 5){
+    if (d % 90 === 0) continue;
+    const a = (d-90)*Math.PI/180, big = d % 30 === 0;
+    const [x1,y1] = pt(a, big ? 262 : 273), [x2,y2] = pt(a, 283);
+    const seg = `M${x1.toFixed(1)},${y1.toFixed(1)}L${x2.toFixed(1)},${y2.toFixed(1)}`;
+    if (big) major += seg; else minor += seg;
+  }
+  g += `<path d="${minor}" stroke="rgba(255,255,255,.55)" stroke-width="1.3" fill="none"/>
+    <path d="${major}" stroke="#F0CB77" stroke-width="2.4" fill="none"/>`;
+  [['N',0],['E',90],['S',180],['O',270]].forEach(([l,d]) => {
+    const [x,y] = pt((d-90)*Math.PI/180, 273);
+    if (l === 'N') g += `<circle cx="${x}" cy="${y}" r="13" fill="#C23A2B"/>`;
+    g += `<text class="bz" x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central">${l}</text>`;
+  });
+
+  // secteurs (un par frein)
   items.forEach((f, i) => {
     const a0 = st + i*2*Math.PI/n + 0.012, a1 = st + (i+1)*2*Math.PI/n - 0.012;
     const [x0,y0]=pt(a0,R),[x1,y1]=pt(a1,R),[x2,y2]=pt(a1,r0),[x3,y3]=pt(a0,r0);
@@ -1032,10 +1037,22 @@ function wheelSVG(items, hub, label, fs, startDeg){
       <path d="${d}" fill="${f.color}" style="transform-origin:${cx}px ${cy}px"/>
       <text x="${tx}" y="${ty}" transform="rotate(${rot} ${tx} ${ty})" text-anchor="middle" dominant-baseline="middle" font-size="${fs}">${tspans}</text></a>`;
   });
-  g += `<circle class="hub" cx="${cx}" cy="${cy}" r="${r0-8}"/>
-    <text class="hubtxt" x="${cx}" y="${cy-10}" text-anchor="middle" font-size="16">${esc(hub[0])}</text>
-    <text class="hubtxt" x="${cx}" y="${cy+12}" text-anchor="middle" font-size="16">${esc(hub[1])}</text>`;
-  return `<svg class="wheel" viewBox="0 0 540 540" role="group" aria-label="${esc(label)}">${g}</svg>`;
+
+  // moyeu : aiguille (accueil) ou titre du frein (sous-roues)
+  g += `<circle class="hub" cx="${cx}" cy="${cy}" r="${r0-8}"/>`;
+  if (home) {
+    const py = cy-36;
+    g += `<g class="needle" aria-hidden="true">
+        <polygon points="${cx},${cy-60} ${cx-8},${py} ${cx+8},${py}" fill="#C23A2B"/>
+        <polygon points="${cx-8},${py} ${cx+8},${py} ${cx},${cy-12}" fill="#0B2B3D"/>
+        <circle cx="${cx}" cy="${py}" r="3.5" fill="#fff" stroke="#0B2B3D" stroke-width="1.5"/></g>
+      <text class="hubtxt" x="${cx}" y="${cy+18}" text-anchor="middle" dominant-baseline="middle">${esc(hub[0])}</text>
+      <text class="hubtxt" x="${cx}" y="${cy+40}" text-anchor="middle" dominant-baseline="middle">${esc(hub[1])}</text>`;
+  } else {
+    const L = wrap(hub[0], 13), all = L.concat([hub[1]]), lh = 21, y0 = cy - (all.length-1)*lh/2;
+    g += all.map((t,i) => `<text class="hubtxt${i===L.length ? ' hubsub' : ''}" x="${cx}" y="${y0+i*lh}" text-anchor="middle" dominant-baseline="middle">${esc(t)}</text>`).join('');
+  }
+  return `<svg class="wheel" viewBox="0 0 580 580" role="group" aria-label="${esc(label)}">${g}</svg>`;
 }
 
 const ICONS = {
@@ -1051,7 +1068,7 @@ function renderHome(){
   document.title = "Roue des freins à l'emploi · Haute-Vienne";
   const totalSolutions = FREINS.reduce((n,f)=>n+f.solutions.length,0);
   app.innerHTML = `<div class="view intro">
-    <div class="wheel-stage">${wheelSVG()}</div>
+    <div class="wheel-stage">${wheelSVG()}<p class="wheel-cap">Touchez un secteur de la boussole pour explorer les solutions.</p></div>
     <div class="intro-copy">
       <div class="intro-kicker"><span class="spark">✦</span> Outil d’orientation · Haute-Vienne</div>
       <h1>Un frein à l’emploi ?<br>Des solutions existent.</h1>
@@ -1062,7 +1079,7 @@ function renderHome(){
         <p class="search-hint">Recherchez par nom de dispositif, besoin ou mot-clé.</p>
         <div class="search-results" id="search-results" aria-live="polite"></div>
       </div>
-      <ul class="legend">${FREINS.map(f => `<li><a href="#${f.id}" style="--icon-color:${col(f)}">${mark(f.id,col(f))}<span>${esc(f.nom)}</span><span class="n">${f.solutions.length}</span></a></li>`).join('')}</ul>
+      <ul class="legend">${FREINS.map(f => `<li><a href="#${f.id}" style="--icon-color:${col(f)}">${mark(f.id,col(f))}<span>${esc(f.nom)}</span>${cnt(f.solutions.length)}</a></li>`).join('')}</ul>
       <div class="note">ℹ️ Les mentions « à vérifier » signalent des coordonnées à confirmer ; les champs « À compléter » restent à renseigner avant diffusion.</div>
     </div></div>`;
   const input = document.getElementById('solution-search');
@@ -1095,12 +1112,12 @@ function renderCats(f){
   setNav([{t:'Accueil',h:''},{t:f.nom,h:f.id}]);
   const items = f.cats.map(c => ({href:'#'+f.id+'~'+slug(c.nom), nom:c.nom, color:`var(${c.couleur})`, n:f.solutions.filter(s => s.cat === c.nom).length}));
   app.innerHTML = `<div class="view intro">
-    <div>${wheelSVG(items, [f.nom, f.cats.length+' catégories'], f.nom+' : catégories', 20, 150)}</div>
+    <div class="wheel-stage">${wheelSVG(items, [f.nom, f.cats.length+' catégories'], f.nom+' : catégories', 20, 150)}</div>
     <div>
       <div class="eyebrow">Frein périphérique</div>
       <h1>${esc(f.nom)}</h1>
       <p>${esc(f.intro)}</p>
-      <ul class="legend">${items.map(it => `<li><a href="${it.href}"><span class="dot" style="background:${it.color}"></span>${esc(it.nom)}<span class="n">${it.n}</span></a></li>`).join('')}</ul>
+      <ul class="legend">${items.map(it => `<li><a href="${it.href}" style="--icon-color:${it.color}"><span class="dot" style="background:${it.color}"></span>${esc(it.nom)}${cnt(it.n)}</a></li>`).join('')}</ul>
     </div></div>`;
 }
 
