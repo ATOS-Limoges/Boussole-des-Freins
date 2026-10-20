@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "Roue des freins à l’emploi",
-  "short_name": "Roue emploi",
+  "name": "Boussole des freins à l’emploi",
+  "short_name": "Boussole emploi",
   "description": "Repérer les freins à l’emploi et découvrir les solutions d’accompagnement en Haute-Vienne.",
   "lang": "fr-FR",
   "start_url": "./index.html",

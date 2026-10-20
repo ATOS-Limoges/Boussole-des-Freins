@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Roue des freins à l'emploi</title>
+<title>Boussole des freins à l'emploi</title>
 <meta name="theme-color" content="#0B2B3D">
-<meta name="description" content="Roue des freins à l’emploi : repérer les difficultés et découvrir les solutions d’accompagnement en Haute-Vienne.">
+<meta name="description" content="Boussole des freins à l’emploi : repérer les difficultés et découvrir les solutions d’accompagnement en Haute-Vienne.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
@@ -116,7 +116,7 @@ a{color:var(--accent)}
 .search-result .arrow{font-size:20px;color:var(--f6)}
 .search-empty{padding:14px;border-radius:12px;background:#fff;border:1px dashed var(--line);font-size:15px;color:var(--muted)}
 
-/* liste des freins (alternative lisible à la roue) */
+/* liste des freins (alternative lisible à la boussole) */
 .legend{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .legend a{display:flex;align-items:center;gap:11px;min-height:64px;padding:10px 12px 10px 10px;border:1px solid var(--line);border-left:6px solid var(--icon-color,var(--accent));border-radius:14px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;font-size:16.5px;line-height:1.25}
 .legend a:active{background:var(--papier)}
@@ -181,12 +181,7 @@ a{color:var(--accent)}
 }
 
 /* ---------- mobile : lisibilité d'abord ---------- */
-.app-bottomnav{display:none}
-.app-tab{appearance:none;border:0;background:transparent;color:var(--marine);display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:14px;font:700 16px var(--body);cursor:pointer}
-.app-tab .tab-icon{font-size:20px;line-height:1}
-.app-tab.active{background:#E3EEF1}
 @media(max-width:600px){
-  body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   .app-topbar{padding-left:16px;padding-right:16px;gap:12px}
   .app-logo{width:40px;height:40px;font-size:21px}
   .app-brand strong{font-size:17px}
@@ -194,7 +189,7 @@ a{color:var(--accent)}
   .app-top-pill{font-size:11px;padding:5px 8px}
   .wrap{padding:16px 14px 32px}
   .intro{display:flex;flex-direction:column;align-items:stretch;gap:16px}
-  /* la roue occupe toute la largeur de l'écran : libellés plus grands */
+  /* la boussole occupe toute la largeur de l'écran : libellés plus grands */
   .wheel-stage{max-width:none;margin:0 -14px;width:auto;padding:10px 0 8px;border-radius:0;border-left:0;border-right:0}
   .wheel{max-width:none}
   .intro-copy{padding:20px 16px;border-radius:22px}
@@ -220,7 +215,6 @@ a{color:var(--accent)}
   .crumbs{flex:1 1 100%;font-size:14px}
   .navbtns{width:100%;margin-left:0}
   .navbtns .btn{flex:1;min-height:46px;font-size:16px;border-radius:14px}
-  .app-bottomnav{position:fixed;z-index:20;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:2px solid var(--laiton);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 }
 @media(prefers-reduced-motion:reduce){
   .view,.wheel .needle{animation:none}
@@ -232,7 +226,7 @@ a{color:var(--accent)}
 
 <header class="app-topbar" aria-label="En-tête de l'application">
   <div class="app-logo" aria-hidden="true">🧭</div>
-  <div class="app-brand"><strong>La roue des freins à l’emploi</strong><span>REPÈRES & SOLUTIONS · HAUTE-VIENNE</span></div>
+  <div class="app-brand"><strong>La boussole des freins à l’emploi</strong><span>REPÈRES & SOLUTIONS · HAUTE-VIENNE</span></div>
   <div class="app-top-pill">OUTIL PRO</div>
 </header>
 <header class="nav" id="nav" hidden>
@@ -245,9 +239,6 @@ a{color:var(--accent)}
   </div>
 </header>
 <main class="wrap" id="app"></main>
-<nav class="app-bottomnav" aria-label="Navigation principale">
-  <button class="app-tab" id="tab-home" type="button"><span class="tab-icon" aria-hidden="true">⌂</span>Accueil</button>
-</nav>
 
 <script>
 /* =====================================================================
@@ -999,7 +990,7 @@ function setNav(items){
 function wheelSVG(items, hub, label, fs, startDeg){
   const home = !items;
   items = items || FREINS.map(f => ({href:'#'+f.id, nom:f.nom, color:col(f), n:f.solutions.length}));
-  hub = hub || ['Freins', "à l'emploi"]; label = label || "Roue des freins à l'emploi"; fs = fs || 18;
+  hub = hub || ['Freins', "à l'emploi"]; label = label || "Boussole des freins à l'emploi"; fs = fs || 18;
   const n = items.length, R = 250, r0 = 84, cx = 290, cy = 290, mx = n < 6 ? 12 : 14;
   const st = (startDeg === undefined ? -90 : startDeg) * Math.PI/180;
   const pt = (a, rad) => [cx + rad*Math.cos(a), cy + rad*Math.sin(a)];
@@ -1038,7 +1029,7 @@ function wheelSVG(items, hub, label, fs, startDeg){
       <text x="${tx}" y="${ty}" transform="rotate(${rot} ${tx} ${ty})" text-anchor="middle" dominant-baseline="middle" font-size="${fs}">${tspans}</text></a>`;
   });
 
-  // moyeu : aiguille (accueil) ou titre du frein (sous-roues)
+  // moyeu : aiguille (accueil) ou titre du frein (sous-boussoles)
   g += `<circle class="hub" cx="${cx}" cy="${cy}" r="${r0-8}"/>`;
   if (home) {
     const py = cy-36;
@@ -1065,7 +1056,7 @@ const mark = (id, color) => `<span class="visual-mark" style="--c:${color||'var(
 const SECTION_ICONS = {"Présentation du dispositif":"📖","Ce qui est proposé":"🧰","Conditions d'éligibilité":"✅","Comment y accéder":"🧭"};
 function renderHome(){
   setNav(null);
-  document.title = "Roue des freins à l'emploi · Haute-Vienne";
+  document.title = "Boussole des freins à l'emploi · Haute-Vienne";
   const totalSolutions = FREINS.reduce((n,f)=>n+f.solutions.length,0);
   app.innerHTML = `<div class="view intro">
     <div class="wheel-stage">${wheelSVG()}<p class="wheel-cap">Touchez un secteur de la boussole pour explorer les solutions.</p></div>
