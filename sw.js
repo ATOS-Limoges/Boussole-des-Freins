@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'boussole-freins-emploi-v14';
+const CACHE_NAME = 'boussole-freins-emploi-v15';
 
 const APP_SHELL = [
   './',
@@ -34,7 +34,6 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   const url = new URL(request.url);
 
-  // Les liens externes restent en navigation normale.
   if (request.method !== 'GET' || url.origin !== self.location.origin) {
     return;
   }
