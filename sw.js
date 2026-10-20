@@ -1,99 +1,95 @@
 
-const CACHE_NAME = "boussole-freins-emploi-v19";
+const CACHE_NAME = 'boussole-freins-emploi-v19';
 
-const FILES_TO_CACHE = [
-  "./",
-  "./index.html"
+const APP_SHELL = [
+  './',
+  './index.html',
+  './manifest.webmanifest',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './icons/icon-512-maskable.png'
 ];
 
-// Installation du Service Worker
-self.addEventListener("install", (event) => {
+// Installation : mise en cache des ressources disponibles.
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
-      for (const file of FILES_TO_CACHE) {
-        try {
-          await cache.add(file);
-        } catch (error) {
-          console.warn("Fichier non mis en cache :", file, error);
-        }
-      }
-
+      await Promise.all(
+        APP_SHELL.map(async (url) => {
+          try {
+            await cache.add(url);
+          } catch (error) {
+            console.warn(
+              'Ressource non mise en cache :',
+              url,
+              error
+            );
+          }
+        })
+      );
       return self.skipWaiting();
     })
   );
 });
 
-// Activation : suppression des anciens caches
-self.addEventListener("activate", (event) => {
+// Activation : suppression des anciens caches.
+self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((cacheNames) => {
-        return Promise.all(
+      .then((cacheNames) =>
+        Promise.all(
           cacheNames
-            .filter((cacheName) =>
-              cacheName.startsWith("boussole-freins-emploi-") &&
-              cacheName !== CACHE_NAME
+            .filter(
+              (name) =>
+                name.startsWith('boussole-freins-emploi-') &&
+                name !== CACHE_NAME
             )
-            .map((cacheName) => caches.delete(cacheName))
-        );
-      })
+            .map((name) => caches.delete(name))
+        )
+      )
       .then(() => self.clients.claim())
   );
 });
 
-// Gestion des requêtes
-self.addEventListener("fetch", (event) => {
+// Navigation et ressources locales : cache d'abord, puis réseau.
+self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
 
-  // Ne pas intercepter les requêtes externes
+  // Ne pas intercepter les requêtes externes, notamment France Travail.
   if (url.origin !== self.location.origin) {
     return;
   }
 
-  // Ne gérer que les requêtes GET
-  if (request.method !== "GET") {
+  // Les requêtes autres que GET ne sont pas mises en cache.
+  if (request.method !== 'GET') {
     return;
   }
 
-  // Navigation : réseau d'abord, cache en secours
-  if (request.mode === "navigate") {
+  // Pour les pages HTML : réseau d'abord, cache en secours.
+  if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
         .then((response) => {
           if (response && response.ok) {
-            const responseCopy = response.clone();
-
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put("./index.html", responseCopy);
-            });
+            const copy = response.clone();
+            caches.open(CACHE_NAME)
+              .then((cache) => cache.put('./index.html', copy));
           }
-
           return response;
         })
         .catch(async () => {
-          const cachedPage = await caches.match("./index.html");
-
-          if (cachedPage) {
-            return cachedPage;
-          }
-
-          return new Response(
-            "La page est indisponible hors connexion. Connectez-vous à Internet puis réessayez.",
-            {
-              status: 503,
-              headers: {
-                "Content-Type": "text/plain; charset=utf-8"
-              }
-            }
+          return (
+            await caches.match(request) ||
+            await caches.match('./index.html') ||
+            Response.error()
           );
         })
     );
-
     return;
   }
 
-  // Autres fichiers : cache d'abord, réseau ensuite
+  // Pour les autres ressources locales : cache d'abord, réseau ensuite.
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       if (cachedResponse) {
@@ -102,13 +98,10 @@ self.addEventListener("fetch", (event) => {
 
       return fetch(request).then((response) => {
         if (response && response.ok) {
-          const responseCopy = response.clone();
-
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseCopy);
-          });
+          const copy = response.clone();
+          caches.open(CACHE_NAME)
+            .then((cache) => cache.put(request, copy));
         }
-
         return response;
       });
     })
