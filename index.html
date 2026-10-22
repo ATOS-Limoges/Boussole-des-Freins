@@ -651,12 +651,12 @@ const FREINS = [
       acces:"Accueil direct ou par téléphone.",
       contact:{structure:"Mission locale de l'agglomération de Limoges", adresse:"29 rue des Portes Ferrées, 87000 Limoges (à vérifier)", tel:"05 55 30 68 02 (à vérifier)", mail:"", horaires:"", site:"http://www.mission-locale-limoges.fr"} },
     { id:"ml-rurale", nom:"Mission locale rurale de la Haute-Vienne", type:"Prescripteur",
-      resume:"Accompagnement des 16-25 ans de la zone rurale, hors agglomération de Limoges.",
-      presentation:"La Mission locale rurale intervient sur 175 communes et 12 communautés de communes, avec 4 antennes, 32 points d'accueil et un mini-bus qui va à la rencontre des jeunes.",
-      propose:["Conseiller référent et parcours personnalisé", "Contrat d'engagement jeune", "Mini-bus de proximité", "Aide au permis, au logement, aux démarches"],
-      eligibilite:["Jeune de moins de 26 ans résidant en zone rurale de Haute-Vienne"],
-      acces:"Contacter la Mission locale ou une antenne (Bellac, Saint-Yrieix, Aixe-sur-Vienne, Saint-Junien).",
-      contact:{structure:"Mission locale rurale de la Haute-Vienne", adresse:"Siège : Tiers Lieu de Bellac, 12 place du Palais, 87300 Bellac", tel:"05 55 70 45 74", mail:"contact@mlr87.fr", horaires:"", site:""} },
+      resume:"Accompagnement social et professionnel des 16-25 ans sortis du système scolaire, sur la zone rurale du département.",
+      presentation:"La Mission locale rurale de la Haute-Vienne est une association dédiée à l'accompagnement social et professionnel des jeunes de 16 à 25 ans sortis du système scolaire. Elle couvre l'ensemble de la zone rurale du département (175 communes) pour aider les jeunes dans leurs démarches d'emploi, de formation, de logement, de mobilité et de santé. Elle s'organise autour d'un siège administratif et de 3 antennes permanentes, complétés par un réseau de 32 points d'accueil et permanences (comme à Ambazac) et un mini-bus pour aller à la rencontre des jeunes les plus isolés.",
+      propose:["Orientation et emploi : aide à la rédaction de CV et de lettres de motivation, préparation aux entretiens, job datings régionaux", "Contrat d'engagement jeune (CEJ) : parcours personnalisé et intensif, assorti d'une allocation sous conditions", "Groupement de créateurs : accompagnement des jeunes qui souhaitent créer leur projet ou leur entreprise", "Accompagnement au quotidien : solutions pour la mobilité (transports), le logement et l'accès aux soins (Points Santé)", "Mini-bus de proximité pour les jeunes les plus isolés"],
+      eligibilite:["Jeune de 16 à 25 ans sorti du système scolaire", "Résider en zone rurale de Haute-Vienne (hors agglomération de Limoges)", "Services gratuits"],
+      acces:"Accueil direct, par téléphone ou par courriel auprès du siège ou d'une antenne, ou lors d'une permanence dans l'un des 32 points d'accueil.",
+      contact:{structure:"Mission locale rurale de la Haute-Vienne", adresse:"Siège : 8 avenue François Mitterrand, 87700 Aixe-sur-Vienne", tel:"05 55 70 45 74", mail:"contact@mlr87.fr", horaires:"", site:""} },
     { id:"arpe", nom:"ARPE : accompagnement renforcé pour l'emploi", type:"Prescripteur",
       resume:"Accompagnement renforcé des bénéficiaires du RSA en zone rurale.",
       presentation:"Dispositif du Département de la Haute-Vienne, cofinancé par l'Union européenne, qui associe un référent à la personne pour faciliter son retour durable à l'emploi ou à une formation.",
@@ -684,10 +684,11 @@ const FREINS = [
     subs:[{nom:"Chantier d'insertion", couleur:"--f4", types:["ACI"], desc:"Un atelier et chantier d'insertion (ACI) est porté par une association ou une collectivité. Il emploie des personnes éloignées de l'emploi sur des activités d'utilité sociale, avec un accompagnement socio-professionnel et de la formation.", points:[["Statut","Association, collectivité ou organisme à but non lucratif ; activités d'utilité sociale qui ne concurrencent pas le marché."],["Contrat","Contrat à durée déterminée d'insertion (CDDI), 20 heures minimum par semaine."],["Durée","En règle générale de 4 à 24 mois."],["Ce qui est proposé","Mise en situation de travail, accompagnement socio-professionnel, formation, préparation à la sortie vers l'emploi ou la formation."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]},
       {nom:"Association intermédiaire", couleur:"--f7", types:["AI"], desc:"Une association intermédiaire (AI) embauche des personnes sans emploi pour les mettre à disposition, contre facturation, de particuliers, d'associations, de collectivités ou d'entreprises, pour des missions ponctuelles ou régulières.", points:[["Statut","Association conventionnée par l'État."],["Contrat","L'association est l'employeur : contrat de travail avec mises à disposition successives."],["Durée","Missions courtes et souples ; dans les entreprises, la mise à disposition est limitée à 480 heures sur 24 mois."],["Ce qui est proposé","Premières expériences de travail, activités variées (entretien, jardinage, bricolage, manutention…), accompagnement socio-professionnel."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]},
       {nom:"Entreprise d'insertion", couleur:"--f3", types:["EI"], desc:"Une entreprise d'insertion (EI) est une entreprise qui produit des biens ou des services sur le marché, comme n'importe quelle autre. Elle emploie des personnes en difficulté et les accompagne vers un emploi durable.", points:[["Statut","Entreprise à activité marchande, soumise aux règles de la concurrence."],["Contrat","Contrat à durée déterminée d'insertion (CDDI), 20 heures minimum par semaine."],["Durée","En règle générale de 4 à 24 mois."],["Ce qui est proposé","Poste de production comme dans une entreprise classique, accompagnement socio-professionnel, formation, mise en relation avec des employeurs."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]},
-      {nom:"Entreprise de travail temporaire", couleur:"--f6", types:["ETTI"], desc:"Une entreprise de travail temporaire d'insertion (ETTI) est une agence d'intérim dont l'activité est dédiée à l'insertion. Elle met ses salariés en mission auprès d'entreprises clientes, avec un accompagnement socio-professionnel.", points:[["Statut","Entreprise de travail temporaire."],["Contrat","Contrats de mission d'insertion, en intérim."],["Durée","Missions successives, pour une durée totale de 24 mois maximum."],["Ce qui est proposé","Missions dans des entreprises clientes (bâtiment, industrie, logistique…), accompagnement socio-professionnel."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]}]},
+      {nom:"Entreprise de travail temporaire d'insertion", couleur:"--f6", types:["ETTI"], desc:"Une entreprise de travail temporaire d'insertion (ETTI) est une agence d'intérim dont l'activité est dédiée à l'insertion. Elle met ses salariés en mission auprès d'entreprises clientes, avec un accompagnement socio-professionnel.", points:[["Statut","Entreprise de travail temporaire."],["Contrat","Contrats de mission d'insertion, en intérim."],["Durée","Missions successives, pour une durée totale de 24 mois maximum."],["Ce qui est proposé","Missions dans des entreprises clientes (bâtiment, industrie, logistique…), accompagnement socio-professionnel."],["Pour qui","Personnes agréées Pass IAE par France Travail, sur prescription (France Travail, Mission locale, Cap emploi, référents sociaux…)"]]}]},
          {nom:"Entreprises adaptées (Handicap)", couleur:"--f7", desc:"Entreprises qui emploient au moins 55 % de travailleurs en situation de handicap, en contrat de droit commun."},
-         {nom:"Emploi accompagné (Handicap)", couleur:"--f4", desc:"Accompagnement dans la durée de la personne en situation de handicap et de son employeur, pour accéder à l'emploi ou s'y maintenir."}],
-   intro:"Les emplois adaptés et accompagnés de Haute-Vienne, en trois catégories : structures d'insertion par l'activité économique (SIAE), entreprises adaptées et dispositif d'emploi accompagné.",
+         {nom:"Emploi accompagné (Handicap)", couleur:"--f4", desc:"Accompagnement dans la durée de la personne en situation de handicap et de son employeur, pour accéder à l'emploi ou s'y maintenir."},
+         {nom:"Création d'entreprise", couleur:"--f1", desc:"Dispositifs qui aident à explorer, structurer et financer un projet de création ou de reprise d'entreprise en Haute-Vienne."}],
+   intro:"Les emplois adaptés et accompagnés de Haute-Vienne, ainsi que l'appui à la création d'entreprise, en quatre catégories : structures d'insertion par l'activité économique (SIAE), entreprises adaptées, dispositif d'emploi accompagné et création d'entreprise.",
    solutions:[
     { id:"siae-atos", nom:"ATOS", type:"AI", cat:"SIAE",
       resume:"Activités : bâtiment Travaux Publics ; environnement, entretien et aménagement des espaces verts et naturels ; nettoyage, propreté (hors SAP) ; services à la personne.",
@@ -801,13 +802,6 @@ const FREINS = [
       eligibilite:["Agrément (Pass IAE) délivré par France Travail", "Prescription par France Travail, Mission locale, Cap emploi ou un référent social"],
       acces:"Contacter la structure ; l'agrément est demandé par le prescripteur. Téléphone, courriel et horaires non publiés dans l'annuaire INAÉ : à compléter.",
       contact:{structure:"L'Atelier 2N", adresse:"27 rue de Romanet, 87000 Limoges", tel:"", mail:"", horaires:"", site:"https://inae-nouvelleaquitaine.org/annuaire-structure/?_sft_departement=haute_vienne_87"} },
-    { id:"siae-coup-d-main", nom:"Coup d'Main", type:"AI", cat:"SIAE",
-      resume:"Activités : nettoyage, propreté (hors SAP) ; services à la personne.",
-      presentation:"L'association intermédiaire embauche des personnes pour les mettre à disposition de particuliers, d'associations, de collectivités ou d'entreprises, avec un accompagnement socio-professionnel. Source des activités : annuaire INAÉ Nouvelle-Aquitaine.",
-      propose:["Contrat de travail en insertion", "Accompagnement socio-professionnel", "Activité : Nettoyage, propreté (hors SAP)", "Activité : Services à la personne"],
-      eligibilite:["Agrément (Pass IAE) délivré par France Travail", "Prescription par France Travail, Mission locale, Cap emploi ou un référent social"],
-      acces:"Contacter la structure ; l'agrément est demandé par le prescripteur. Téléphone, courriel et horaires non publiés dans l'annuaire INAÉ : à compléter.",
-      contact:{structure:"Coup d'Main", adresse:"8-10 rue Saint Paul, 87000 Limoges", tel:"", mail:"", horaires:"", site:"https://inae-nouvelleaquitaine.org/annuaire-structure/?_sft_departement=haute_vienne_87"} },
     { id:"siae-ls-insertion", nom:"Acto Insertion", type:"ETTI", cat:"SIAE",
       resume:"Activités : informatique, impression et travaux administratifs ; nettoyage, propreté (hors SAP) ; restauration, traiteur ; sous-traitance industrielle.",
       presentation:"L'entreprise de travail temporaire d'insertion propose des missions d'intérim avec un accompagnement socio-professionnel. Source des activités : annuaire INAÉ Nouvelle-Aquitaine.",
@@ -1011,6 +1005,20 @@ const FREINS = [
       eligibilite:["Reconnaissance de la qualité de travailleur handicapé (RQTH)", "Candidature directe ou via Cap emploi, France Travail"],
       acces:"Candidature auprès de l'entreprise. Téléphone, courriel et horaires à compléter.",
       contact:{structure:"EA STS Limoges (Sous Traitance Service)", adresse:"19 rue Frédéric Bastiat, 87280 Limoges (à vérifier)", tel:"", mail:"", horaires:"", site:"https://www.hosmoz.fr/Annuaire/Haute-Vienne-87/"} },
+    { id:"creation-bge-limousin", nom:"BGE Limousin Poitou-Charentes : appui aux entrepreneurs", type:"Accompagnement", cat:"Création d'entreprise",
+      resume:"Appui à toutes les étapes d'un projet de création ou de développement d'entreprise, de l'idée au financement.",
+      presentation:"BGE est un réseau associatif présent partout en France. BGE Limousin Poitou-Charentes accueille les futurs créateurs d'entreprise et les entrepreneurs en activité pour leur apporter l'appui nécessaire à la création ou au développement de leur activité, de l'idée jusqu'au montage du projet et au développement.",
+      propose:["Envisager la création d'entreprise comme une possibilité et travailler ses motivations", "Comprendre les conditions de faisabilité et valider la viabilité du projet", "Penser la stratégie commerciale (offre, prix, distribution) et le plan de communication", "Faire les choix administratifs, juridiques et fiscaux", "Formaliser son business plan et tester son activité", "Acquérir les compétences clés de l'entrepreneur", "Définir le juste montant à emprunter, accéder aux financements et être mis en relation avec des partenaires financiers"],
+      eligibilite:["Tous publics", "Gratuit"],
+      acces:"Se présenter, téléphoner, envoyer un courriel ou passer par le formulaire DORA. Service mobilisable par les professionnels comme par les usagers. Accueil en présentiel, périmètre Haute-Vienne.",
+      contact:{structure:"BGE Limousin Poitou-Charentes", adresse:"25 cours Jean Pénicaud, 87000 Limoges", tel:"", mail:"", horaires:"", site:"https://dora.inclusion.gouv.fr/services/bge-limousin-appui-aux-entreprene"} },
+    { id:"creation-activ-crea", nom:"Activ'Créa (France Travail)", type:"Accompagnement", cat:"Création d'entreprise",
+      resume:"Explorer l'opportunité de créer ou reprendre une entreprise, avec l'appui d'un professionnel de France Travail.",
+      presentation:"Avec l'appui d'un professionnel, Activ'Créa permet d'explorer l'opportunité de créer ou reprendre une entreprise, à partir de la situation de la personne et du marché du travail. L'entretien de bilan permet de décider de poursuivre ou d'abandonner l'idée de création d'entreprise.",
+      propose:["Identifier les compétences et atouts sur lesquels s'appuyer", "Repérer des idées de création ou de reprise d'entreprise réalistes et réalisables", "Définir les conditions de réussite et les actions à mettre en œuvre pour sécuriser le projet", "Durée : 3 mois maximum, en présentiel ou à distance"],
+      eligibilite:["Demandeurs d'emploi", "Être inscrit à France Travail", "Gratuit"],
+      acces:"Depuis son espace personnel France Travail (lien de mobilisation), ou en contactant un conseiller France Travail. Les professionnels peuvent aussi orienter par téléphone ou via le lien de mobilisation.",
+      contact:{structure:"Agence France Travail Limoges Jourdan", adresse:"13 cours Jourdan, 87000 Limoges", tel:"3949", mail:"", horaires:"Du lundi au vendredi, 8h30-12h30", site:"https://dora.inclusion.gouv.fr/services/di--france-travail--NAQ1058-25"} },
     { id:"plimot-87", nom:"PLIMOT 87", type:"Emploi accompagné", cat:"Emploi accompagné (Handicap)",
       resume:"Dispositif d'emploi accompagné de la Haute-Vienne : insertion et maintien dans l'emploi.",
       presentation:"PLIMOT 87 est un dispositif d'emploi accompagné conventionné, porté par Delta Plus (fondation des Amis de l'Atelier). Il accompagne dans la durée la personne en situation de handicap et son employeur, pour accéder à l'emploi ou s'y maintenir.",
@@ -1312,6 +1320,41 @@ function renderFiche(f, s){
           <div><dt>Source</dt><dd>${esc(agency.source)}</dd></div>
         </dl>
         <p><a class="primary-btn" href="${esc(agency.url)}" target="_blank" rel="noopener">Consulter la fiche de l’agence ↗</a></p>
+        <button type="button" class="secondary-btn" id="ft-close-details">Fermer la fiche</button>`;
+      editor.scrollIntoView({behavior:'smooth',block:'nearest'});
+      document.getElementById('ft-close-details').addEventListener('click', () => { editor.hidden = true; btn.setAttribute('aria-expanded','false'); });
+    }));
+    return;
+  }
+  if (f.id === 'prescripteurs' && s.id === 'ml-rurale') {
+    const hrs = 'Du lundi au jeudi : 8h30–12h00 et 14h00–17h00 ; vendredi : 8h30–12h00 et 14h00–16h00 (horaires généraux, à confirmer auprès de l’antenne).';
+    const antennes = [
+      {id:'aixe', name:'Siège administratif · Aixe-sur-Vienne', address:'8 avenue François Mitterrand, 87700 Aixe-sur-Vienne', phone:'05 55 70 45 74', mail:'contact@mlr87.fr', hours:hrs},
+      {id:'bellac', name:'Antenne de Bellac', address:'2 rue du Coq, 87300 Bellac', phone:'05 55 68 87 54', mail:'bellac@mlr87.fr', hours:hrs},
+      {id:'saint-junien', name:'Antenne de Saint-Junien', address:'Centre Martial-Pascaud, rue d’Arsonval, 87200 Saint-Junien', phone:'05 55 02 05 71', mail:'contact@mlr87.fr', hours:hrs},
+      {id:'saint-yrieix', name:'Antenne de Saint-Yrieix-la-Perche', address:'Rue du 8-Mai-1945, 87500 Saint-Yrieix-la-Perche', phone:'05 55 08 27 98', mail:'styrieix@mlr87.fr', hours:hrs},
+    ];
+    const antCards = antennes.map(a => `<button type="button" class="ft-agency-card" data-agency="${a.id}" aria-expanded="false"><span class="ft-agency-pin">⌖</span><span class="ft-agency-name">${esc(a.name)}</span><span class="ft-agency-meta">Adresse, téléphone et horaires</span><span class="ft-agency-arrow">›</span></button>`).join('');
+    app.innerHTML = `<div class="view" style="--c:${kc}">
+      <div class="fh"><span class="pill">${esc(f.nom)}</span><span class="tag">${esc(s.type)}</span><h1>${mark(f.id,kc)}${esc(s.nom)}</h1></div>
+      <div class="fiche"><article class="panel">
+        <section><h2>📖 Présentation du dispositif</h2><p>${val(s.presentation)}</p></section>
+        <section><h2>🧰 Ce qui est proposé</h2>${list(s.propose)}</section>
+        <section><h2>✅ Conditions d’éligibilité</h2>${list(s.eligibilite)}</section>
+        <section><h2>🧭 Comment y accéder</h2><p>${val(s.acces)}</p></section>
+      </article><aside class="panel ft-directory"><h2>Antennes de la Mission locale rurale</h2><p class="muted">Cliquez sur une antenne pour consulter ses coordonnées. L’association propose aussi 32 points d’accueil et permanences sur le territoire.</p><div class="ft-agency-grid">${antCards}</div><div id="ft-agency-editor" class="ft-agency-editor" hidden></div></aside></div></div>`;
+    const editor = document.getElementById('ft-agency-editor');
+    app.querySelectorAll('[data-agency]').forEach(btn => btn.addEventListener('click', () => {
+      const a = antennes.find(x => x.id === btn.dataset.agency);
+      app.querySelectorAll('[data-agency]').forEach(b => b.setAttribute('aria-expanded', String(b === btn)));
+      editor.hidden = false;
+      editor.innerHTML = `<h3>${esc(a.name)}</h3>
+        <dl class="ft-agency-details">
+          <div><dt>Adresse</dt><dd>${esc(a.address)}</dd></div>
+          <div><dt>Téléphone</dt><dd><a href="tel:${a.phone.replace(/\s/g,'')}">${esc(a.phone)}</a></dd></div>
+          <div><dt>Courriel</dt><dd><a href="mailto:${esc(a.mail)}">${esc(a.mail)}</a></dd></div>
+          <div><dt>Horaires d’accueil</dt><dd>${esc(a.hours)}</dd></div>
+        </dl>
         <button type="button" class="secondary-btn" id="ft-close-details">Fermer la fiche</button>`;
       editor.scrollIntoView({behavior:'smooth',block:'nearest'});
       document.getElementById('ft-close-details').addEventListener('click', () => { editor.hidden = true; btn.setAttribute('aria-expanded','false'); });
