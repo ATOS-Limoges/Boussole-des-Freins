@@ -1162,13 +1162,9 @@ function renderHome(){
       ${wheelSVG()}<p class="wheel-cap">Touchez un secteur de la boussole pour explorer les solutions.</p>
       <section class="events-panel desktop-events" aria-labelledby="desktop-events-title">
         <div class="events-heading"><span aria-hidden="true">📅</span><div><h2 id="desktop-events-title">Les 3 prochains événements emploi</h2><p>En Haute-Vienne · Source : France Travail</p></div></div>
-        <div class="events-list">
-          <article class="event-card"><div class="event-date"><strong>26</strong><span>OCT.</span></div><div class="event-info"><h3>Adéquat recrute des opérateurs logistiques et de production agroalimentaire</h3><p>🕘 9 h 15 – 12 h · 📍 Agence France Travail Limoges Leclerc</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/773059" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
-          <article class="event-card"><div class="event-date"><strong>28</strong><span>OCT.</span></div><div class="event-info"><h3>Recrutement de mécaniciens et monteurs par simulation (MRS)</h3><p>🕘 9 h – 12 h · 📍 Agence France Travail Limoges Leclerc</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/777128" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
-          <article class="event-card"><div class="event-date"><strong>02</strong><span>NOV.</span></div><div class="event-info"><h3>Venez tester votre potentiel sur les métiers de la logistique</h3><p>🕘 8 h 45 – 12 h · 📍 Agence France Travail Limoges Ventadour</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/773821" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
-        </div>
+        <div class="events-list" data-events-list aria-live="polite"><p class="events-update">Chargement des événements France Travail…</p></div>
         <a class="events-all" href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/" target="_blank" rel="noopener noreferrer">Consulter tous les événements sur France Travail ↗</a>
-        <p class="events-update">Événements repérés le 20 octobre 2026. Les dates et disponibilités peuvent évoluer : vérifiez les informations sur le site officiel.</p>
+        <p class="events-update" data-events-status>Les événements sont récupérés automatiquement depuis France Travail.</p>
       </section>
     </div>
     <div class="intro-copy">
@@ -1191,13 +1187,9 @@ function renderHome(){
       <section class="home-panel" id="mobile-panel-events" role="tabpanel" aria-labelledby="mobile-tab-events" data-panel="events" hidden>
         <section class="events-panel" aria-labelledby="events-title">
           <div class="events-heading"><span aria-hidden="true">📅</span><div><h2 id="events-title">Les 3 prochains événements emploi</h2><p>En Haute-Vienne · Source : France Travail</p></div></div>
-          <div class="events-list">
-            <article class="event-card"><div class="event-date"><strong>26</strong><span>OCT.</span></div><div class="event-info"><h3>Adéquat recrute des opérateurs logistiques et de production agroalimentaire</h3><p>🕘 9 h 15 – 12 h · 📍 Agence France Travail Limoges Leclerc</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/773059" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
-            <article class="event-card"><div class="event-date"><strong>28</strong><span>OCT.</span></div><div class="event-info"><h3>Recrutement de mécaniciens et monteurs par simulation (MRS)</h3><p>🕘 9 h – 12 h · 📍 Agence France Travail Limoges Leclerc</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/777128" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
-            <article class="event-card"><div class="event-date"><strong>02</strong><span>NOV.</span></div><div class="event-info"><h3>Venez tester votre potentiel sur les métiers de la logistique</h3><p>🕘 8 h 45 – 12 h · 📍 Agence France Travail Limoges Ventadour</p><a href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/evenement/773821" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div></article>
-          </div>
-          <a class="events-all" href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/" target="_blank" rel="noopener noreferrer">Consulter tous les événements sur France Travail ↗</a>
-          <p class="events-update">Événements repérés le 20 octobre 2026. Les dates et disponibilités peuvent évoluer : vérifiez les informations sur le site officiel.</p>
+          <div class="events-list" data-events-list aria-live="polite"><p class="events-update">Chargement des événements France Travail…</p></div>
+        <a class="events-all" href="https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/" target="_blank" rel="noopener noreferrer">Consulter tous les événements sur France Travail ↗</a>
+          <p class="events-update" data-events-status>Les événements sont récupérés automatiquement depuis France Travail.</p>
         </section>
       </section>
       <section class="home-panel" id="mobile-panel-categories" role="tabpanel" aria-labelledby="mobile-tab-categories" data-panel="categories" hidden>
@@ -1460,6 +1452,155 @@ window.addEventListener('hashchange', () => { route(); });
 route();
 </script>
 
+
+
+<script>
+/* BOUSSOLE ATOS — événements emploi France Travail
+   Après déploiement du Worker Cloudflare, remplacer l'URL ci-dessous par son URL publique.
+   Ne jamais placer les identifiants OAuth dans ce fichier HTML. */
+(() => {
+  const EVENTS_API_URL = https://api.francetravail.io/partenaire/evenements/v1;
+  const SOURCE_URL = "https://mesevenementsemploi.francetravail.fr/mes-evenements-emploi/";
+  let lastEvents = null;
+  let lastUpdate = null;
+  let loading = false;
+
+  const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[ch]));
+
+  const pick = (obj, keys) => {
+    for (const key of keys) {
+      const value = obj && obj[key];
+      if (value !== undefined && value !== null && value !== "") return value;
+    }
+    return "";
+  };
+
+  const toDate = (value) => {
+    if (!value) return null;
+    const d = new Date(value);
+    return Number.isNaN(d.getTime()) ? null : d;
+  };
+
+  const formatDateParts = (value) => {
+    const d = toDate(value);
+    if (!d) return {day:"?", month:""};
+    return {
+      day: new Intl.DateTimeFormat("fr-FR", {day:"2-digit"}).format(d),
+      month: new Intl.DateTimeFormat("fr-FR", {month:"short"}).format(d).replace(".", "").toUpperCase()
+    };
+  };
+
+  const normalizeEvent = (event) => {
+    const dateRaw = pick(event, ["dateEvenement", "dateDebut", "dateDebutEvenement", "date"]);
+    const date = toDate(dateRaw);
+    const title = pick(event, ["titre", "titreEvenement", "intitule", "nom", "libelle"]) || "Événement emploi";
+    const city = pick(event, ["ville", "commune", "nomCommune", "localite"]);
+    const place = pick(event, ["lieu", "nomLieu", "lieuEvenement", "adresseLieu", "nomSite"]);
+    const location = [place, city].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).join(" · ") || "Haute-Vienne";
+    const startTime = pick(event, ["heureDebut", "horaireDebut", "heureDebutEvenement"]);
+    const endTime = pick(event, ["heureFin", "horaireFin", "heureFinEvenement"]);
+    const url = pick(event, ["urlDetailEvenement", "url", "lien", "urlEvenement"]) || SOURCE_URL;
+    return {date, title, location, startTime, endTime, url};
+  };
+
+  const getArray = (payload) => {
+    if (Array.isArray(payload)) return payload;
+    for (const key of ["evenements", "events", "resultats", "results", "items", "content", "data"]) {
+      if (Array.isArray(payload?.[key])) return payload[key];
+      if (payload?.[key] && typeof payload[key] === "object") {
+        for (const nested of ["evenements", "events", "items", "content", "results"]) {
+          if (Array.isArray(payload[key][nested])) return payload[key][nested];
+        }
+      }
+    }
+    return [];
+  };
+
+  const render = () => {
+    const containers = document.querySelectorAll("[data-events-list]");
+    if (!containers.length) return;
+    if (!EVENTS_API_URL || EVENTS_API_URL.includes("A_CONFIGURER")) {
+      containers.forEach(el => el.innerHTML =
+        '<p class="events-update">Connexion automatique en attente de la configuration sécurisée de France Travail.</p>');
+      return;
+    }
+    if (!lastEvents) {
+      containers.forEach(el => el.innerHTML =
+        '<p class="events-update">Chargement des événements France Travail…</p>');
+      return;
+    }
+    if (!lastEvents.length) {
+      containers.forEach(el => el.innerHTML =
+        '<p class="events-update">Aucun événement à venir n’a été retourné pour la Haute-Vienne. Consultez la plateforme officielle.</p>');
+      return;
+    }
+
+    const cards = lastEvents.slice(0, 3).map(event => {
+      const parts = formatDateParts(event.date);
+      const time = [event.startTime, event.endTime].filter(Boolean).join(" – ");
+      const details = `${time ? "🕘 " + escapeHtml(time) + " · " : ""}📍 ${escapeHtml(event.location)}`;
+      const safeUrl = /^https:\/\/mesevenementsemploi\.francetravail\.fr\//i.test(event.url) ? event.url : SOURCE_URL;
+      return `<article class="event-card">
+        <div class="event-date"><strong>${escapeHtml(parts.day)}</strong><span>${escapeHtml(parts.month)}</span></div>
+        <div class="event-info"><h3>${escapeHtml(event.title)}</h3><p>${details}</p>
+        <a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer">Voir l’événement et s’inscrire ↗</a></div>
+      </article>`;
+    }).join("");
+    containers.forEach(el => el.innerHTML = cards);
+    document.querySelectorAll("[data-events-status]").forEach(el => {
+      el.textContent = lastUpdate
+        ? "Actualisé le " + new Intl.DateTimeFormat("fr-FR", {dateStyle:"short", timeStyle:"short"}).format(lastUpdate) + " · Les informations restent consultables sur France Travail."
+        : "Événements récupérés depuis France Travail.";
+    });
+  };
+
+  const loadEvents = async () => {
+    if (loading || !EVENTS_API_URL || EVENTS_API_URL.includes("A_CONFIGURER")) { render(); return; }
+    loading = true;
+    try {
+      const response = await fetch(EVENTS_API_URL, {
+        method: "GET",
+        headers: {"Accept":"application/json"},
+        cache: "no-store"
+      });
+      if (!response.ok) throw new Error("Réponse API " + response.status);
+      const payload = await response.json();
+      const today = new Date(); today.setHours(0,0,0,0);
+      lastEvents = getArray(payload).map(normalizeEvent)
+        .filter(e => e.date && e.date >= today)
+        .sort((a,b) => a.date - b.date)
+        .slice(0,3);
+      lastUpdate = new Date();
+      render();
+    } catch (error) {
+      console.warn("Boussole ATOS : impossible de charger les événements.", error);
+      document.querySelectorAll("[data-events-list]").forEach(el => {
+        el.innerHTML = '<p class="events-update">Les événements ne sont pas disponibles pour le moment. Réessayez plus tard ou consultez la plateforme France Travail.</p>';
+      });
+    } finally {
+      loading = false;
+    }
+  };
+
+  const observer = new MutationObserver((records) => {
+    const listWasInserted = records.some(record =>
+      Array.from(record.addedNodes || []).some(node =>
+        node.nodeType === 1 &&
+        (node.matches?.("[data-events-list]") || node.querySelector?.("[data-events-list]"))
+      )
+    );
+    if (listWasInserted) render();
+  });
+  observer.observe(document.documentElement, {childList:true, subtree:true});
+  document.addEventListener("DOMContentLoaded", loadEvents, {once:true});
+  window.addEventListener("pageshow", loadEvents);
+  window.addEventListener("online", loadEvents);
+  // Actualisation toutes les 6 heures tant que la page reste ouverte.
+  window.setInterval(loadEvents, 6 * 60 * 60 * 1000);
+})();
+</script>
 
 <script>
 // Enregistrement du Service Worker : nécessaire pour le cache et le mode hors connexion.
