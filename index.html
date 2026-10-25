@@ -371,56 +371,11 @@ body.halloween-theme #brand-splash .splash-bar{
 @media(prefers-reduced-motion:reduce){body.halloween-theme #brand-splash::after{animation:none}}
 
 
-/* Petite chauve-souris décorative : passage rare, discret et non interactif */
-body.halloween-theme #cute-bat-flyby{
-  position:fixed; z-index:9000; left:0; top:27vh;
-  width:clamp(76px,10vw,112px); height:auto; aspect-ratio:140/76;
-  display:flex; align-items:center; justify-content:center;
-  pointer-events:none; user-select:none; opacity:0;
-  filter:drop-shadow(0 3px 4px #24143130);
-  animation:cute-bat-crossing 28s linear infinite;
-  animation-delay:5s;
-  will-change:transform,opacity;
-}
-body.halloween-theme .cute-bat-art{display:block;width:100%;height:auto;overflow:visible}
-body.halloween-theme .cute-bat-wing{transform-box:fill-box;transform-origin:center center}
-body.halloween-theme .cute-bat-wing-left{animation:cute-bat-flap-left .34s ease-in-out infinite alternate}
-body.halloween-theme .cute-bat-wing-right{animation:cute-bat-flap-right .34s ease-in-out infinite alternate}
-@keyframes cute-bat-flap-left{from{transform:rotate(9deg) scaleY(.82)}to{transform:rotate(-17deg) scaleY(1.08)}}
-@keyframes cute-bat-flap-right{from{transform:rotate(-9deg) scaleY(.82)}to{transform:rotate(17deg) scaleY(1.08)}}
-@keyframes cute-bat-crossing{
-  0%,65%{opacity:0;transform:translate3d(-8vw,0,0) rotate(-8deg) scale(.88)}
-  66%{opacity:.92;transform:translate3d(-5vw,-2px,0) rotate(-5deg) scale(1)}
-  69%{opacity:.92;transform:translate3d(18vw,5px,0) rotate(5deg) scale(1.02)}
-  72%{opacity:.92;transform:translate3d(42vw,-4px,0) rotate(-3deg) scale(.98)}
-  75%{opacity:.92;transform:translate3d(67vw,3px,0) rotate(6deg) scale(1)}
-  78%{opacity:.7;transform:translate3d(91vw,-2px,0) rotate(-4deg) scale(.95)}
-  81%,100%{opacity:0;transform:translate3d(110vw,0,0) rotate(4deg) scale(.9)}
-}
-@media(max-width:520px){body.halloween-theme #cute-bat-flyby{top:22vh}}
-@media(prefers-reduced-motion:reduce){body.halloween-theme #cute-bat-flyby{animation:none;display:none}}
+
 
 </style>
 </head>
 <body class="halloween-theme">
-<div id="cute-bat-flyby" aria-hidden="true">
-  <svg class="cute-bat-art" viewBox="0 0 140 76" role="presentation">
-    <g class="cute-bat-wing cute-bat-wing-left">
-      <path d="M68 37 C53 17 36 12 12 17 C20 25 9 31 5 36 C21 35 26 44 33 48 C42 41 51 43 68 49 Z" fill="#34204D" stroke="#20142D" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M15 21 Q29 24 34 42 M31 23 Q43 29 47 43 M46 29 Q56 35 60 44" fill="none" stroke="#8E69AD" stroke-width="2" stroke-linecap="round"/>
-    </g>
-    <g class="cute-bat-wing cute-bat-wing-right">
-      <path d="M72 37 C87 17 104 12 128 17 C120 25 131 31 135 36 C119 35 114 44 107 48 C98 41 89 43 72 49 Z" fill="#34204D" stroke="#20142D" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M125 21 Q111 24 106 42 M109 23 Q97 29 93 43 M94 29 Q84 35 80 44" fill="none" stroke="#8E69AD" stroke-width="2" stroke-linecap="round"/>
-    </g>
-    <path d="M61 27 L55 12 L69 22 L72 22 L86 12 L80 28" fill="#34204D" stroke="#20142D" stroke-width="2.5" stroke-linejoin="round"/>
-    <ellipse cx="70" cy="39" rx="18" ry="20" fill="#49305F" stroke="#20142D" stroke-width="2.5"/>
-    <ellipse cx="63" cy="37" rx="4.5" ry="6" fill="#FFE9A8"/><ellipse cx="77" cy="37" rx="4.5" ry="6" fill="#FFE9A8"/>
-    <circle cx="64" cy="38" r="2.2" fill="#20142D"/><circle cx="76" cy="38" r="2.2" fill="#20142D"/>
-    <circle cx="53" cy="45" r="4" fill="#F29A9A" opacity=".95"/><circle cx="87" cy="45" r="4" fill="#F29A9A" opacity=".95"/>
-    <path d="M65 47 Q70 52 75 47" fill="none" stroke="#FFE9A8" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-</div>
 <div id="brand-splash" role="status" aria-label="Chargement de la Boussole des freins à l’emploi">
   <div class="splash-compass" aria-hidden="true"><svg viewBox="0 0 200 200"><circle class="sc-face" cx="100" cy="100" r="92"/><circle class="sc-ring" cx="100" cy="100" r="92"/><circle class="sc-ticks" cx="100" cy="100" r="68"/><text class="sc-cardinal" x="100" y="17" dominant-baseline="central">N</text><text class="sc-cardinal" x="183" y="100" dominant-baseline="central">E</text><text class="sc-cardinal" x="100" y="183" dominant-baseline="central">S</text><text class="sc-cardinal" x="17" y="100" dominant-baseline="central">O</text><g class="sc-needle"><polygon class="sc-n" points="100,40 111,100 89,100"/><polygon class="sc-s" points="100,160 111,100 89,100"/></g><circle class="sc-pin" cx="100" cy="100" r="7"/></svg></div>
   <div class="splash-title">La boussole des freins à l’emploi</div>
