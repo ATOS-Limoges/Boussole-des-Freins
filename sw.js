@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'boussole-freins-emploi-v25';
+const CACHE_NAME = 'boussole-freins-emploi-v29';
 
 const APP_SHELL = [
   './',
