@@ -404,7 +404,7 @@ body:not(.halloween-theme) .storm{display:none}
   .storm-flash,.storm-bolt{display:none}
 }
 
-/* ---------- le chat noir qui traverse le bas de la page (après 30 s d'inactivité) ---------- */
+/* ---------- le chat noir qui traverse le bas de la page (après 20 s d'inactivité) ---------- */
 body:not(.halloween-theme) #hw-cat{display:none}
 #hw-cat{position:fixed;left:0;bottom:calc(env(safe-area-inset-bottom,0px) + 2px);width:80px;z-index:4;pointer-events:none;
   transform:translate3d(-140px,0,0);will-change:transform;filter:drop-shadow(0 2px 2px rgba(52,32,77,.28))}
@@ -422,6 +422,49 @@ body:not(.halloween-theme) #hw-cat{display:none}
 @keyframes cat-step{from{transform:rotate(-26deg)}to{transform:rotate(26deg)}}
 @keyframes cat-bob{from{transform:translateY(0)}to{transform:translateY(-1.3px)}}
 @keyframes cat-tail{from{transform:rotate(-7deg)}to{transform:rotate(9deg)}}
+/* poses du chat : s'asseoir et se lécher la patte, ou s'arrêter et miauler */
+#hw-cat .cat-haunch,#hw-cat .cat-paw,#hw-cat .cat-mouth{opacity:0}
+#hw-cat .cat-haunch{transition:opacity .2s}
+#hw-cat .leg{transition:opacity .2s}
+#hw-cat .cat-paw{transform:translate(74px,37px) rotate(-110deg)}
+#hw-cat .cat-mouth{transform-origin:91px 26.5px}
+#hw-cat.stop .leg,#hw-cat.stop .cat-bob{animation:none}
+#hw-cat.sit .leg{animation:none}
+#hw-cat.sit .leg.l-a,#hw-cat.sit .leg.l-b{opacity:0}
+#hw-cat.sit .cat-haunch{opacity:1}
+#hw-cat.sit .cat-bob{transform-origin:36px 50px}
+#hw-cat.sit-in .cat-bob{animation:cat-bob-sit .45s ease-out forwards}
+#hw-cat.sit-in .leg.l-c,#hw-cat.sit-in .leg.l-d{animation:cat-leg-sit .45s ease-out forwards}
+#hw-cat.sit-in .cat-tail{animation:cat-tail-in .45s ease-out forwards}
+#hw-cat.lick .cat-bob{animation:cat-bob-lick .9s ease-in-out infinite alternate}
+#hw-cat.lick .leg.l-c{transform:translateY(-9px) scaleY(1.53)}
+#hw-cat.lick .leg.l-d{opacity:0}
+#hw-cat.lick .cat-paw{opacity:1;animation:cat-paw-lick .5s ease-in-out infinite alternate}
+#hw-cat.lick .cat-mouth{animation:cat-tongue .5s ease-in-out infinite alternate}
+#hw-cat.lick .cat-tail{animation:cat-tail-sit 1.4s ease-in-out infinite alternate}
+#hw-cat.sit-out .cat-bob{animation:cat-bob-stand .4s ease-in forwards}
+#hw-cat.sit-out .leg.l-c,#hw-cat.sit-out .leg.l-d{animation:cat-leg-stand .4s ease-in forwards}
+#hw-cat.sit-out .cat-tail{animation:cat-tail-out .4s ease-in forwards}
+#hw-cat.meow .cat-bob{transform-origin:60px 36px;animation:cat-bob-meow .45s ease-out forwards}
+#hw-cat.meow .cat-mouth{opacity:1;animation:cat-mouth .28s ease-in-out 4 alternate}
+@keyframes cat-bob-sit{from{transform:rotate(0)}to{transform:rotate(-22deg)}}
+@keyframes cat-bob-lick{from{transform:rotate(-22deg)}to{transform:rotate(-15deg)}}
+@keyframes cat-bob-stand{from{transform:rotate(-22deg)}to{transform:rotate(0)}}
+@keyframes cat-bob-meow{to{transform:rotate(-9deg)}}
+@keyframes cat-leg-sit{to{transform:translateY(-9px) scaleY(1.53)}}
+@keyframes cat-leg-stand{from{transform:translateY(-9px) scaleY(1.53)}to{transform:none}}
+@keyframes cat-paw-lick{from{transform:translate(74px,37px) rotate(-121deg)}to{transform:translate(74px,37px) rotate(-98deg)}}
+@keyframes cat-tail-in{from{transform:none}to{transform:translate(-6px,13px) rotate(-8deg)}}
+@keyframes cat-tail-sit{from{transform:translate(-6px,13px) rotate(-8deg)}to{transform:translate(-6px,13px) rotate(10deg)}}
+@keyframes cat-tail-out{from{transform:translate(-6px,13px) rotate(-8deg)}to{transform:none}}
+@keyframes cat-tongue{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(.8)}}
+@keyframes cat-mouth{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+/* bulle « Miaou ! » (hors du dessin du chat, pour que le texte ne soit pas inversé) */
+#hw-cat .cat-say{position:absolute;bottom:100%;right:-6px;margin-bottom:8px;padding:3px 9px;border-radius:12px;background:#FFF3DC;color:#34204D;border:1.5px solid #FFD18A;font:700 13px/1.2 var(--body);white-space:nowrap;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+#hw-cat .cat-say::after{content:"";position:absolute;top:100%;right:18px;border:5px solid transparent;border-top-color:#FFD18A}
+#hw-cat.rtl .cat-say{right:auto;left:-6px}
+#hw-cat.rtl .cat-say::after{right:auto;left:18px}
+#hw-cat.meow .cat-say{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){#hw-cat{display:none!important}}
 
 /* ---------- bruit d'orage (bouton dans le ciel, en haut à droite) ---------- */
@@ -1786,24 +1829,86 @@ if (
 }
 
 </script>
-<div id="hw-cat" aria-hidden="true" hidden><div class="cat-flip"><svg viewBox="0 0 110 60" aria-hidden="true"><g fill="#0B0612"><path class="cat-tail" d="M26 31 Q6 31 7 14 Q8 5 15 8" fill="none" stroke="#0B0612" stroke-width="4.5" stroke-linecap="round"/><rect class="leg l-a" x="31.4" y="40" width="5.2" height="17" rx="2.6" style="transform-origin:34px 40px"/><rect class="leg l-b" x="40.4" y="41" width="5.2" height="16" rx="2.6" style="transform-origin:43px 41px"/><g class="cat-bob"><ellipse cx="52" cy="32" rx="27" ry="11.5"/><path d="M70 30 Q74 18 82 16 L90 26 Q80 38 70 38 Z"/><circle cx="86" cy="20" r="11"/><path d="M77 14 L78 1 L87 10 Z"/><path d="M85 10 L94 1 L96 15 Z"/></g><rect class="leg l-c" x="63.4" y="40" width="5.2" height="17" rx="2.6" style="transform-origin:66px 40px"/><rect class="leg l-d" x="72.4" y="40" width="5.2" height="16" rx="2.6" style="transform-origin:75px 40px"/></g><g fill="#C8F25A" class="cat-bob"><ellipse cx="82" cy="19" rx="2.6" ry="3"/><ellipse cx="91" cy="19" rx="2.6" ry="3"/></g><g fill="#0B0612" class="cat-bob"><ellipse cx="82" cy="19" rx=".8" ry="2.6"/><ellipse cx="91" cy="19" rx=".8" ry="2.6"/></g></svg></div></div>
+<div id="hw-cat" aria-hidden="true" hidden><div class="cat-flip"><svg viewBox="0 0 110 60" aria-hidden="true"><g fill="#0B0612"><path class="cat-tail" d="M26 31 Q6 31 7 14 Q8 5 15 8" fill="none" stroke="#0B0612" stroke-width="4.5" stroke-linecap="round"/><rect class="leg l-a" x="31.4" y="40" width="5.2" height="17" rx="2.6" style="transform-origin:34px 40px"/><rect class="leg l-b" x="40.4" y="41" width="5.2" height="16" rx="2.6" style="transform-origin:43px 41px"/><g class="cat-haunch"><ellipse cx="38" cy="45.5" rx="15" ry="11.5"/><ellipse cx="51" cy="55.2" rx="8" ry="2.6"/></g><g class="cat-bob"><ellipse cx="52" cy="32" rx="27" ry="11.5"/><path d="M70 30 Q74 18 82 16 L90 26 Q80 38 70 38 Z"/><circle cx="86" cy="20" r="11"/><path d="M77 14 L78 1 L87 10 Z"/><path d="M85 10 L94 1 L96 15 Z"/><rect class="cat-paw" x="-2.8" y="0" width="5.6" height="20" rx="2.8" fill="#2F2448"/><ellipse class="cat-mouth" cx="91" cy="26.5" rx="3" ry="2.4" fill="#E0607E"/></g><rect class="leg l-c" x="63.4" y="40" width="5.2" height="17" rx="2.6" style="transform-origin:66px 40px"/><rect class="leg l-d" x="72.4" y="40" width="5.2" height="16" rx="2.6" style="transform-origin:75px 40px"/></g><g fill="#C8F25A" class="cat-bob"><ellipse cx="82" cy="19" rx="2.6" ry="3"/><ellipse cx="91" cy="19" rx="2.6" ry="3"/></g><g fill="#0B0612" class="cat-bob"><ellipse cx="82" cy="19" rx=".8" ry="2.6"/><ellipse cx="91" cy="19" rx=".8" ry="2.6"/></g></svg></div><span class="cat-say" aria-hidden="true">Miaou !</span></div>
 <script>
-/* Chat noir : traverse le bas de l'écran quand personne n'a touché à la boussole depuis 30 secondes. */
+/* Chat noir : traverse le bas de l'écran quand personne n'a touché à la boussole depuis 20 secondes.
+   Pendant la traversée, il s'arrête : une fois pour s'asseoir et se lécher la patte (4 à 5 s, à un endroit
+   différent à chaque passage), et de temps en temps ailleurs pour miauler une fois. */
 (() => {
   const cat = document.getElementById('hw-cat');
   if (!cat) return;
-  const IDLE_MS = 30000, SPEED = 60; /* px par seconde */
+  const IDLE_MS = 20000, SPEED = 60; /* px par seconde */
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let last = Date.now(), walking = false, rtl = true;
+  let last = Date.now(), walking = false, rtl = true, watcher = null;
   const poke = () => { last = Date.now(); };
+  const wait = ms => new Promise(r => window.setTimeout(r, ms));
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const clearPose = () => cat.classList.remove('stop', 'sit', 'sit-in', 'lick', 'sit-out', 'meow');
   ['pointerdown','pointermove','keydown','scroll','wheel','touchstart','touchmove','click']
     .forEach(ev => window.addEventListener(ev, poke, {passive:true, capture:true}));
+
+  /* s'assoit, se lèche la patte 4 à 5 s, se relève */
+  async function lick(anim) {
+    anim.pause();
+    cat.classList.add('sit', 'sit-in');
+    await wait(450);
+    cat.classList.replace('sit-in', 'lick');
+    await wait(rand(4000, 5000));
+    cat.classList.replace('lick', 'sit-out');
+    await wait(400);
+    clearPose();
+    anim.play();
+  }
+
+  /* s'arrête, lève la tête, miaule une fois */
+  async function meow(anim) {
+    anim.pause();
+    cat.classList.add('stop');
+    await wait(120);
+    cat.classList.add('meow');
+    await wait(1500);
+    cat.classList.remove('meow');
+    await wait(250);
+    clearPose();
+    anim.play();
+  }
+
+  /* Choisit où il s'arrête. f = avancée à l'écran dans le sens de la marche (0 = entrée, 1 = sortie) ;
+     p = avancée correspondante dans l'animation (qui démarre et finit hors de l'écran). */
+  function planStops() {
+    const W = window.innerWidth, travel = W + 280, span = Math.max(1, W - 80);
+    const toP = f => (rtl ? (W + 140 - (1 - f) * span) : (f * span + 140)) / travel;
+    const fl = rand(0.55, 0.85);
+    const stops = [{p: toP(fl), run: lick}];
+    if (Math.random() < 0.4) {
+      let fm = rand(0.12, 0.88), tries = 0;
+      while (Math.abs(fm - fl) < 0.2 && tries++ < 10) fm = rand(0.12, 0.88);
+      if (Math.abs(fm - fl) >= 0.2) stops.push({p: toP(fm), run: meow});
+    }
+    return stops.sort((a, b) => a.p - b.p);
+  }
+
+  function watch(anim, dur) {
+    const stops = planStops();
+    let busy = false;
+    watcher = window.setInterval(async () => {
+      if (busy || !stops.length) return;
+      const t = anim.currentTime;
+      if (t == null || Number(t) / (dur * 1000) < stops[0].p) return;
+      busy = true;
+      try { await stops.shift().run(anim); } catch (e) { clearPose(); anim.play(); }
+      busy = false;
+    }, 100);
+  }
+
   cat.addEventListener('animationend', e => {
     if (e.target !== cat || !String(e.animationName).startsWith('cat-')) return;
+    window.clearInterval(watcher); watcher = null;
+    clearPose();
     cat.classList.remove('walk','rtl');
     cat.hidden = true;
     walking = false;
-    last = Date.now();   /* le prochain passage attend à nouveau 30 s d'inactivité */
+    last = Date.now();   /* le prochain passage attend à nouveau 20 s d'inactivité */
   });
   window.setInterval(() => {
     if (walking || document.hidden || reduce.matches) return;
@@ -1818,6 +1923,8 @@ if (
     cat.hidden = false;
     void cat.offsetWidth;
     cat.classList.add('walk');
+    const anim = cat.getAnimations().find(a => /^cat-(ltr|rtl)$/.test(a.animationName));
+    if (anim) watch(anim, dur);
   }, 1000);
 })();
 </script>
