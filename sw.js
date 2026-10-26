@@ -1,4 +1,4 @@
-const CACHE_NAME = 'boussole-freins-emploi-v30';
+const CACHE_NAME = 'boussole-freins-emploi-v32';
 // Polices Google : cache distinct, conservé d'une version à l'autre de l'application.
 const FONT_CACHE = 'boussole-freins-emploi-polices-v1';
 const FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];
@@ -11,8 +11,7 @@ const APP_SHELL = [
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
-  './icons/icon-512-maskable.png',
-  './icons/logo-atos.webp'
+  './icons/icon-512-maskable.png'
 ];
 
 // Installation : mise en cache des ressources disponibles.
