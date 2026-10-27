@@ -141,11 +141,14 @@ a{color:var(--accent)}
 .search-empty{padding:14px;border-radius:12px;background:#fff;border:1px dashed var(--line);font-size:15px;color:var(--muted)}
 
 /* liste des freins (alternative lisible à la boussole) */
+@media(min-width:821px){#mobile-panel-categories .intro-kicker{margin-top:28px}}
 .legend{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .legend a{display:flex;align-items:center;gap:11px;min-height:64px;padding:10px 12px 10px 10px;border:1px solid var(--line);border-left:6px solid var(--icon-color,var(--accent));border-radius:14px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;font-size:16.5px;line-height:1.25}
 .legend a:active{background:var(--papier)}
 @media(hover:hover){.legend a:hover{background:var(--papier);box-shadow:var(--shadow)}}
 .legend .visual-mark{width:42px;height:42px;border-radius:12px;font-size:23px}
+.legend a>span:not(.n):not(.visual-mark){min-width:0;overflow-wrap:anywhere;hyphens:auto}
+@media(min-width:821px){.legend a{gap:9px;padding:10px 10px 10px 9px;font-size:15.5px}.legend .visual-mark{width:38px;height:38px;font-size:21px}}
 .legend .n{margin-left:auto;flex:none;display:inline-flex;gap:.3em;white-space:nowrap;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;border-radius:999px;background:var(--papier);border:1px solid var(--line);color:var(--muted);font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
 .legend .n .lab{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .dot{display:inline-block;flex:none;width:16px;height:16px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3px rgba(0,0,0,.25)}
@@ -1376,7 +1379,7 @@ function renderHome(){
         <div class="intro-kicker"><span class="spark">✦</span> Les freins à l’emploi</div>
         <h1>Choisir une catégorie</h1>
         <p class="intro-lead">Retrouvez les difficultés par thème, ou touchez directement un secteur de la boussole.</p>
-        <ul class="legend">${FREINS.map(f => `<li><a href="#${f.id}" style="--icon-color:${col(f)}">${mark(f.id,col(f))}<span>${esc(f.nom)}</span>${cnt(f.solutions.length)}</a></li>`).join('')}</ul>
+        <ul class="legend">${FREINS.map(f => `<li><a href="#${f.id}" style="--icon-color:${col(f)}">${mark(f.id,col(f))}<span>${esc(f.nom).replace('administratives','adminis&shy;tratives').replace('Prescripteurs','Prescrip&shy;teurs')}</span>${cnt(f.solutions.length)}</a></li>`).join('')}</ul>
         <div class="note">ℹ️ Les mentions « à vérifier » signalent des coordonnées à confirmer ; les champs « À compléter » restent à renseigner avant diffusion.</div>
       </section>
     </div></div>`;
@@ -1941,7 +1944,7 @@ if (
   const KEY = 'boussole-orage-son';
   const FLASH_AT = 0.87;      /* l'éclair démarre à 87 % de son cycle CSS (@keyframes storm-strike) */
   const MASTER_LEVEL = 0.6;   /* volume général (doux) */
-  let ctx = null, master = null, bufs = null, enabled = false, timers = [];
+  let ctx = null, master = null, bufs = null, enabled = false, waiting = false, timers = [];
   const rand = (a, b) => a + Math.random() * (b - a);
 
   function makeBuffers() {
@@ -2038,15 +2041,18 @@ if (
     }, wait));
   }
 
+  /* waiting : le son est voulu mais le navigateur attend un premier geste de la personne pour l'autoriser */
   function ui() {
-    btn.setAttribute('aria-pressed', String(enabled));
-    const label = enabled ? "Couper le bruit d'orage" : "Activer le bruit d'orage";
+    const live = enabled && !waiting;
+    btn.setAttribute('aria-pressed', String(live));
+    const label = waiting ? "Lancer le bruit d'orage" : (enabled ? "Couper le bruit d'orage" : "Activer le bruit d'orage");
     btn.setAttribute('aria-label', label); btn.title = label;
-    btn.textContent = enabled ? '🔊' : '🔇';
+    btn.textContent = live ? '🔊' : '🔇';
   }
 
   async function setState(on, remember = true) {
     enabled = on;
+    waiting = false;
     if (remember) { try { localStorage.setItem(KEY, on ? 'on' : 'off'); } catch (e) {} }
     ui();
     timers.forEach(clearTimeout); timers = [];
@@ -2070,7 +2076,7 @@ if (
     }
   }
 
-  btn.addEventListener('click', () => setState(!enabled));
+  btn.addEventListener('click', () => setState(waiting ? true : !enabled));
 
   /* pas de bruit quand l'onglet est caché */
   document.addEventListener('visibilitychange', () => {
@@ -2078,16 +2084,29 @@ if (
     if (document.hidden) ctx.suspend(); else ctx.resume();
   });
 
-  /* son déjà activé lors d'une visite précédente : il démarre au premier geste (règle des navigateurs) */
+  /* son déjà activé lors d'une visite précédente : il démarre tout seul si le navigateur l'autorise,
+     sinon au premier geste (règle des navigateurs), et le bouton l'indique en attendant */
+  const canAutoplay = () => new Promise(res => {
+    let t;
+    try { t = new AC(); } catch (e) { res(false); return; }
+    const done = ok => { try { t.close(); } catch (e) {} res(ok); };
+    if (t.state === 'running') { done(true); return; }
+    t.addEventListener('statechange', () => { if (t.state === 'running') done(true); });
+    window.setTimeout(() => done(false), 400);
+  });
   let wanted = false;
   try { wanted = localStorage.getItem(KEY) === 'on'; } catch (e) {}
   if (wanted) {
-    enabled = true; ui(); btn.classList.remove('hint');
-    const arm = () => {
-      ['pointerdown', 'keydown', 'touchend', 'click'].forEach(ev => window.removeEventListener(ev, arm, true));
-      if (enabled && !ctx) setState(true, false);
+    enabled = true; waiting = true; ui(); btn.classList.add('hint');
+    const evs = ['pointerdown', 'keydown', 'touchend', 'click'];
+    const disarm = () => evs.forEach(ev => window.removeEventListener(ev, arm, true));
+    const arm = (e) => {
+      if (waiting && e && e.target && btn.contains(e.target)) return;   /* le bouton gère lui-même son clic */
+      disarm();
+      if (enabled && waiting) setState(true, false);
     };
-    ['pointerdown', 'keydown', 'touchend', 'click'].forEach(ev => window.addEventListener(ev, arm, true));
+    evs.forEach(ev => window.addEventListener(ev, arm, true));
+    canAutoplay().then(ok => { if (ok && enabled && waiting) { disarm(); setState(true, false); } });
   }
 })();
 </script>
