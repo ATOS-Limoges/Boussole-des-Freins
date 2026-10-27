@@ -1,4 +1,4 @@
-const CACHE_NAME = 'boussole-freins-emploi-v36';
+const CACHE_NAME = 'boussole-freins-emploi-v38';
 // Polices Google : cache distinct, conservé d'une version à l'autre de l'application.
 const FONT_CACHE = 'boussole-freins-emploi-polices-v1';
 const FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];

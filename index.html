@@ -142,6 +142,8 @@ a{color:var(--accent)}
 
 /* liste des freins (alternative lisible à la boussole) */
 @media(min-width:821px){#mobile-panel-categories .intro-kicker{margin-top:28px}}
+.ft-directory .ft-agency-grid ~ p.muted{margin:6px 0 0}
+.ft-directory .ft-agency-grid + p.muted{margin-top:14px}
 .legend{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .legend a{display:flex;align-items:center;gap:11px;min-height:64px;padding:10px 12px 10px 10px;border:1px solid var(--line);border-left:6px solid var(--icon-color,var(--accent));border-radius:14px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;font-size:16.5px;line-height:1.25}
 .legend a:active{background:var(--papier)}
@@ -849,12 +851,12 @@ const FREINS = [
       acces:"Orientation par France Travail, la MDPH ou un référent ; modalités à confirmer.",
       contact:{structure:"Cap emploi 87", adresse:"38 rue Rhin et Danube, Immeuble Lorrain, 3e étage, 87280 Limoges", tel:"05 55 38 89 70 (à vérifier)", mail:"", horaires:"Du lundi au jeudi, 8h30-12h30 et 13h30-17h30 (à vérifier)", site:""} },
     { id:"ml-agglo", nom:"Mission locale de l'agglomération de Limoges", type:"Prescripteur",
-      resume:"Accompagnement global des jeunes de 16 à 25 ans de l'agglomération.",
-      presentation:"La Mission locale accompagne les jeunes sur l'emploi, la formation, la santé, le logement et la mobilité, avec un conseiller référent.",
-      propose:["Conseiller référent", "Contrat d'engagement jeune", "Orientation vers les dispositifs jeunes et l'insertion"],
-      eligibilite:["Jeune de 16 à 25 ans (moins de 26 ans), territoire de Limoges Métropole"],
-      acces:"Accueil direct ou par téléphone.",
-      contact:{structure:"Mission locale de l'agglomération de Limoges", adresse:"29 rue des Portes Ferrées, 87000 Limoges (à vérifier)", tel:"05 55 30 68 02 (à vérifier)", mail:"", horaires:"", site:"http://www.mission-locale-limoges.fr"} },
+      resume:"Accompagnement global des jeunes de 16 à 25 ans (jusqu'à 29 ans en situation de handicap) de l'agglomération de Limoges.",
+      presentation:"La Mission locale Limoges Métropole accompagne les jeunes de 16 à 25 ans (et jusqu'à 29 ans pour ceux en situation de handicap) dans leurs démarches d'insertion professionnelle, de formation, de logement et de santé. Elle s'organise autour d'un siège au centre-ville de Limoges et de 3 antennes de quartier : Beaubreuil, La Bastide et le Val de l'Aurence.",
+      propose:["Conseiller référent : un accompagnement global et personnalisé", "Insertion professionnelle et formation", "Logement et santé : accompagnement dans les démarches", "Contrat d'engagement jeune (CEJ)", "Orientation vers les dispositifs jeunes et l'insertion"],
+      eligibilite:["Jeune de 16 à 25 ans (moins de 26 ans), jusqu'à 29 ans pour les jeunes en situation de handicap", "Résider sur le territoire de Limoges Métropole"],
+      acces:"Accueil direct, par téléphone ou par courriel auprès du siège ou d'une antenne de quartier.",
+      contact:{structure:"Mission locale de l'agglomération de Limoges", adresse:"Siège : 31 avenue Baudin, 87000 Limoges", tel:"05 55 10 01 00", mail:"mission.locale@mlagglo-limoges.org", horaires:"Du lundi au vendredi : 9h00-12h00 et 13h30-16h30", site:"https://www.mission-locale-limoges.fr"} },
     { id:"ml-rurale", nom:"Mission locale rurale de la Haute-Vienne", type:"Prescripteur",
       resume:"Accompagnement social et professionnel des 16-25 ans sortis du système scolaire, sur la zone rurale du département.",
       presentation:"La Mission locale rurale de la Haute-Vienne est une association dédiée à l'accompagnement social et professionnel des jeunes de 16 à 25 ans sortis du système scolaire. Elle couvre l'ensemble de la zone rurale du département (175 communes) pour aider les jeunes dans leurs démarches d'emploi, de formation, de logement, de mobilité et de santé. Elle s'organise autour d'un siège administratif et de 3 antennes permanentes, complétés par un réseau de 32 points d'accueil et permanences (comme à Ambazac) et un mini-bus pour aller à la rencontre des jeunes les plus isolés.",
@@ -863,12 +865,12 @@ const FREINS = [
       acces:"Accueil direct, par téléphone ou par courriel auprès du siège ou d'une antenne, ou lors d'une permanence dans l'un des 32 points d'accueil.",
       contact:{structure:"Mission locale rurale de la Haute-Vienne", adresse:"Siège : 8 avenue François Mitterrand, 87700 Aixe-sur-Vienne", tel:"05 55 70 45 74", mail:"contact@mlr87.fr", horaires:"", site:""} },
     { id:"arpe", nom:"ARPE : accompagnement renforcé pour l'emploi", type:"Prescripteur",
-      resume:"Accompagnement renforcé des bénéficiaires du RSA en zone rurale.",
-      presentation:"Dispositif du Département de la Haute-Vienne, cofinancé par l'Union européenne, qui associe un référent à la personne pour faciliter son retour durable à l'emploi ou à une formation.",
-      propose:["Référent de parcours", "Bilan, immersions en entreprise, formations", "Permanences sur le territoire (dont Bellac, Nantiat, Aixe-sur-Vienne, Blond)"],
-      eligibilite:["Bénéficiaire du RSA", "Résider en Haute-Vienne hors Limoges Métropole", "Rechercher un emploi"],
-      acces:"Orientation par le référent RSA ou les services du Département ; modalités à confirmer.",
-      contact:{structure:"Département de la Haute-Vienne, ARPE", adresse:"", tel:"", mail:"", horaires:"", site:"https://www.haute-vienne.fr"} },
+      resume:"Accompagnement renforcé, individuel et personnalisé, des bénéficiaires du RSA du territoire rural, jusqu'à l'emploi ou la formation.",
+      presentation:"Dispositif du Département de la Haute-Vienne, mis en place sur l'ensemble du territoire rural pour les bénéficiaires du RSA. Il associe la prise en compte des problématiques sociales et professionnelles, avec pour finalité le retour progressif à l'emploi durable. L'accompagnement est individuel et personnalisé, avec un nombre limité de participants, et s'effectue en réseau avec les acteurs du territoire. Cinq référents socioprofessionnels, chacun sur un secteur, accompagnent chacun 60 allocataires du RSA en continu. Le dispositif est cofinancé par le Fonds social européen + (programmation 2021-2027).",
+      propose:["Un référent socioprofessionnel dédié, avec des rendez-vous soutenus jusqu'à l'entrée en emploi ou en formation", "Un parcours adapté aux problématiques de chaque personne, qui prend en compte à la fois le social et le professionnel", "Un travail en réseau avec les acteurs du territoire", "Un suivi du référent qui se poursuit pendant les 6 premiers mois d'accès à l'emploi ou à la qualification", "Un accueil sur rendez-vous dans 21 communes du territoire rural", "Bilan, immersions en entreprise, formations"],
+      eligibilite:["Bénéficiaire du RSA sur le territoire rural de la Haute-Vienne (hors Limoges Métropole)", "Soit primo-entrant dans le dispositif RSA (orientation directe)", "Soit bénéficiaire du RSA qui souhaite un accompagnement socioprofessionnel renforcé (réorientation)", "Personne mobilisée pour accéder à une activité salariée ou à une qualification, mais qui ne peut pas organiser seule son projet et ses démarches d'insertion professionnelle"],
+      acces:"Orientation directe pour les nouveaux bénéficiaires du RSA, ou réorientation par les travailleurs sociaux des Maisons du Département et par les partenaires du réseau pour l'emploi (France Travail, Missions locales…). Une instance départementale se réunit chaque mois pour réguler les entrées, les sorties et les propositions de réorientation. Le référent reçoit ensuite sur rendez-vous.",
+      contact:{structure:"Département de la Haute-Vienne · Service insertion socioprofessionnelle (ARPE)", adresse:"Hôtel du Département, 11 rue François Chénieux, 87031 Limoges Cedex 1", tel:"05 55 45 10 10 (standard du Département)", mail:"", horaires:"", site:"https://www.haute-vienne.fr/nos-actions/insertion/vous-etes-un-particulier/decouvrir-les-parcours-et-loffre-dinsertion/accompagnement-renforce-pour-lemploi-arpe"} },
     { id:"plie-limoges", nom:"PLIE de Limoges Métropole (Varlin Pont Neuf)", type:"Prescripteur",
       resume:"Accompagnement individualisé et renforcé vers l'emploi, avec des actions comme la PALIP.",
       presentation:"Limoges Métropole porte le Plan local pour l'insertion et l'emploi. Varlin Pont Neuf assure l'accompagnement individualisé et renforcé, y compris dans le cadre de la Cité de l'emploi.",
@@ -1560,7 +1562,8 @@ function renderFiche(f, s){
     });
     return;
   }
-  if (f.id === 'prescripteurs' && s.id === 'ml-rurale') {
+  const MLS = {};
+  {
     const hrs = 'Du lundi au jeudi : 8h30–12h00 et 14h00–17h00 ; vendredi : 8h30–12h00 et 14h00–16h00 (horaires généraux, à confirmer auprès de l’antenne).';
     const antennes = [
       {id:'aixe', name:'Siège administratif · Aixe-sur-Vienne', address:'8 avenue François Mitterrand, 87700 Aixe-sur-Vienne', phone:'05 55 70 45 74', mail:'contact@mlr87.fr', hours:hrs},
@@ -1568,7 +1571,49 @@ function renderFiche(f, s){
       {id:'saint-junien', name:'Antenne de Saint-Junien', address:'Centre Martial-Pascaud, rue d’Arsonval, 87200 Saint-Junien', phone:'05 55 02 05 71', mail:'contact@mlr87.fr', hours:hrs},
       {id:'saint-yrieix', name:'Antenne de Saint-Yrieix-la-Perche', address:'Rue du 8-Mai-1945, 87500 Saint-Yrieix-la-Perche', phone:'05 55 08 27 98', mail:'styrieix@mlr87.fr', hours:hrs},
     ];
-    const antCards = antennes.map(a => `<button type="button" class="ft-agency-card" data-agency="${a.id}" aria-expanded="false"><span class="ft-agency-pin">⌖</span><span class="ft-agency-name">${esc(a.name)}</span><span class="ft-agency-meta">Adresse, téléphone et horaires</span><span class="ft-agency-arrow">›</span></button>`).join('');
+    MLS['ml-rurale'] = {
+      titre:'Antennes de la Mission locale rurale',
+      intro:'Cliquez sur une antenne pour consulter ses coordonnées. L’association propose aussi 32 points d’accueil et permanences sur le territoire.',
+      antennes
+    };
+    const hAgglo = 'Du lundi au vendredi : 9h00–12h00 et 13h30–16h30';
+    const noContact = 'Non précisé dans les annuaires consultés : contactez le siège au 05 55 10 01 00.';
+    MLS['ml-agglo'] = {
+      titre:'Antennes de la Mission locale de l’agglomération',
+      intro:'Cliquez sur une structure pour consulter ses coordonnées et ses horaires. Le siège est au centre-ville ; trois antennes accueillent dans les quartiers.',
+      links:[{label:'Site internet', url:'https://www.mission-locale-limoges.fr'}],
+      antennes:[
+        {id:'siege', name:'Siège principal · Centre-ville', address:'31 avenue Baudin, 87000 Limoges', phone:'05 55 10 01 00', mail:'mission.locale@mlagglo-limoges.org', hours:hAgglo},
+        {id:'beaubreuil', name:'Antenne de Beaubreuil', address:'1 place de Beaubreuil (centre commercial Carrefour), 87280 Limoges', phoneNote:noContact, mailNote:noContact, hours:'Tous les jours : 9h00–12h00 et 13h30–16h30 (selon l’annuaire ; à confirmer auprès de l’antenne)'},
+        {id:'bastide', name:'Antenne de la Bastide', address:'5 rue Georges Braque, 87100 Limoges (certains annuaires indiquent 1 rue Gauguin : à vérifier)', phoneNote:noContact, mailNote:noContact, hours:'Du lundi au jeudi : 9h00–12h00 et 13h30–16h30 ; fermée le vendredi (à confirmer auprès de l’antenne)'},
+        {id:'aurence', name:'Antenne du Val de l’Aurence', address:'31 rue Marcel Vardelle, 87100 Limoges', phoneNote:noContact, mailNote:noContact, hours:hAgglo},
+      ]
+    };
+  }
+  MLS['arpe'] = {
+    titre:'Référents ARPE par secteur',
+    intro:'Cinq référents socioprofessionnels accompagnent chacun 60 allocataires du RSA sur le territoire rural. Cliquez sur un secteur pour voir le référent, ses coordonnées et les communes où il reçoit sur rendez-vous.',
+    meta:'Référent, téléphone et communes',
+    links:[
+      {label:'Plaquette de présentation', url:'https://www.haute-vienne.fr/fileadmin/mediatheque/cd87/nos-actions/insertion/particulier/ARPE.pdf', text:'ARPE.pdf (PDF)'},
+      {label:'Page du Département', url:'https://www.haute-vienne.fr/nos-actions/insertion/vous-etes-un-particulier/decouvrir-les-parcours-et-loffre-dinsertion/accompagnement-renforce-pour-lemploi-arpe', text:'haute-vienne.fr'}
+    ],
+    note:'Pour plus d’informations : service insertion socioprofessionnelle du Département (standard de l’Hôtel du Département : 05 55 45 10 10).',
+    antennes:(() => {
+      const mailNote = 'Lien « Contacter par mail » sur la page ARPE du site du Département.';
+      const hours = 'Sur rendez-vous';
+      return [
+        {id:'saint-yrieix', name:'Secteur de Saint-Yrieix-la-Perche', ref:'Delphine Rigaudy', communes:'Saint-Yrieix-la-Perche, Châlus, Nexon, Saint-Mathieu', phone:'06 31 37 83 10', mailNote, hours},
+        {id:'bellac', name:'Secteur de Bellac', ref:'Marie-Laure Frugier', communes:'Bellac, Nantiat, Aixe-sur-Vienne, Blond', phone:'06 07 33 26 36', mailNote, hours},
+        {id:'eymoutiers', name:'Secteur d’Eymoutiers', ref:'Betty Coudrier', communes:'Eymoutiers, Saint-Léonard-de-Noblat, Châteauneuf-la-Forêt, Pierre-Buffière, Saint-Germain-les-Belles', phone:'06 08 87 66 95', mailNote, hours},
+        {id:'saint-junien', name:'Secteur de Saint-Junien', ref:'Katia Jaquet', communes:'Saint-Junien, Rochechouart', phone:'06 07 33 22 69', mailNote, hours},
+        {id:'ambazac', name:'Secteur d’Ambazac', ref:'Vincent Lajoinie', communes:'Ambazac, Bessines-sur-Gartempe, Châteauponsac, Magnac-Laval, Le Dorat, Saint-Sulpice-les-Feuilles', phone:'06 87 37 52 83', mailNote, hours}
+      ];
+    })()
+  };
+  if (f.id === 'prescripteurs' && MLS[s.id]) {
+    const cfg = MLS[s.id], antennes = cfg.antennes;
+    const antCards = antennes.map(a => `<button type="button" class="ft-agency-card" data-agency="${a.id}" aria-expanded="false"><span class="ft-agency-pin">⌖</span><span class="ft-agency-name">${esc(a.name)}</span><span class="ft-agency-meta">${esc(cfg.meta || 'Adresse, téléphone et horaires')}</span><span class="ft-agency-arrow">›</span></button>`).join('');
     app.innerHTML = `<div class="view" style="--c:${kc}">
       <div class="fh"><span class="pill">${esc(f.nom)}</span><span class="tag">${esc(s.type)}</span><h1>${mark(f.id,kc)}${esc(s.nom)}</h1></div>
       <div class="fiche"><article class="panel">
@@ -1576,7 +1621,7 @@ function renderFiche(f, s){
         <section><h2>🧰 Ce qui est proposé</h2>${list(s.propose)}</section>
         <section><h2>✅ Conditions d’éligibilité</h2>${list(s.eligibilite)}</section>
         <section><h2>🧭 Comment y accéder</h2><p>${val(s.acces)}</p></section>
-      </article><aside class="panel ft-directory"><h2>Antennes de la Mission locale rurale</h2><p class="muted">Cliquez sur une antenne pour consulter ses coordonnées. L’association propose aussi 32 points d’accueil et permanences sur le territoire.</p><div class="ft-agency-grid">${antCards}</div><div id="ft-agency-editor" class="ft-agency-editor" hidden></div></aside></div></div>`;
+      </article><aside class="panel ft-directory"><h2>${esc(cfg.titre)}</h2><p class="muted">${esc(cfg.intro)}</p><div class="ft-agency-grid">${antCards}</div>${(cfg.links || []).map(l => `<p class="muted">${esc(l.label)} : <a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.text || l.url.replace(/^https?:\/\//,''))}</a></p>`).join('')}${cfg.note ? `<p class="muted">${esc(cfg.note)}</p>` : ''}<div id="ft-agency-editor" class="ft-agency-editor" hidden></div></aside></div></div>`;
     const editor = document.getElementById('ft-agency-editor');
     app.querySelectorAll('[data-agency]').forEach(btn => btn.addEventListener('click', () => {
       const a = antennes.find(x => x.id === btn.dataset.agency);
@@ -1584,9 +1629,9 @@ function renderFiche(f, s){
       editor.hidden = false;
       editor.innerHTML = `<h3>${esc(a.name)}</h3>
         <dl class="ft-agency-details">
-          <div><dt>Adresse</dt><dd>${esc(a.address)}</dd></div>
-          <div><dt>Téléphone</dt><dd><a href="tel:${a.phone.replace(/\s/g,'')}">${esc(a.phone)}</a></dd></div>
-          <div><dt>Courriel</dt><dd><a href="mailto:${esc(a.mail)}">${esc(a.mail)}</a></dd></div>
+          ${a.ref ? `<div><dt>Référent(e)</dt><dd>${esc(a.ref)}</dd></div><div><dt>Communes d’accueil (sur rendez-vous)</dt><dd>${esc(a.communes)}</dd></div>` : `<div><dt>Adresse</dt><dd>${esc(a.address)}</dd></div>`}
+          <div><dt>Téléphone</dt><dd>${a.phone ? `<a href="tel:${a.phone.replace(/\s/g,'')}">${esc(a.phone)}</a>` : esc(a.phoneNote || '—')}</dd></div>
+          <div><dt>Courriel</dt><dd>${a.mail ? `<a href="mailto:${esc(a.mail)}">${esc(a.mail)}</a>` : esc(a.mailNote || '—')}</dd></div>
           <div><dt>Horaires d’accueil</dt><dd>${esc(a.hours)}</dd></div>
         </dl>
         <button type="button" class="secondary-btn" id="ft-close-details">Fermer la fiche</button>`;
