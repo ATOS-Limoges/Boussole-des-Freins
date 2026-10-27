@@ -203,6 +203,14 @@ a{color:var(--accent)}
 .view{animation:in .2s ease}
 @keyframes in{from{opacity:.3}to{opacity:1}}
 
+
+/* ---------- Cap emploi : siège et permanences en fiches distinctes ---------- */
+.cap-location-list{display:grid;gap:12px;margin-top:14px}
+.cap-location-card{padding:14px;border:1px solid rgba(255,255,255,.2);border-left:4px solid var(--laiton-clair);border-radius:13px;background:rgba(255,255,255,.07)}
+.cap-location-card h3{margin:0 0 8px;color:#fff;font-size:16px;line-height:1.3}
+.cap-location-card p{margin:5px 0;font-size:14px;line-height:1.45;max-width:none}
+.cap-location-card strong{color:#A9C6D3}
+
 /* ---------- navigation par onglets pour mobile et vues compactes ---------- */
 @media(max-width:820px){
   .mobile-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:20;padding:8px;margin:0 -2px 12px;background:rgba(232,238,235,.97);border:1px solid var(--line);border-radius:16px;box-shadow:0 5px 16px rgba(11,43,61,.1)}
@@ -722,13 +730,13 @@ const FREINS = [
       eligibilite:["Toute personne en situation de handicap ou sa famille","Dossier avec certificat médical"],
       acces:"Dépôt du dossier en ligne, par courrier ou à l'accueil de la MDPH.",
       contact:{structure:"MDPH de la Haute-Vienne", adresse:"8 place des Carmes, BP 73129, 87031 Limoges Cedex", tel:"05 55 14 14 50", mail:"contact.mdph@haute-vienne.fr", horaires:"", site:"https://www.haute-vienne.fr"} },
-    { id:"cap-emploi", nom:"Cap emploi", type:"Accompagnement",
-      resume:"Accompagnement spécialisé vers l'emploi et maintien dans l'emploi des personnes en situation de handicap.",
-      presentation:"Cap emploi, partenaire de France Travail, accompagne les personnes handicapées dans leur recherche d'emploi et conseille les employeurs sur le recrutement et le maintien dans l'emploi.",
-      propose:["Accompagnement individuel vers l'emploi","Mobilisation des aides et des compensations","Appui au maintien dans l'emploi"],
-      eligibilite:["Personne bénéficiaire de l'obligation d'emploi (RQTH notamment) ou en cours de reconnaissance"],
-      acces:"Orientation par France Travail, la Mission locale ou sur demande.",
-      contact:{structure:"Cap emploi 87", adresse:"38 rue Rhin et Danube, Immeuble Lorrain, 3e étage, 87280 Limoges", tel:"05 55 38 89 70 (à vérifier)", mail:"", horaires:"Du lundi au jeudi, 8h30-12h30 et 13h30-17h30 (à vérifier)", site:""} },
+    { id:"cap-emploi", nom:"Cap emploi 87", type:"Accompagnement spécialisé",
+      resume:"Accompagnement vers l’emploi et dans l’emploi des personnes en situation de handicap ou rencontrant des difficultés de santé, et appui aux employeurs.",
+      presentation:"Cap emploi 87 exerce une mission de service public dédiée à l’insertion professionnelle des personnes en situation de handicap. En lien avec France Travail, l’équipe informe, conseille et accompagne les personnes dans leur recherche d’emploi, leur intégration et leur maintien dans l’emploi. Elle accompagne également les employeurs dans le recrutement, l’intégration et le maintien en emploi. Les équipes comprennent notamment des conseillers en insertion professionnelle, une psychologue du travail, des conseillères en maintien dans l’emploi et une conseillère sociale.",
+      propose:["Accompagnement individuel vers l’emploi et appui tout au long du parcours professionnel","Conseil aux employeurs pour le recrutement et l’intégration de personnes en situation de handicap","Appui au maintien dans l’emploi et à la reconversion professionnelle","Information et mobilisation des aides et moyens de compensation du handicap","Permanences de proximité à Saint-Léonard-de-Noblat, Nexon, Bessines-sur-Gartempe et Ambazac","Accueil en lien avec France Travail à Saint-Yrieix-la-Perche et à Limoges (site Ventadour)"],
+      eligibilite:["Personnes en situation de handicap ou ayant des difficultés de santé, en recherche d’emploi ou en emploi","Employeurs ayant besoin d’un conseil pour recruter, intégrer ou maintenir dans l’emploi un salarié en situation de handicap"],
+      acces:"Contacter Cap emploi 87 par téléphone, via le formulaire du site internet ou par l’intermédiaire de France Travail et des partenaires de l’emploi. Les permanences sont indiquées sur rendez-vous lorsqu’il est précisé ; appeler avant de se déplacer.",
+      contact:{structure:"Cap emploi 87", adresse:"Siège : 38 rue Rhin et Danube, Immeuble Lorrain, 3e étage, 87280 Limoges. • Permanence Saint-Léonard-de-Noblat : Maison de services Simone Veil, 15 rue Beaufort, 87400 Saint-Léonard-de-Noblat. • Permanence Nexon : Maison de service au public (MSAP), Centre social, 5 rue Jean-Jacques Rousseau, 87800 Nexon. • Permanence Bessines-sur-Gartempe : Maison du Département, 6 bis avenue de la Libération, 87250 Bessines-sur-Gartempe. • Permanence Ambazac : Centre d’Animation, 1 rue Lavoisier, 87240 Ambazac. • Lieu d’accueil France Travail – Saint-Yrieix-la-Perche : France Travail, rue du 8 mai 1945, 87500 Saint-Yrieix-la-Perche. • Lieu d’accueil France Travail – Ventadour : France Travail Ventadour, 18 rue Paul Claudel, 87006 Limoges Cedex 1.", tel:"05 55 38 89 70", mail:"contact@capemploi87.fr", horaires:"Siège de Limoges : lundi, mardi et jeudi : 8h30–12h30 et 13h30–17h30 sur rendez-vous uniquement. Mercredi : 8h30–12h30 et 13h30–17h30. Vendredi : 8h30–12h30 et 13h30–16h30 sur rendez-vous uniquement. • Saint-Léonard-de-Noblat : vendredi, 8h30–12h30 et 13h30–16h30, sur rendez-vous uniquement. • Nexon : mardi, 8h30–12h30 et 13h30–17h30, sur rendez-vous uniquement. • Bessines-sur-Gartempe : mercredi, 8h30–12h30 et 13h30–17h30, sur rendez-vous uniquement. • Ambazac : 8h30–12h30, sur rendez-vous uniquement (jour non précisé dans les informations transmises). • France Travail Saint-Yrieix-la-Perche : lundi et mercredi, 8h30–12h30 et 13h30–17h30, sur rendez-vous uniquement. • France Travail Ventadour : horaires non précisés dans les informations transmises. Appeler avant de se déplacer.", site:"https://www.capemploi-87.com/informations-pratiques/"} },
     { id:"agefiph", nom:"Aides Agefiph", type:"Aide financière",
       resume:"Financements pour compenser le handicap dans la formation, l'emploi ou la création d'entreprise.",
       presentation:"L'Agefiph finance des aides pour les personnes handicapées et les employeurs du secteur privé : aménagement de poste, aides techniques, mobilité, formation.",
@@ -844,12 +852,12 @@ const FREINS = [
       acces:"Inscription en ligne ou par téléphone, puis rendez-vous avec un conseiller de l'agence du secteur.",
       contact:{structure:"France Travail, agences de Haute-Vienne", adresse:"Limoges : 18 rue Paul-Claudel et 135 avenue du Général-Leclerc ; Bellac : 4 ter rue du Général-Arbellot ; Saint-Yrieix-la-Perche : rue du 8-Mai-1945 (à vérifier)", tel:"3949", mail:"", horaires:"", site:"https://www.francetravail.fr"} },
     { id:"cap-emploi-presc", nom:"Cap emploi 87", type:"Prescripteur",
-      resume:"Accompagnement vers l'emploi des personnes en situation de handicap.",
-      presentation:"Cap emploi est un organisme de placement spécialisé qui accompagne vers et dans l'emploi les personnes en situation de handicap, et conseille les employeurs.",
-      propose:["Accompagnement vers l'emploi", "Appui à l'orientation vers l'insertion par l'activité économique", "Conseil aux employeurs"],
-      eligibilite:["Personne en situation de handicap bénéficiaire de l'obligation d'emploi"],
-      acces:"Orientation par France Travail, la MDPH ou un référent ; modalités à confirmer.",
-      contact:{structure:"Cap emploi 87", adresse:"38 rue Rhin et Danube, Immeuble Lorrain, 3e étage, 87280 Limoges", tel:"05 55 38 89 70 (à vérifier)", mail:"", horaires:"Du lundi au jeudi, 8h30-12h30 et 13h30-17h30 (à vérifier)", site:""} },
+      resume:"Accompagnement vers et dans l’emploi des personnes en situation de handicap ou rencontrant des difficultés de santé, et conseil aux employeurs.",
+      presentation:"Cap emploi 87 accompagne les personnes dans leur recherche d’emploi, leur intégration et leur maintien dans l’emploi. L’équipe conseille également les employeurs pour le recrutement, l’intégration et le maintien en emploi. L’accueil est assuré au siège de Limoges et lors de permanences territoriales, généralement sur rendez-vous.",
+      propose:["Accompagnement vers l’emploi et appui tout au long du parcours professionnel","Conseil aux employeurs pour recruter et intégrer des personnes en situation de handicap","Appui au maintien dans l’emploi et à la reconversion professionnelle","Information sur les aides et moyens de compensation du handicap","Permanences à Saint-Léonard-de-Noblat, Nexon, Bessines-sur-Gartempe et Ambazac","Accueil en lien avec France Travail à Saint-Yrieix-la-Perche et sur le site Ventadour à Limoges"],
+      eligibilite:["Personnes en situation de handicap ou ayant des difficultés de santé, en recherche d’emploi ou déjà en emploi","Employeurs ayant besoin d’un conseil pour recruter, intégrer ou maintenir dans l’emploi un salarié"],
+      acces:"Contacter Cap emploi 87 par téléphone pour connaître les modalités d’accueil et prendre rendez-vous pour une permanence.",
+      contact:{structure:"Cap emploi 87", adresse:"Siège : 38 rue Rhin et Danube, 87280 Limoges • Saint-Léonard-de-Noblat : Maison de services Simone Veil, 15 rue Beaufort, 87400 • Nexon : MSAP Centre Social, 5 rue Jean-Jacques Rousseau, 87800 • Bessines-sur-Gartempe : Maison du département, 6 bis avenue de la Libération, 87250 • Ambazac : Centre d’Animation, 1 rue Lavoisier, 87240 • LUA France Travail Saint-Yrieix-la-Perche : rue du 8 mai 1945, 87500 • LUA France Travail Ventadour : 18 rue Paul Claudel, 87006 Limoges Cedex 1", tel:"05 55 38 89 70", mail:"contact@capemploi87.fr", horaires:"Siège de Limoges : lundi, mardi et jeudi 08h30-12h30 et 13h30-17h30 sur rendez-vous ; mercredi 08h30-12h30 et 13h30-17h30 ; vendredi 08h30-12h30 et 13h30-16h30 sur rendez-vous. Saint-Léonard-de-Noblat : vendredi 08h30-12h30 et 13h30-16h30 sur rendez-vous. Nexon : mardi 08h30-12h30 et 13h30-17h30 sur rendez-vous. Bessines-sur-Gartempe : mercredi 08h30-12h30 et 13h30-17h30 sur rendez-vous. Ambazac : 08h30-12h30 sur rendez-vous (jour non précisé). Saint-Yrieix-la-Perche : lundi et mercredi 08h30-12h30 et 13h30-17h30 sur rendez-vous. Ventadour : horaires non précisés.", site:"https://www.capemploi-87.com/informations-pratiques/"} },
     { id:"ml-agglo", nom:"Mission locale de l'agglomération de Limoges", type:"Prescripteur",
       resume:"Accompagnement global des jeunes de 16 à 25 ans (jusqu'à 29 ans en situation de handicap) de l'agglomération de Limoges.",
       presentation:"La Mission locale Limoges Métropole accompagne les jeunes de 16 à 25 ans (et jusqu'à 29 ans pour ceux en situation de handicap) dans leurs démarches d'insertion professionnelle, de formation, de logement et de santé. Elle s'organise autour d'un siège au centre-ville de Limoges et de 3 antennes de quartier : Beaubreuil, La Bastide et le Val de l'Aurence.",
@@ -1641,6 +1649,16 @@ function renderFiche(f, s){
     return;
   }
   const site = c.site ? `<a href="${esc(c.site)}" target="_blank" rel="noopener">${esc(c.site.replace(/^https?:\/\//,''))}</a>` : todo;
+  const capLocations = (s.id === 'cap-emploi' || s.id === 'cap-emploi-presc') ? [
+    {title:'Siège de Limoges', address:'38 rue Rhin et Danube, Immeuble Lorrain, 3e étage, 87280 Limoges', hours:'Lun., mar. et jeu. : 8h30–12h30 et 13h30–17h30, sur rendez-vous uniquement. Mer. : 8h30–12h30 et 13h30–17h30. Ven. : 8h30–12h30 et 13h30–16h30, sur rendez-vous uniquement.'},
+    {title:'Permanence — Saint-Léonard-de-Noblat', address:'Maison de services Simone Veil, 15 rue Beaufort, 87400 Saint-Léonard-de-Noblat', hours:'Vendredi : 8h30–12h30 et 13h30–16h30, sur rendez-vous uniquement.'},
+    {title:'Permanence — Nexon', address:'MSAP, Centre social, 5 rue Jean-Jacques Rousseau, 87800 Nexon', hours:'Mardi : 8h30–12h30 et 13h30–17h30, sur rendez-vous uniquement.'},
+    {title:'Permanence — Bessines-sur-Gartempe', address:'Maison du Département, 6 bis avenue de la Libération, 87250 Bessines-sur-Gartempe', hours:'Mercredi : 8h30–12h30 et 13h30–17h30, sur rendez-vous uniquement.'},
+    {title:'Permanence — Ambazac', address:'Centre d’Animation, 1 rue Lavoisier, 87240 Ambazac', hours:'8h30–12h30, sur rendez-vous uniquement. Jour non précisé.'},
+    {title:'Lieu d’accueil France Travail — Saint-Yrieix-la-Perche', address:'France Travail, rue du 8 mai 1945, 87500 Saint-Yrieix-la-Perche', hours:'Lundi et mercredi : 8h30–12h30 et 13h30–17h30, sur rendez-vous uniquement.'},
+    {title:'Lieu d’accueil France Travail — Ventadour', address:'France Travail Ventadour, 18 rue Paul Claudel, 87006 Limoges Cedex 1', hours:'Horaires non précisés. Contacter Cap emploi avant de se déplacer.'}
+  ] : null;
+  const capCards = capLocations ? `<div class="ft-agency-grid">${capLocations.map((l,i)=>`<button type="button" class="ft-agency-card" data-cap-location="${i}" aria-expanded="false"><span class="ft-agency-pin">⌖</span><span class="ft-agency-name">${esc(l.title)}</span><span class="ft-agency-meta">Adresse, téléphone et horaires</span><span class="ft-agency-arrow">›</span></button>`).join('')}</div><div id="cap-location-editor" class="ft-agency-editor" hidden></div>` : null;
   app.innerHTML = `<div class="view" style="--c:${kc}">
     <div class="fh"><span class="pill">${esc(cc ? f.nom+' · '+(sb ? sb.nom : cc.nom) : f.nom)}</span><span class="tag">${esc(s.type)}</span><h1>${mark(f.id,kc)}${esc(s.nom)}</h1></div>
     <div class="fiche">
@@ -1651,17 +1669,31 @@ function renderFiche(f, s){
         <section><h2><span class="section-icon" aria-hidden="true">🧭</span>Comment y accéder</h2><p>${val(s.acces)}</p></section>
       </article>
       <aside class="panel contact">
-        <h2>Contacts</h2>
-        <dl>
+        <h2>${capLocations ? 'Siège et permanences' : 'Contacts'}</h2>
+        ${capLocations ? `${capCards}<div class="cap-location-card"><h3>Contact général</h3><p><strong>Courriel</strong><br><a href="mailto:${esc(c.mail)}">${esc(c.mail)}</a></p><p><strong>Site officiel</strong><br>${site}</p></div>` : `<dl>
           <div><dt>Structure</dt><dd>${val(c.structure)}</dd></div>
           <div><dt>Adresse</dt><dd>${val(c.adresse)}</dd></div>
           <div><dt>Téléphone</dt><dd>${val(c.tel)}</dd></div>
           <div><dt>Courriel</dt><dd>${val(c.mail)}</dd></div>
           <div><dt>Horaires</dt><dd>${val(c.horaires)}</dd></div>
           <div><dt>Site internet</dt><dd>${site}</dd></div>
-        </dl>
+        </dl>`}
       </aside>
     </div></div>`;
+  if (capLocations) {
+    const editor = document.getElementById('cap-location-editor');
+    app.querySelectorAll('[data-cap-location]').forEach(btn => btn.addEventListener('click', () => {
+      const l = capLocations[Number(btn.dataset.capLocation)];
+      app.querySelectorAll('[data-cap-location]').forEach(b => b.setAttribute('aria-expanded', String(b === btn)));
+      editor.hidden = false;
+      editor.innerHTML = `<h3>${esc(l.title)}</h3><dl class="ft-agency-details">
+        <div><dt>Adresse</dt><dd>${esc(l.address)}</dd></div>
+        <div><dt>Téléphone</dt><dd><a href="tel:0555388970">05 55 38 89 70</a></dd></div>
+        <div><dt>Horaires d’accueil</dt><dd>${esc(l.hours)}</dd></div>
+      </dl><button type="button" class="secondary-btn" id="cap-close-details">Fermer la fiche</button>`;
+      document.getElementById('cap-close-details').addEventListener('click', () => { editor.hidden = true; btn.setAttribute('aria-expanded','false'); });
+    }));
+  }
 }
 
 const topHome = document.getElementById('home');
