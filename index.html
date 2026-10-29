@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Boussole des freins à l'emploi</title>
-<meta name="theme-color" content="#0B2B3D">
+<meta name="theme-color" content="#251635">
 <meta name="description" content="Boussole des freins à l’emploi : repérer les difficultés et découvrir les solutions d’accompagnement en Haute-Vienne.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
@@ -304,9 +304,186 @@ a{color:var(--accent)}
 .ft-directory{align-self:start}.ft-agency-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.ft-agency-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:7px;text-align:left;padding:17px 38px 17px 16px;border:1px solid #d8e2e4;border-radius:15px;background:linear-gradient(135deg,#fff,#f2f7f6);color:#0b2b3d;cursor:pointer;min-height:112px;box-shadow:0 3px 12px #0b2b3d0b;transition:transform .18s,box-shadow .18s,border-color .18s}.ft-agency-card:hover{transform:translateY(-2px);border-color:#00a99d;box-shadow:0 7px 18px #0b2b3d16}.ft-agency-pin{font-size:20px;color:#e85b3b}.ft-agency-name{font-weight:750;line-height:1.3}.ft-agency-meta,.muted,.ft-save-note{font-size:.83rem;color:#60737a;line-height:1.4}.ft-agency-arrow{position:absolute;right:15px;top:42%;font-size:25px;color:#00a99d}.ft-agency-editor{margin-top:20px;padding:18px;border:1px solid #b7d9d4;border-radius:15px;background:#f8fbfa}.ft-agency-editor h3{margin:0 0 14px;color:#0b2b3d}.ft-agency-details{margin:0}.ft-agency-details>div{padding:10px 0;border-bottom:1px solid #e1e9ea}.ft-agency-details dt{font-size:.82rem;font-weight:750;color:#60737a;margin-bottom:4px}.ft-agency-details dd{margin:0;line-height:1.5;color:#183640}.ft-agency-details a{color:#08776b;font-weight:700}.primary-btn,.secondary-btn{display:inline-block;border:0;border-radius:9px;padding:10px 15px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}.primary-btn{background:#0b6f69;color:#fff}.secondary-btn{background:#e6eeee;color:#0b2b3d}@media(max-width:760px){.ft-agency-grid{grid-template-columns:1fr}}
 
 
+/* ---------- édition saisonnière : Halloween mignon, boussole préservée ---------- */
+body.halloween-theme{
+  --brume:#F4EDF8; --papier:#FBF7FD; --surface:#FFFCFF;
+  --marine:#34204D; --marine-2:#56356D; --ink:#291D35; --muted:#66556F; --line:#DED0E8;
+  --accent:#75449A; --laiton:#E88A2E; --laiton-clair:#FFD18A; --nord:#F07836;
+  --warn-bg:#FFF0DA; --warn-ink:#6C3D13;
+  --shadow:0 2px 0 rgba(52,32,77,.04),0 10px 28px rgba(52,32,77,.10);
+  background:linear-gradient(180deg,#F7F0FA 0%,#F4EDF8 48%,#FFF8F0 100%);
+}
+body.halloween-theme::before{
+  opacity:.28;
+  filter:hue-rotate(235deg) saturate(.8);
+}
+body.halloween-theme .app-topbar{
+  background:linear-gradient(115deg,#251635 0%,#422555 68%,#5C356C 100%);
+  border-bottom:3px solid #F29A45;
+  position:relative; overflow:hidden;
+}
+body.halloween-theme .app-topbar::after{
+  content:"✦  🦇  ✦";
+  margin-left:auto; padding-left:8px; color:#FFD18A;
+  font-size:clamp(16px,2.2vw,23px); letter-spacing:.12em;
+  white-space:nowrap; opacity:.95;
+}
+body.halloween-theme .btn.primary,
+body.halloween-theme .mobile-tab[aria-selected="true"]{
+  background:#56356D; border-color:#56356D;
+}
+body.halloween-theme .events-panel{
+  background:linear-gradient(145deg,#FFFCFF,#F4EAF9 65%,#FFF1DE);
+  border-color:#D9C3E6; box-shadow:0 8px 24px #34204d12;
+}
+body.halloween-theme .events-heading>span{filter:saturate(.9)}
+body.halloween-theme .event-card{
+  background:#FFFEFF; border-color:#E2D2EC; box-shadow:0 3px 10px #34204d0a;
+}
+body.halloween-theme .event-date{
+  background:linear-gradient(160deg,#56356D,#34204D);
+  box-shadow:inset 0 -3px 0 #F29A45;
+}
+body.halloween-theme .event-info a,
+body.halloween-theme .events-all{color:#653985}
+body.halloween-theme .app-topbar .btn{
+  border-color:#FFD18A;
+}
+body.halloween-theme #brand-splash{
+  background:
+    radial-gradient(circle at 50% 35%,#56356D 0%,#34204D 52%,#1D1428 100%);
+}
+body.halloween-theme #brand-splash::after{
+  content:"✦  🦇  👻  🎃  🦇  ✦";
+  position:absolute; top:calc(env(safe-area-inset-top,0px) + 22px);
+  left:0; right:0; text-align:center; font-size:clamp(20px,4vw,30px);
+  letter-spacing:.18em; opacity:.95; pointer-events:none;
+  animation:spooky-float 3s ease-in-out infinite;
+}
+body.halloween-theme #brand-splash .sc-ring{stroke:#F29A45}
+body.halloween-theme #brand-splash .sc-ticks,
+body.halloween-theme #brand-splash .sc-cardinal{stroke:#FFD18A;fill:#FFD18A}
+body.halloween-theme #brand-splash .sc-n{fill:#F07836}
+body.halloween-theme #brand-splash .sc-s{fill:#F0E5F8}
+body.halloween-theme #brand-splash .sc-pin{fill:#FFD18A;stroke:#34204D}
+body.halloween-theme #brand-splash .splash-line{
+  background:linear-gradient(90deg,transparent,#F29A45,#FFD18A,transparent)
+}
+body.halloween-theme #brand-splash .splash-bar{
+  background:linear-gradient(90deg,#F07836,#FFD18A,#9B70BC)
+}
+@keyframes spooky-float{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media(prefers-reduced-motion:reduce){body.halloween-theme #brand-splash::after{animation:none}}
+
+
+/* ---------- ciel d'orage : nuages sombres animés et éclairs (haut de page) ---------- */
+body.halloween-theme .app-topbar{isolation:isolate;padding-top:calc(env(safe-area-inset-top,0px) + 44px)}
+body.halloween-theme .app-topbar::after{position:relative;z-index:1}
+body:not(.halloween-theme) .storm{display:none}
+.storm{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:linear-gradient(180deg,#0B0612 0%,rgba(11,6,18,.55) 38%,transparent 78%)}
+.storm-layer{position:absolute;top:0;left:0;height:90px;width:4400px;background-repeat:repeat-x;background-position:0 0;will-change:transform}
+.storm-layer.l1{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 90' width='700' height='90'%3E%3Cg fill='%234A3166'%3E%3Ccircle cx='-693' cy='38' r='33'/%3E%3Ccircle cx='-647' cy='37' r='34'/%3E%3Ccircle cx='-588' cy='32' r='37'/%3E%3Ccircle cx='-526' cy='41' r='26'/%3E%3Ccircle cx='-483' cy='23' r='44'/%3E%3Ccircle cx='-422' cy='49' r='27'/%3E%3Ccircle cx='-386' cy='46' r='28'/%3E%3Ccircle cx='-320' cy='35' r='33'/%3E%3Ccircle cx='-256' cy='36' r='34'/%3E%3Ccircle cx='-198' cy='22' r='44'/%3E%3Ccircle cx='-140' cy='45' r='30'/%3E%3Ccircle cx='-87' cy='36' r='39'/%3E%3Ccircle cx='-45' cy='26' r='43'/%3E%3Ccircle cx='7' cy='38' r='33'/%3E%3Ccircle cx='53' cy='37' r='34'/%3E%3Ccircle cx='112' cy='32' r='37'/%3E%3Ccircle cx='174' cy='41' r='26'/%3E%3Ccircle cx='217' cy='23' r='44'/%3E%3Ccircle cx='278' cy='49' r='27'/%3E%3Ccircle cx='314' cy='46' r='28'/%3E%3Ccircle cx='380' cy='35' r='33'/%3E%3Ccircle cx='444' cy='36' r='34'/%3E%3Ccircle cx='502' cy='22' r='44'/%3E%3Ccircle cx='560' cy='45' r='30'/%3E%3Ccircle cx='613' cy='36' r='39'/%3E%3Ccircle cx='655' cy='26' r='43'/%3E%3Ccircle cx='707' cy='38' r='33'/%3E%3Ccircle cx='753' cy='37' r='34'/%3E%3Ccircle cx='812' cy='32' r='37'/%3E%3Ccircle cx='874' cy='41' r='26'/%3E%3Ccircle cx='917' cy='23' r='44'/%3E%3Ccircle cx='978' cy='49' r='27'/%3E%3Ccircle cx='1014' cy='46' r='28'/%3E%3Ccircle cx='1080' cy='35' r='33'/%3E%3Ccircle cx='1144' cy='36' r='34'/%3E%3Ccircle cx='1202' cy='22' r='44'/%3E%3Ccircle cx='1260' cy='45' r='30'/%3E%3Ccircle cx='1313' cy='36' r='39'/%3E%3Ccircle cx='1355' cy='26' r='43'/%3E%3Crect x='-10' y='-5' width='720' height='35'/%3E%3C/g%3E%3C/svg%3E");background-size:700px 90px;opacity:.8;animation:storm-drift-1 130s linear infinite}
+.storm-layer.l2{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 90' width='560' height='90'%3E%3Cg fill='%232A1842'%3E%3Ccircle cx='-554' cy='16' r='39'/%3E%3Ccircle cx='-522' cy='29' r='33'/%3E%3Ccircle cx='-489' cy='33' r='25'/%3E%3Ccircle cx='-433' cy='39' r='22'/%3E%3Ccircle cx='-391' cy='26' r='31'/%3E%3Ccircle cx='-350' cy='24' r='36'/%3E%3Ccircle cx='-296' cy='25' r='39'/%3E%3Ccircle cx='-257' cy='26' r='32'/%3E%3Ccircle cx='-216' cy='26' r='31'/%3E%3Ccircle cx='-174' cy='31' r='34'/%3E%3Ccircle cx='-131' cy='29' r='37'/%3E%3Ccircle cx='-86' cy='37' r='23'/%3E%3Ccircle cx='-32' cy='32' r='28'/%3E%3Ccircle cx='6' cy='16' r='39'/%3E%3Ccircle cx='38' cy='29' r='33'/%3E%3Ccircle cx='71' cy='33' r='25'/%3E%3Ccircle cx='127' cy='39' r='22'/%3E%3Ccircle cx='169' cy='26' r='31'/%3E%3Ccircle cx='210' cy='24' r='36'/%3E%3Ccircle cx='264' cy='25' r='39'/%3E%3Ccircle cx='303' cy='26' r='32'/%3E%3Ccircle cx='344' cy='26' r='31'/%3E%3Ccircle cx='386' cy='31' r='34'/%3E%3Ccircle cx='429' cy='29' r='37'/%3E%3Ccircle cx='474' cy='37' r='23'/%3E%3Ccircle cx='528' cy='32' r='28'/%3E%3Ccircle cx='566' cy='16' r='39'/%3E%3Ccircle cx='598' cy='29' r='33'/%3E%3Ccircle cx='631' cy='33' r='25'/%3E%3Ccircle cx='687' cy='39' r='22'/%3E%3Ccircle cx='729' cy='26' r='31'/%3E%3Ccircle cx='770' cy='24' r='36'/%3E%3Ccircle cx='824' cy='25' r='39'/%3E%3Ccircle cx='863' cy='26' r='32'/%3E%3Ccircle cx='904' cy='26' r='31'/%3E%3Ccircle cx='946' cy='31' r='34'/%3E%3Ccircle cx='989' cy='29' r='37'/%3E%3Ccircle cx='1034' cy='37' r='23'/%3E%3Ccircle cx='1088' cy='32' r='28'/%3E%3Crect x='-10' y='-5' width='580' height='29'/%3E%3C/g%3E%3C/svg%3E");background-size:560px 90px;opacity:.92;animation:storm-drift-2 85s linear infinite}
+.storm-layer.l3{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 90' width='480' height='90'%3E%3Cg fill='%23130A20'%3E%3Ccircle cx='-478' cy='22' r='28'/%3E%3Ccircle cx='-431' cy='16' r='30'/%3E%3Ccircle cx='-394' cy='23' r='25'/%3E%3Ccircle cx='-352' cy='23' r='22'/%3E%3Ccircle cx='-312' cy='8' r='31'/%3E%3Ccircle cx='-290' cy='25' r='19'/%3E%3Ccircle cx='-242' cy='15' r='30'/%3E%3Ccircle cx='-208' cy='24' r='18'/%3E%3Ccircle cx='-160' cy='23' r='18'/%3E%3Ccircle cx='-139' cy='23' r='26'/%3E%3Ccircle cx='-99' cy='13' r='30'/%3E%3Ccircle cx='-73' cy='15' r='28'/%3E%3Ccircle cx='-21' cy='20' r='27'/%3E%3Ccircle cx='2' cy='22' r='28'/%3E%3Ccircle cx='49' cy='16' r='30'/%3E%3Ccircle cx='86' cy='23' r='25'/%3E%3Ccircle cx='128' cy='23' r='22'/%3E%3Ccircle cx='168' cy='8' r='31'/%3E%3Ccircle cx='190' cy='25' r='19'/%3E%3Ccircle cx='238' cy='15' r='30'/%3E%3Ccircle cx='272' cy='24' r='18'/%3E%3Ccircle cx='320' cy='23' r='18'/%3E%3Ccircle cx='341' cy='23' r='26'/%3E%3Ccircle cx='381' cy='13' r='30'/%3E%3Ccircle cx='407' cy='15' r='28'/%3E%3Ccircle cx='459' cy='20' r='27'/%3E%3Ccircle cx='482' cy='22' r='28'/%3E%3Ccircle cx='529' cy='16' r='30'/%3E%3Ccircle cx='566' cy='23' r='25'/%3E%3Ccircle cx='608' cy='23' r='22'/%3E%3Ccircle cx='648' cy='8' r='31'/%3E%3Ccircle cx='670' cy='25' r='19'/%3E%3Ccircle cx='718' cy='15' r='30'/%3E%3Ccircle cx='752' cy='24' r='18'/%3E%3Ccircle cx='800' cy='23' r='18'/%3E%3Ccircle cx='821' cy='23' r='26'/%3E%3Ccircle cx='861' cy='13' r='30'/%3E%3Ccircle cx='887' cy='15' r='28'/%3E%3Ccircle cx='939' cy='20' r='27'/%3E%3Crect x='-10' y='-5' width='500' height='21'/%3E%3C/g%3E%3C/svg%3E");background-size:480px 90px;animation:storm-drift-3 55s linear infinite}
+@keyframes storm-drift-1{to{transform:translate3d(-700px,0,0)}}
+@keyframes storm-drift-2{to{transform:translate3d(-560px,0,0)}}
+@keyframes storm-drift-3{to{transform:translate3d(-480px,0,0)}}
+/* éclairs : double éclat très bref, à intervalles irréguliers (jamais plus de 2 éclats par seconde) */
+.storm-flash,.storm-bolt{position:absolute;opacity:0;animation:storm-strike 13s linear infinite}
+.storm-flash{top:0;bottom:0;width:70%;
+  background:radial-gradient(ellipse at 50% 0%,rgba(236,226,255,.62) 0%,rgba(176,150,240,.26) 38%,transparent 72%)}
+.storm-bolt{top:20px;height:calc(100% - 20px);width:34px;max-height:92px;
+  filter:drop-shadow(0 0 4px #E7DBFF) drop-shadow(0 0 10px rgba(176,150,240,.9))}
+.storm-bolt svg{display:block;width:100%;height:100%}
+.storm-bolt path{fill:none;stroke:#FFFCF2;stroke-width:2.4;stroke-linejoin:miter;stroke-linecap:round}
+.storm-flash.a{left:-10%;animation-duration:13s;animation-delay:3s}
+.storm-bolt.a{left:26%;animation-duration:13s;animation-delay:3s}
+.storm-flash.b{right:-10%;animation-duration:19s;animation-delay:9s}
+.storm-bolt.b{left:68%;animation-duration:19s;animation-delay:9s}
+.storm-flash.c{left:15%;width:60%;animation-duration:29s;animation-delay:17s}
+.storm-bolt.c{left:46%;animation-duration:29s;animation-delay:17s}
+@keyframes storm-strike{0%,86%{opacity:0}87%{opacity:1}88.5%{opacity:.2}90%{opacity:.85}92.5%{opacity:0}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  .storm-layer{animation:none}
+  .storm-flash,.storm-bolt{display:none}
+}
+
+/* ---------- le chat noir qui traverse le bas de la page (après 20 s d'inactivité) ---------- */
+body:not(.halloween-theme) #hw-cat{display:none}
+#hw-cat{position:fixed;left:0;bottom:calc(env(safe-area-inset-bottom,0px) + 2px);width:80px;z-index:4;pointer-events:none;
+  transform:translate3d(-140px,0,0);will-change:transform;filter:drop-shadow(0 2px 2px rgba(52,32,77,.28))}
+#hw-cat .cat-flip{display:block}
+#hw-cat.rtl .cat-flip{transform:scaleX(-1)}
+#hw-cat svg{display:block;width:100%;height:auto;overflow:visible}
+#hw-cat.walk{animation:cat-ltr var(--cat-dur,22s) linear forwards}
+#hw-cat.walk.rtl{animation-name:cat-rtl}
+@keyframes cat-ltr{from{transform:translate3d(-140px,0,0)}to{transform:translate3d(calc(100vw + 140px),0,0)}}
+@keyframes cat-rtl{from{transform:translate3d(calc(100vw + 140px),0,0)}to{transform:translate3d(-140px,0,0)}}
+#hw-cat .leg{animation:cat-step .38s ease-in-out infinite alternate}
+#hw-cat .leg.l-b,#hw-cat .leg.l-c{animation-delay:-.38s}
+#hw-cat .cat-bob{animation:cat-bob .38s ease-in-out infinite alternate}
+#hw-cat .cat-tail{transform-origin:26px 31px;animation:cat-tail 1.3s ease-in-out infinite alternate}
+@keyframes cat-step{from{transform:rotate(-26deg)}to{transform:rotate(26deg)}}
+@keyframes cat-bob{from{transform:translateY(0)}to{transform:translateY(-1.3px)}}
+@keyframes cat-tail{from{transform:rotate(-7deg)}to{transform:rotate(9deg)}}
+/* poses du chat : s'asseoir et se lécher la patte, ou s'arrêter et miauler */
+#hw-cat .cat-haunch,#hw-cat .cat-paw,#hw-cat .cat-mouth{opacity:0}
+#hw-cat .cat-haunch{transition:opacity .2s}
+#hw-cat .leg{transition:opacity .2s}
+#hw-cat .cat-paw{transform:translate(74px,37px) rotate(-110deg)}
+#hw-cat .cat-mouth{transform-origin:91px 26.5px}
+#hw-cat.stop .leg,#hw-cat.stop .cat-bob{animation:none}
+#hw-cat.sit .leg{animation:none}
+#hw-cat.sit .leg.l-a,#hw-cat.sit .leg.l-b{opacity:0}
+#hw-cat.sit .cat-haunch{opacity:1}
+#hw-cat.sit .cat-bob{transform-origin:36px 50px}
+#hw-cat.sit-in .cat-bob{animation:cat-bob-sit .45s ease-out forwards}
+#hw-cat.sit-in .leg.l-c,#hw-cat.sit-in .leg.l-d{animation:cat-leg-sit .45s ease-out forwards}
+#hw-cat.sit-in .cat-tail{animation:cat-tail-in .45s ease-out forwards}
+#hw-cat.lick .cat-bob{animation:cat-bob-lick .9s ease-in-out infinite alternate}
+#hw-cat.lick .leg.l-c{transform:translateY(-9px) scaleY(1.53)}
+#hw-cat.lick .leg.l-d{opacity:0}
+#hw-cat.lick .cat-paw{opacity:1;animation:cat-paw-lick .5s ease-in-out infinite alternate}
+#hw-cat.lick .cat-mouth{animation:cat-tongue .5s ease-in-out infinite alternate}
+#hw-cat.lick .cat-tail{animation:cat-tail-sit 1.4s ease-in-out infinite alternate}
+#hw-cat.sit-out .cat-bob{animation:cat-bob-stand .4s ease-in forwards}
+#hw-cat.sit-out .leg.l-c,#hw-cat.sit-out .leg.l-d{animation:cat-leg-stand .4s ease-in forwards}
+#hw-cat.sit-out .cat-tail{animation:cat-tail-out .4s ease-in forwards}
+#hw-cat.meow .cat-bob{transform-origin:60px 36px;animation:cat-bob-meow .45s ease-out forwards}
+#hw-cat.meow .cat-mouth{opacity:1;animation:cat-mouth .28s ease-in-out 4 alternate}
+@keyframes cat-bob-sit{from{transform:rotate(0)}to{transform:rotate(-22deg)}}
+@keyframes cat-bob-lick{from{transform:rotate(-22deg)}to{transform:rotate(-15deg)}}
+@keyframes cat-bob-stand{from{transform:rotate(-22deg)}to{transform:rotate(0)}}
+@keyframes cat-bob-meow{to{transform:rotate(-9deg)}}
+@keyframes cat-leg-sit{to{transform:translateY(-9px) scaleY(1.53)}}
+@keyframes cat-leg-stand{from{transform:translateY(-9px) scaleY(1.53)}to{transform:none}}
+@keyframes cat-paw-lick{from{transform:translate(74px,37px) rotate(-121deg)}to{transform:translate(74px,37px) rotate(-98deg)}}
+@keyframes cat-tail-in{from{transform:none}to{transform:translate(-6px,13px) rotate(-8deg)}}
+@keyframes cat-tail-sit{from{transform:translate(-6px,13px) rotate(-8deg)}to{transform:translate(-6px,13px) rotate(10deg)}}
+@keyframes cat-tail-out{from{transform:translate(-6px,13px) rotate(-8deg)}to{transform:none}}
+@keyframes cat-tongue{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(.8)}}
+@keyframes cat-mouth{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+/* bulle « Miaou ! » (hors du dessin du chat, pour que le texte ne soit pas inversé) */
+#hw-cat .cat-say{position:absolute;bottom:100%;right:-6px;margin-bottom:8px;padding:3px 9px;border-radius:12px;background:#FFF3DC;color:#34204D;border:1.5px solid #FFD18A;font:700 13px/1.2 var(--body);white-space:nowrap;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+#hw-cat .cat-say::after{content:"";position:absolute;top:100%;right:18px;border:5px solid transparent;border-top-color:#FFD18A}
+#hw-cat.rtl .cat-say{right:auto;left:-6px}
+#hw-cat.rtl .cat-say::after{right:auto;left:18px}
+#hw-cat.meow .cat-say{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){#hw-cat{display:none!important}}
+
+/* ---------- bruit d'orage (bouton dans le ciel, en haut à droite) ---------- */
+.hw-sound{position:absolute;top:calc(env(safe-area-inset-top,0px) + 4px);right:max(14px,env(safe-area-inset-right,0px));z-index:2;width:44px;height:44px;display:grid;place-items:center;padding:0;border-radius:50%;font-size:19px;line-height:1;cursor:pointer;color:#fff;background:rgba(255,255,255,.1);border:1.5px solid #FFD18A;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+@media(min-width:601px){.hw-sound{right:max(24px,calc((100vw - 1180px)/2 + 18px))}}
+.hw-sound:hover{background:rgba(255,255,255,.2)}
+.hw-sound[aria-pressed="true"]{background:rgba(242,154,69,.3)}
+body:not(.halloween-theme) .hw-sound{display:none}
+.hw-sound.hint{animation:hw-sound-hint 2.6s ease-in-out 3}
+@keyframes hw-sound-hint{0%,100%{box-shadow:0 0 0 0 rgba(255,209,138,0)}50%{box-shadow:0 0 0 7px rgba(255,209,138,.3)}}
+@media(prefers-reduced-motion:reduce){.hw-sound.hint{animation:none}}
 </style>
 </head>
-<body>
+<body class="halloween-theme">
 <div id="brand-splash" role="status" aria-label="Chargement de la Boussole des freins à l’emploi">
   <div class="splash-compass" aria-hidden="true"><svg viewBox="0 0 200 200"><circle class="sc-face" cx="100" cy="100" r="92"/><circle class="sc-ring" cx="100" cy="100" r="92"/><circle class="sc-ticks" cx="100" cy="100" r="68"/><text class="sc-cardinal" x="100" y="17" dominant-baseline="central">N</text><text class="sc-cardinal" x="183" y="100" dominant-baseline="central">E</text><text class="sc-cardinal" x="100" y="183" dominant-baseline="central">S</text><text class="sc-cardinal" x="17" y="100" dominant-baseline="central">O</text><g class="sc-needle"><polygon class="sc-n" points="100,40 111,100 89,100"/><polygon class="sc-s" points="100,160 111,100 89,100"/></g><circle class="sc-pin" cx="100" cy="100" r="7"/></svg></div>
   <div class="splash-title">La boussole des freins à l’emploi</div>
@@ -316,9 +493,11 @@ a{color:var(--accent)}
 </div>
 
 <header class="app-topbar" aria-label="En-tête de l'application">
+  <div class="storm" aria-hidden="true"><div class="storm-layer l1"></div><div class="storm-layer l2"></div><div class="storm-layer l3"></div><div class="storm-flash a"></div><div class="storm-flash b"></div><div class="storm-flash c"></div><span class="storm-bolt a"><svg viewBox="0 0 34 92" preserveAspectRatio="xMidYMin meet"><path d="M20 0 L12 22 L22 25 L8 52 L17 55 L5 88"/><path d="M17 55 L26 70" /></svg></span><span class="storm-bolt b"><svg viewBox="0 0 34 92" preserveAspectRatio="xMidYMin meet"><path d="M16 0 L24 20 L14 24 L26 50 L16 54 L28 88"/><path d="M14 24 L6 38" /></svg></span><span class="storm-bolt c"><svg viewBox="0 0 34 92" preserveAspectRatio="xMidYMin meet"><path d="M22 0 L13 26 L21 28 L10 56 L18 58 L9 88"/><path d="M21 28 L29 44" /></svg></span></div>
   <div class="app-logo" aria-hidden="true">🧭</div>
   <div class="app-brand"><strong>La boussole des freins à l’emploi</strong><span>REPÈRES & SOLUTIONS · HAUTE-VIENNE</span></div>
   <div class="app-top-pill">OUTIL PRO</div>
+  <button class="hw-sound hint" id="hw-sound" type="button" aria-pressed="false" aria-label="Activer le bruit d'orage" title="Activer le bruit d'orage">🔇</button>
 </header>
 <header class="nav" id="nav" hidden>
   <div class="wrap">
@@ -1721,5 +1900,283 @@ if (
   });
 }
 
+</script>
+<div id="hw-cat" aria-hidden="true" hidden><div class="cat-flip"><svg viewBox="0 0 110 60" aria-hidden="true"><g fill="#0B0612"><path class="cat-tail" d="M26 31 Q6 31 7 14 Q8 5 15 8" fill="none" stroke="#0B0612" stroke-width="4.5" stroke-linecap="round"/><rect class="leg l-a" x="31.4" y="40" width="5.2" height="17" rx="2.6" style="transform-origin:34px 40px"/><rect class="leg l-b" x="40.4" y="41" width="5.2" height="16" rx="2.6" style="transform-origin:43px 41px"/><g class="cat-haunch"><ellipse cx="38" cy="45.5" rx="15" ry="11.5"/><ellipse cx="51" cy="55.2" rx="8" ry="2.6"/></g><g class="cat-bob"><ellipse cx="52" cy="32" rx="27" ry="11.5"/><path d="M70 30 Q74 18 82 16 L90 26 Q80 38 70 38 Z"/><circle cx="86" cy="20" r="11"/><path d="M77 14 L78 1 L87 10 Z"/><path d="M85 10 L94 1 L96 15 Z"/><rect class="cat-paw" x="-2.8" y="0" width="5.6" height="20" rx="2.8" fill="#2F2448"/><ellipse class="cat-mouth" cx="91" cy="26.5" rx="3" ry="2.4" fill="#E0607E"/></g><rect class="leg l-c" x="63.4" y="40" width="5.2" height="17" rx="2.6" style="transform-origin:66px 40px"/><rect class="leg l-d" x="72.4" y="40" width="5.2" height="16" rx="2.6" style="transform-origin:75px 40px"/></g><g fill="#C8F25A" class="cat-bob"><ellipse cx="82" cy="19" rx="2.6" ry="3"/><ellipse cx="91" cy="19" rx="2.6" ry="3"/></g><g fill="#0B0612" class="cat-bob"><ellipse cx="82" cy="19" rx=".8" ry="2.6"/><ellipse cx="91" cy="19" rx=".8" ry="2.6"/></g></svg></div><span class="cat-say" aria-hidden="true">Miaou !</span></div>
+<script>
+/* Chat noir : traverse le bas de l'écran quand personne n'a touché à la boussole depuis 20 secondes.
+   Pendant la traversée, il s'arrête : une fois pour s'asseoir et se lécher la patte (4 à 5 s, à un endroit
+   différent à chaque passage), et de temps en temps ailleurs pour miauler une fois. */
+(() => {
+  const cat = document.getElementById('hw-cat');
+  if (!cat) return;
+  const IDLE_MS = 20000, SPEED = 60; /* px par seconde */
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let last = Date.now(), walking = false, rtl = true, watcher = null;
+  const poke = () => { last = Date.now(); };
+  const wait = ms => new Promise(r => window.setTimeout(r, ms));
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const clearPose = () => cat.classList.remove('stop', 'sit', 'sit-in', 'lick', 'sit-out', 'meow');
+  ['pointerdown','pointermove','keydown','scroll','wheel','touchstart','touchmove','click']
+    .forEach(ev => window.addEventListener(ev, poke, {passive:true, capture:true}));
+
+  /* s'assoit, se lèche la patte 4 à 5 s, se relève */
+  async function lick(anim) {
+    anim.pause();
+    cat.classList.add('sit', 'sit-in');
+    await wait(450);
+    cat.classList.replace('sit-in', 'lick');
+    await wait(rand(4000, 5000));
+    cat.classList.replace('lick', 'sit-out');
+    await wait(400);
+    clearPose();
+    anim.play();
+  }
+
+  /* s'arrête, lève la tête, miaule une fois */
+  async function meow(anim) {
+    anim.pause();
+    cat.classList.add('stop');
+    await wait(120);
+    cat.classList.add('meow');
+    await wait(1500);
+    cat.classList.remove('meow');
+    await wait(250);
+    clearPose();
+    anim.play();
+  }
+
+  /* Choisit où il s'arrête. f = avancée à l'écran dans le sens de la marche (0 = entrée, 1 = sortie) ;
+     p = avancée correspondante dans l'animation (qui démarre et finit hors de l'écran). */
+  function planStops() {
+    const W = window.innerWidth, travel = W + 280, span = Math.max(1, W - 80);
+    const toP = f => (rtl ? (W + 140 - (1 - f) * span) : (f * span + 140)) / travel;
+    const fl = rand(0.55, 0.85);
+    const stops = [{p: toP(fl), run: lick}];
+    if (Math.random() < 0.4) {
+      let fm = rand(0.12, 0.88), tries = 0;
+      while (Math.abs(fm - fl) < 0.2 && tries++ < 10) fm = rand(0.12, 0.88);
+      if (Math.abs(fm - fl) >= 0.2) stops.push({p: toP(fm), run: meow});
+    }
+    return stops.sort((a, b) => a.p - b.p);
+  }
+
+  function watch(anim, dur) {
+    const stops = planStops();
+    let busy = false;
+    watcher = window.setInterval(async () => {
+      if (busy || !stops.length) return;
+      const t = anim.currentTime;
+      if (t == null || Number(t) / (dur * 1000) < stops[0].p) return;
+      busy = true;
+      try { await stops.shift().run(anim); } catch (e) { clearPose(); anim.play(); }
+      busy = false;
+    }, 100);
+  }
+
+  cat.addEventListener('animationend', e => {
+    if (e.target !== cat || !String(e.animationName).startsWith('cat-')) return;
+    window.clearInterval(watcher); watcher = null;
+    clearPose();
+    cat.classList.remove('walk','rtl');
+    cat.hidden = true;
+    walking = false;
+    last = Date.now();   /* le prochain passage attend à nouveau 20 s d'inactivité */
+  });
+  window.setInterval(() => {
+    if (walking || document.hidden || reduce.matches) return;
+    if (!document.body.classList.contains('halloween-theme')) return;
+    if (document.getElementById('brand-splash')) return;
+    if (Date.now() - last < IDLE_MS) return;
+    walking = true;
+    rtl = !rtl;   /* il change de sens à chaque passage */
+    const dur = Math.min(40, Math.max(14, (window.innerWidth + 280) / SPEED));
+    cat.style.setProperty('--cat-dur', dur.toFixed(1) + 's');
+    cat.classList.toggle('rtl', rtl);
+    cat.hidden = false;
+    void cat.offsetWidth;
+    cat.classList.add('walk');
+    const anim = cat.getAnimations().find(a => /^cat-(ltr|rtl)$/.test(a.animationName));
+    if (anim) watch(anim, dur);
+  }, 1000);
+})();
+</script>
+<script>
+/* BRUIT D'ORAGE — pluie douce, vent, et tonnerre calé sur chaque éclair du ciel.
+   Sons générés par le navigateur (Web Audio) : aucun fichier à héberger.
+   Désactivé par défaut : les navigateurs exigent un geste de l'utilisateur pour lancer un son.
+   Le choix (son activé) est mémorisé sur l'appareil. */
+(() => {
+  const btn = document.getElementById('hw-sound');
+  if (!btn) return;
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) { btn.hidden = true; return; }
+  const KEY = 'boussole-orage-son';
+  const FLASH_AT = 0.87;      /* l'éclair démarre à 87 % de son cycle CSS (@keyframes storm-strike) */
+  const MASTER_LEVEL = 0.6;   /* volume général (doux) */
+  let ctx = null, master = null, bufs = null, enabled = false, waiting = false, timers = [];
+  const rand = (a, b) => a + Math.random() * (b - a);
+
+  function makeBuffers() {
+    const sr = ctx.sampleRate;
+    const white = ctx.createBuffer(1, sr * 3, sr), w = white.getChannelData(0);
+    for (let i = 0; i < w.length; i++) w[i] = Math.random() * 2 - 1;
+    const brown = ctx.createBuffer(1, sr * 4, sr), b = brown.getChannelData(0);
+    let last = 0;
+    for (let i = 0; i < b.length; i++) { last = (last + 0.02 * (Math.random() * 2 - 1)) / 1.02; b[i] = last * 3.5; }
+    bufs = { white, brown };
+  }
+
+  function startAmbient() {
+    /* pluie : bruit blanc filtré, légère houle lente */
+    const rain = ctx.createBufferSource(); rain.buffer = bufs.white; rain.loop = true;
+    const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 900;
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 7000;
+    const rg = ctx.createGain(); rg.gain.value = 0.04;
+    rain.connect(hp); hp.connect(lp); lp.connect(rg); rg.connect(master);
+    const l1 = ctx.createOscillator(); l1.frequency.value = 0.11;
+    const l1g = ctx.createGain(); l1g.gain.value = 0.012;
+    l1.connect(l1g); l1g.connect(rg.gain);
+    /* vent : bruit brun, filtre qui respire */
+    const wind = ctx.createBufferSource(); wind.buffer = bufs.brown; wind.loop = true;
+    const wlp = ctx.createBiquadFilter(); wlp.type = 'lowpass'; wlp.frequency.value = 420;
+    const wg = ctx.createGain(); wg.gain.value = 0.12;
+    wind.connect(wlp); wlp.connect(wg); wg.connect(master);
+    const l2 = ctx.createOscillator(); l2.frequency.value = 0.07;
+    const l2g = ctx.createGain(); l2g.gain.value = 0.05;
+    l2.connect(l2g); l2g.connect(wg.gain);
+    const l3 = ctx.createOscillator(); l3.frequency.value = 0.05;
+    const l3g = ctx.createGain(); l3g.gain.value = 140;
+    l3.connect(l3g); l3g.connect(wlp.frequency);
+    [rain, l1, wind, l2, l3].forEach(n => n.start());
+  }
+
+  /* craquement sec de l'éclair : petites rafales de bruit filtré */
+  function crack(t, level) {
+    const src = ctx.createBufferSource(); src.buffer = bufs.white;
+    const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = rand(1400, 2600); bp.Q.value = 0.7;
+    const g = ctx.createGain(); g.gain.value = 0;
+    src.connect(bp); bp.connect(g); g.connect(master);
+    const n = Math.floor(rand(5, 9)); let x = t;
+    for (let i = 0; i < n; i++) {
+      const dec = rand(0.02, 0.045), a = level * rand(0.4, 1) * (1 - i / (n + 1));
+      g.gain.setValueAtTime(0.0001, x);
+      g.gain.linearRampToValueAtTime(a, x + 0.004);
+      g.gain.exponentialRampToValueAtTime(0.0008, x + 0.004 + dec);
+      x += 0.004 + dec + rand(0.01, 0.03);
+    }
+    src.start(t, rand(0, 1.5)); src.stop(x + 0.1);
+  }
+
+  /* grondement : bruit brun grave, qui s'éteint par vagues */
+  function rumble(t, dur, level) {
+    const src = ctx.createBufferSource(); src.buffer = bufs.brown; src.loop = true;
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass';
+    lp.frequency.setValueAtTime(380, t); lp.frequency.exponentialRampToValueAtTime(70, t + dur);
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(level, t + 0.35);
+    let x = t + 0.35;
+    while (x < t + dur - 1.2) {
+      const nx = Math.min(x + rand(0.5, 1.1), t + dur - 0.6);
+      g.gain.linearRampToValueAtTime(level * rand(0.45, 1) * (1 - (x - t) / dur), nx);
+      x = nx;
+    }
+    g.gain.exponentialRampToValueAtTime(0.0005, t + dur);
+    src.connect(lp); lp.connect(g); g.connect(master);
+    src.start(t, rand(0, 2)); src.stop(t + dur + 0.1);
+  }
+
+  function thunder(cycleMs) {
+    const t = ctx.currentTime + 0.02;
+    const gap = Math.min(0.9, Math.max(0.3, cycleMs * 0.03 / 1000)); /* même écart que le double éclat visuel */
+    crack(t, 0.3);
+    crack(t + gap, 0.18);
+    rumble(t + 0.12, rand(3.6, 5.2), 0.55);
+  }
+
+  /* Synchronisation : on lit l'horloge de l'animation CSS de chaque éclair et on programme le tonnerre au même instant. */
+  function sched(el) {
+    if (!enabled) return;
+    const a = el.getAnimations().find(x => x.animationName === 'storm-strike');
+    if (!a || a.currentTime == null) return;   /* pas d'éclair affiché (ex. animations réduites) : pas de tonnerre */
+    const tm = a.effect.getComputedTiming(), dur = tm.duration, at = dur * FLASH_AT;
+    const t = Number(a.currentTime) - tm.delay;
+    let wait = t < 0 ? at - t : (at - (t % dur) + dur) % dur;
+    if (wait < 80) wait += dur;
+    timers.push(window.setTimeout(() => {
+      if (!enabled) return;
+      if (!document.body.classList.contains('halloween-theme')) { setState(false); return; }
+      if (!document.hidden && ctx.state === 'running') thunder(dur);
+      sched(el);
+    }, wait));
+  }
+
+  /* waiting : le son est voulu mais le navigateur attend un premier geste de la personne pour l'autoriser */
+  function ui() {
+    const live = enabled && !waiting;
+    btn.setAttribute('aria-pressed', String(live));
+    const label = waiting ? "Lancer le bruit d'orage" : (enabled ? "Couper le bruit d'orage" : "Activer le bruit d'orage");
+    btn.setAttribute('aria-label', label); btn.title = label;
+    btn.textContent = live ? '🔊' : '🔇';
+  }
+
+  async function setState(on, remember = true) {
+    enabled = on;
+    waiting = false;
+    if (remember) { try { localStorage.setItem(KEY, on ? 'on' : 'off'); } catch (e) {} }
+    ui();
+    timers.forEach(clearTimeout); timers = [];
+    if (on) {
+      btn.classList.remove('hint');
+      if (!ctx) {
+        ctx = new AC(); makeBuffers();
+        const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -20; comp.ratio.value = 6;
+        master = ctx.createGain(); master.gain.value = 0;
+        master.connect(comp); comp.connect(ctx.destination);
+        startAmbient();
+      }
+      try { await ctx.resume(); } catch (e) {}
+      master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.setTargetAtTime(MASTER_LEVEL, ctx.currentTime, 0.6);   /* fondu d'entrée */
+      document.querySelectorAll('.storm-flash').forEach(sched);
+    } else if (ctx) {
+      master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.setTargetAtTime(0, ctx.currentTime, 0.25);              /* fondu de sortie */
+      window.setTimeout(() => { if (!enabled && ctx) ctx.suspend(); }, 1300);
+    }
+  }
+
+  btn.addEventListener('click', () => setState(waiting ? true : !enabled));
+
+  /* pas de bruit quand l'onglet est caché */
+  document.addEventListener('visibilitychange', () => {
+    if (!ctx || !enabled) return;
+    if (document.hidden) ctx.suspend(); else ctx.resume();
+  });
+
+  /* son déjà activé lors d'une visite précédente : il démarre tout seul si le navigateur l'autorise,
+     sinon au premier geste (règle des navigateurs), et le bouton l'indique en attendant */
+  const canAutoplay = () => new Promise(res => {
+    let t;
+    try { t = new AC(); } catch (e) { res(false); return; }
+    const done = ok => { try { t.close(); } catch (e) {} res(ok); };
+    if (t.state === 'running') { done(true); return; }
+    t.addEventListener('statechange', () => { if (t.state === 'running') done(true); });
+    window.setTimeout(() => done(false), 400);
+  });
+  let wanted = false;
+  try { wanted = localStorage.getItem(KEY) === 'on'; } catch (e) {}
+  if (wanted) {
+    enabled = true; waiting = true; ui(); btn.classList.add('hint');
+    const evs = ['pointerdown', 'keydown', 'touchend', 'click'];
+    const disarm = () => evs.forEach(ev => window.removeEventListener(ev, arm, true));
+    const arm = (e) => {
+      if (waiting && e && e.target && btn.contains(e.target)) return;   /* le bouton gère lui-même son clic */
+      disarm();
+      if (enabled && waiting) setState(true, false);
+    };
+    evs.forEach(ev => window.addEventListener(ev, arm, true));
+    canAutoplay().then(ok => { if (ok && enabled && waiting) { disarm(); setState(true, false); } });
+  }
+})();
 </script>
 </body></html>
